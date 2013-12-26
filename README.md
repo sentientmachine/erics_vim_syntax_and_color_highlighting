@@ -36,7 +36,7 @@ Make your .vim directory if it doesn't exist.
 
 That puts a directory called Pretty-Vim-Python in your .vim directory.  Got to yank out the files and put them where they belong:
 
-    mv Pretty-Vim-Python/* .
+    mv erics_vim_syntax_and_color_highlighting/* .
     
 Then you can delete the extraneous files (don't run this command unless you know what it does and why it does it) when it doubt do a tutorial.
 
