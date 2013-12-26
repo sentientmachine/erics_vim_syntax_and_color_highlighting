@@ -1,4 +1,4 @@
-Erics code syntax highlighting and color settings for vim
+Code syntax highlighting and color settings for vim.
 =====================
 
 This will enable your code to look beautiful for the following code types:
