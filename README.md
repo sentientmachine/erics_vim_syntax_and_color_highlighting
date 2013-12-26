@@ -31,7 +31,7 @@ Make your .vim directory if it doesn't exist.
 
     mkdir /home/el/.vim
     cd /home/el/.vim
-    git clone **change this**
+    git clone https://github.com/sentientmachine/erics_vim_syntax_and_color_highlighting.git 
 
 That puts a directory called Pretty-Vim-Python in your .vim directory.  Got to yank out the files and put them where they belong:
 
