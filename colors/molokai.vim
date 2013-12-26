@@ -233,4 +233,3 @@ if &t_Co > 255
 end " }}}
 
 highlight Comment cterm=bold
-
