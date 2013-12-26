@@ -3,15 +3,7 @@ Erics code syntax highlighting and color settings for vim
 
 This will enable your code to look beautiful for the following code types:
 
-java
-python
-html
-javascript
-php
-css
-bash
-haml
-viml
+java, python, html, javascript, php, css, bash, haml, viml
 
 If you don't recognize some of these don't worry, you won't see them unless you use them.
 
