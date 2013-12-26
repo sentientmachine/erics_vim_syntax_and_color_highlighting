@@ -73,6 +73,9 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     "au BufReadPost *.php colorscheme two2tango
     
 
+Add this line to the bottom of your /home/el/.profile (create it if it doesn't exist) or your /home/el/.bashrc
+
+    TERM=xterm-256color
 
 Restart the terminal so the changes can take effect.  Then put this python code in a file called /home/el/mypython.py:
 
@@ -126,8 +129,10 @@ Restart the terminal so the changes can take effect.  Then put this python code 
     exit(0)
     
 
-It should look like the image at the top, if it doesn't, then you did something wrong.
+open the file you just made:
 
-If the colors are not coming through you might have to add this line to the bottom of your /home/el/.profile or your /home/el/.bashrc
+    vi mypython.py
 
-    TERM=xterm-256color
+Now the code files should look like the images at the top.
+
+
