@@ -48,6 +48,13 @@ Edit your .vimrc:
     
 Put this code at the bottom of your .vimrc, create it if it doesn't exist:
 
+    "The following three lines map Ctrl+s to save in vi.  You can comment 
+    "these out, it has nothing to do with syntax highlighting or colors.
+    :nmap <c-s> :w<CR>
+    :imap <c-s> <Esc>:w<CR>a
+    :imap <c-s> <Esc><c-s>
+
+
     set background=dark
     set hlsearch
     set nu
