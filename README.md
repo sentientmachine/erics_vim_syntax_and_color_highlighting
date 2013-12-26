@@ -23,6 +23,7 @@ Important
 
 My home directory is /home/el, yours may be different, from here forward replace /home/el with your user.
 
+
 Install vim and git
     sudo apt-get install vim
     sudo apt-get install git
@@ -59,7 +60,7 @@ Restart the terminal so the changes can take effect.  Then put this python code 
     from pinkie_pie import unit_tests as unit
     
     twilight_sparkle = {0: '', 1: 'derpy'}
-    rairnbow_dash = Math.sqrt(1*5)
+    rainbow_dash = Math.sqrt(1*5)
     
     #all your base are belong to us now
     foo = 'text in single quotes\n'
