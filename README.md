@@ -40,7 +40,7 @@ That puts a directory called Pretty-Vim-Python in your .vim directory.  Got to y
     
 Then you can delete the extraneous files (don't run this command unless you know what it does and why it does it) when it doubt do a tutorial.
 
-    rm -rf Pretty-Vim-Python
+    rm -rf erics_vim_syntax_and_color_highlighting
 
 Edit your .vimrc:
 
@@ -49,15 +49,12 @@ Edit your .vimrc:
 Put this code at the bottom of your .vimrc, create it if it doesn't exist:
 
     set background=dark
-    
     set hlsearch
     set nu
-    
     set smartindent
     set tabstop=4
     set shiftwidth=4
     set expandtab
-    
     filetype on
     filetype plugin indent on
     
