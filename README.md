@@ -11,11 +11,17 @@ If anything here doesn't work for you or you see anything wrong, let me know eri
 
 When you open python files in vi, it will look something like this:
 
+PYTHON:
+
 ![Imgur](http://i.imgur.com/W26xaan.png)
 
-add more demos here:
+JAVA:
 
-I designed this to work for Ubuntu 12.10, and Fedora 17 and Gentoo.  It may work for many more linux distributions.
+![Imgur](http://i.imgur.com/d27fa1d.png)
+
+
+
+I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
 
 
 Important
@@ -34,7 +40,7 @@ Make your .vim directory if it doesn't exist.
     cd /home/el/.vim
     git clone https://github.com/sentientmachine/erics_vim_syntax_and_color_highlighting.git 
 
-That puts a directory called Pretty-Vim-Python in your .vim directory.  Got to yank out the files and put them where they belong:
+That puts a directory called erics_vim_syntax_and_color_highlighting in your .vim directory.  Got to yank out the files and put them where they belong:
 
     mv erics_vim_syntax_and_color_highlighting/* .
     
@@ -70,6 +76,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     au BufReadPost *.js colorscheme elflord 
     au BufReadPost *.py colorscheme molokai
     au BufReadPost *.html colorscheme monokai
+    au BufReadPost *.java colorscheme monokai
     "au BufReadPost *.php colorscheme two2tango
     
 
@@ -77,7 +84,21 @@ Add this line to the bottom of your /home/el/.profile (create it if it doesn't e
 
     TERM=xterm-256color
 
-Restart the terminal so the changes can take effect.  Then put this python code in a file called /home/el/mypython.py:
+Restart the terminal so the changes can take effect.  You should be done, now on to test it to see if it works.
+
+
+
+
+
+
+
+
+
+Test it with a python file:
+---------
+
+
+Then put this python code in a file called /home/el/mypython.py:
 
     #!/usr/bin/python -tt
     
@@ -136,3 +157,76 @@ open the file you just made:
 Now the code files should look like the images at the top.
 
 
+
+Test it with a Java file:
+---------
+
+
+Then put this python code in a file called /home/el/myjava.java:
+
+    
+    package mypackage;
+    import java.awt.Point;  import java.io.*;
+    import java.util.ArrayList;
+    public class CalculateStats {
+        public static void main(String[] args) throws Exception{
+            int a, b = 10; 
+            String foo = "ok";
+            System.out.println("hi \n " + b + 9 * (2 % 1));
+            final Point p = new Point(23, 94);
+            float browndischarge = 13.75f;
+            if (browndischarge > 3 && true)
+                throw new RuntimeException("too many " +
+                       "cats clogging the intertubes");
+            else
+                browndischarge = 5 & 3;
+        
+            foo = "hello" + foo;
+            //the aliens are on route, we must prepare
+            fromulate();
+        }   
+        protected enum Choices {
+            NORTH(1), SOUTH(2), EAST(3), DENNIS(4);
+            private int value;
+            private Choices(int value){ this.value = value; }
+        }   
+        public static boolean fromulate() throws FoobarException{
+            Runnable r = new Runnable(){
+                public void run(){
+                    for(int x = 0; x <= 10; x++){
+                        boolean pinkiepie = true;
+                    } //The aliens are approaching, man 
+                }     //your stations and prime the nuclear 
+            };        //thunder well cannons that hurl 100
+                      //ton objects at 6 times escape velocity.
+            int j = -3;    
+            while(j != 5){ 
+                j++;    
+            }    
+            Thread t = new Thread(r);
+            t.start();
+            return (true || false); 
+        }   
+        private String testtry(){
+            int[] myIntArray = new int[3];
+            String[] myStrArray = {"herp", "derp"};
+            try{
+                int b = 0;   /* Fluttershy is best pony */
+                int a = 5 / b % 3 * 9;
+            }   
+            catch(ArithmeticException e){ 
+                System.out.println(e.getMessage());
+            }   
+            ArrayList<String> myArr = new ArrayList<String>();
+            myArr.add("derpy mcderp");
+            return myArr.get(0);
+        }   
+    }
+    class FoobarException extends Exception{}
+
+
+open the file you just made:
+
+    vi myjava.java
+
+Now the code files should look like the images at the top.
