@@ -233,3 +233,5 @@ if &t_Co > 255
 end " }}}
 
 highlight Comment cterm=bold
+hi Visual term=reverse cterm=reverse guibg=Grey
+
