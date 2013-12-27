@@ -11,11 +11,17 @@ If anything here doesn't work for you or you see anything wrong, let me know eri
 
 When you open python files in vi, it will look something like this:
 
+PYTHON:
+
 ![Imgur](http://i.imgur.com/W26xaan.png)
 
-add more demos here:
+JAVA:
 
-I designed this to work for Ubuntu 12.10, and Fedora 17 and Gentoo.  It may work for many more linux distributions.
+![Imgur](http://i.imgur.com/UBwgikk.png)
+
+
+
+I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
 
 
 Important
@@ -70,6 +76,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     au BufReadPost *.js colorscheme elflord 
     au BufReadPost *.py colorscheme molokai
     au BufReadPost *.html colorscheme monokai
+    au BufReadPost *.java colorscheme monokai
     "au BufReadPost *.php colorscheme two2tango
     
 
