@@ -17,7 +17,7 @@ PYTHON:
 
 JAVA:
 
-![Imgur](http://i.imgur.com/UBwgikk.png)
+![Imgur](http://i.imgur.com/d27fa1d.png)
 
 
 
