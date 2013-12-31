@@ -19,6 +19,9 @@ JAVA:
 
 ![Imgur](http://i.imgur.com/d27fa1d.png)
 
+HTML:
+
+![Imgur](http://i.imgur.com/hl2G0U8.png)
 
 
 I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
@@ -230,3 +233,53 @@ open the file you just made:
     vi myjava.java
 
 Now the code files should look like the images at the top.
+
+
+
+
+Test it with an HTML file:
+---------
+
+Put this html code in a file called /home/el/myhtml.java:
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Yes we can.</title>
+            <meta name="twitter:card" content="summary">
+            <link rel="stylesheet" type="text/css" href="styles.css">
+            <style>
+                p { background-color:#b0c4de; }
+                body { background-image:url('trogdor.gif'); }
+                .myclasscontainer { margin-left:auto; }
+                #mytagid { color:green }
+            </style>
+        </head>
+        <body>
+        <h1>Headings are light purplish</h1>
+        <b>Woah Kickass, VI can bold the b tags? In the html document?</b>
+        &nbsp;&lt;&gt;&cent;&pound;&yen;&sect; <!-- check out my html entities -->
+        <!-- The aliens are on route, they are preparing the biological weapons -->
+        <p>Myparagraph</p><br /><hr>
+        <a href="http://sentientmachine.blogspot.com">ah pity the fool</a>
+        <img src='kittykat.png' alt="kitler" width='104'>15 petabytes of cats</img>
+        <i>Italic text is auto-highlighted like this</i>
+        <a href="mailto:snowden@nsa.gov">
+        Iphone batteries can't be removed so NSA can turn the mic via backdoor</a>
+        <div id="mytagid">Net neutrality will be dead soon, meshnet will carry</div>
+        <div class="myclass">the tortch as old internet becomes "TV" with fees</div>
+        <del>pay-per-view to visit a website, taxes per click, and corruption</del>
+        <table border=1><tr><td></td></tr></table>
+        <div style="color:#40B3DF;background-color:Grey">fun colors</div>
+        <form action="GET">
+            <input type="text" name="user">  
+        </form>
+        <script type="text/javascript">
+            document.write("How is babby formed?");
+            var howgirlgatpragnant = "they need to do way instain mother";
+        </script>
+        <pre>this text is visually selected and the cursor is here </pre>
+      </body>
+    </html>
+
+Save it, open it, and it should be colorized like on the top images.
