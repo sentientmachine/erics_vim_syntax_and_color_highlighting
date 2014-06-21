@@ -336,3 +336,8 @@ Put this script code in a file called /home/el/.bashtemp:
 
 
 Open the file and it should be colorized like at the top.
+
+
+Notes!
+---------
+If you put these commands in the .vimrc under /root/ then crontab may complain of .vimrc errors.  My solution to this was to not put any of these commands in the /root/.vimrc the consequence of this is you can't get colors when using vi as root.  
