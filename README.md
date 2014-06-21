@@ -1,7 +1,10 @@
 Code syntax highlighting and color settings for vim.
 =====================
 
-This will enable your code to look beautiful for the following code types:
+What is this?
+---------
+
+This will enable your code to look beautiful within vim for the following code types:
 
 java, python, html, javascript, php, css, bash, haml, viml
 
@@ -30,7 +33,7 @@ SCRIPT files like .bashrc:
 I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
 
 
-Important
+Installation instructions:
 ---------
 
 My home directory is /home/el, yours may be different, from here forward replace /home/el with your user.
@@ -92,7 +95,7 @@ Add this line to the bottom of your /home/el/.profile (create it if it doesn't e
 
 Restart the terminal so the changes can take effect.  You should be done, now on to test it to see if it works.
 
-
+Everything should be done.  Test it to see if it works.
 
 
 
