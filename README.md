@@ -86,16 +86,21 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     au BufReadPost *.py colorscheme molokai
     au BufReadPost *.html colorscheme monokai
     au BufReadPost *.java colorscheme monokai
-    "au BufReadPost *.php colorscheme two2tango
+    au BufReadPost *.php colorscheme monokai
+    
     
 
-Add this line to the bottom of your /home/el/.profile (create it if it doesn't exist) or your /home/el/.bashrc
+Add the following line to the bottom of your 
+
+a.  /home/el/.profile (create it if it doesn't exist) 
+ -OR-
+b.  /home/el/.bashrc (should already exist)
 
     TERM=xterm-256color
 
 Restart the terminal so the changes can take effect.  You should be done, now on to test it to see if it works.
 
-Everything should be done.  Test it to see if it works.
+Everything should be done.  Test it to see if it works, follow the instructions below.
 
 
 
@@ -339,6 +344,30 @@ Put this script code in a file called /home/el/.bashtemp:
 
 
 Open the file and it should be colorized like at the top.
+
+
+
+
+
+
+Test it with a php file:
+---------
+
+
+Then put this php code in a file called /home/el/myphp.php
+
+    <?php
+      print hello;
+      //working on some code that shows all the syntax options.
+    ?>
+
+
+open the file you just made:
+
+    vi myphp.php
+
+Now the code files should look like the images at the top.
+
 
 
 Notes!
