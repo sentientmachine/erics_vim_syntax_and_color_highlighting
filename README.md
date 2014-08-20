@@ -90,10 +90,12 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     
     
 
-Add the following line to the bottom of your 
+Add the following line to the bottom of your: 
 
 a.  /home/el/.profile (create it if it doesn't exist) 
- -OR-
+
+ OR
+ 
 b.  /home/el/.bashrc (should already exist)
 
     TERM=xterm-256color
