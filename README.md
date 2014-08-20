@@ -170,7 +170,7 @@ open the file you just made:
 
     vi mypython.py
 
-Now the code files should look like the images at the top.
+Now the code files should look like the images at the top.  If not, go over the instructions and look for mistakes, it works for me.
 
 
 
