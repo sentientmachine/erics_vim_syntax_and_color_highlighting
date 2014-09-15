@@ -102,7 +102,11 @@ b.  /home/el/.bashrc (should already exist)
 
 Restart the terminal so the changes can take effect.
 
-Everything should be done, to test it to see if it works, follow the instructions below.
+Everything should be done, to test it to see if it works, open a code file like this:
+
+    vim mypython.py
+
+Follow the instructions below.
 
 
 
