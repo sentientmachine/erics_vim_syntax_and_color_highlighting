@@ -100,9 +100,9 @@ b.  /home/el/.bashrc (should already exist)
 
     TERM=xterm-256color
 
-Restart the terminal so the changes can take effect.  You should be done, now on to test it to see if it works.
+Restart the terminal so the changes can take effect.
 
-Everything should be done.  Test it to see if it works, follow the instructions below.
+Everything should be done, to test it to see if it works, follow the instructions below.
 
 
 
