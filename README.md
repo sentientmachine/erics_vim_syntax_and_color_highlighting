@@ -16,7 +16,7 @@ When you open python files in vi, it will look something like this:
 
 PYTHON:
 
-![Imgur](http://imgur.com/GyxurrA)
+![Imgur](http://imgur.com/GyxurrA.png)
 
 JAVA:
 
