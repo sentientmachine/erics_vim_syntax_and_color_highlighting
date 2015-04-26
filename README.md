@@ -82,7 +82,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     
     au BufReadPost *.twig colorscheme koehler 
     au BufReadPost *.css colorscheme slate 
-    au BufReadPost *.js colorscheme elflord 
+    au BufReadPost *.js colorscheme slate
     au BufReadPost *.py colorscheme molokai
     au BufReadPost *.html colorscheme monokai
     au BufReadPost *.java colorscheme monokai
