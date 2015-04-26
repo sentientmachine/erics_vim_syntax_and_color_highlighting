@@ -166,7 +166,14 @@ Then put this python code in a file called /home/el/mypython.py:
     def slug(self):
       if self.parent is not None:
         yarr(__debug__)
-    
+        
+    ab = {'mykey'    :  'myvalue'
+          'spammer'  :  'mcspammityspam' }
+
+    del ab['spammer']
+    ab['Guido'] = 'guido@python.org'
+    shoplist = ["carrot", "banana", "grape"]
+    print (shoplist[ 2 ])
     exit(0)
     
 
