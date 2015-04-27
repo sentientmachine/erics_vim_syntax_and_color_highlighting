@@ -91,7 +91,13 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     au BufReadPost *.html colorscheme monokai
     au BufReadPost *.java colorscheme monokai
     " au BufReadPost *.php colorscheme monokai
-    
+
+    " Default line highlighting for unknown filetypes
+    hi String ctermfg=140
+    hi CursorLine ctermbg=235
+    hi CursorLine guibg=#D3D3D3 cterm=none
+
+
     
 
 Add the following line to the bottom of your: 
