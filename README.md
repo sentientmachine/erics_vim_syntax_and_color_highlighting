@@ -80,6 +80,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     set tabstop=4
     set shiftwidth=4
     set expandtab
+    set cursorline
     filetype on
     filetype plugin indent on
     
