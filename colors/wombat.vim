@@ -49,4 +49,7 @@ hi PreProc    guifg=#e5786d gui=none
 hi Number   guifg=#e5786d gui=none
 hi Special    guifg=#e7f6da gui=none
 
-hi String ctermfg=222
+hi String ctermfg=140
+hi CursorLine ctermbg=235
+hi CursorLine guibg=#D3D3D3 cterm=none
+
