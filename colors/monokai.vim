@@ -272,3 +272,7 @@ if &t_Co > 255
        hi SpecialKey ctermfg=239
    endif
 end
+
+" Set the background color of the tabs
+syn match Tab "\t"
+hi def Tab ctermbg=darkgreen guibg=#003000 
