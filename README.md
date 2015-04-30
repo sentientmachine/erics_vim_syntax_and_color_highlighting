@@ -33,6 +33,12 @@ SCRIPT files like .bashrc:
 Javascript files:
 
 ![Imgur](http://i.imgur.com/1CIp26j.png)
+
+git commit files:
+
+![Imgur](http://i.imgur.com/xhrgFWQ.jpg)
+
+
 I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
 
 
