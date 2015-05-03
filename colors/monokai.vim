@@ -275,4 +275,4 @@ end
 
 " Set the background color of the tabs
 syn match Tab "\t"
-hi def Tab ctermbg=darkgreen guibg=#003000 
+hi def Tab ctermbg=235 guibg=#003000 
