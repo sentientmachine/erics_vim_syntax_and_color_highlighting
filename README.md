@@ -38,7 +38,7 @@ git commit files:
 
 ![Imgur](http://i.imgur.com/xhrgFWQ.jpg)
 
-git commit files:
+php files:
 
 ![Imgur](http://i.imgur.com/EzfU9vl.png)
 
