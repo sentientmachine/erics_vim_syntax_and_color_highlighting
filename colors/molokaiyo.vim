@@ -234,3 +234,4 @@ if &t_Co > 255
    hi NonText         ctermfg=240 ctermbg=233
 end " }}}
 
+hi Visual term=reverse cterm=reverse guibg=Grey
