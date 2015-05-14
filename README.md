@@ -107,6 +107,10 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     hi CursorLine ctermbg=235
     hi CursorLine guibg=#D3D3D3 cterm=none
 
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
     
 
