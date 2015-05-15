@@ -82,7 +82,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     :imap <c-s> <Esc>:w<CR>a
     :imap <c-s> <Esc><c-s>
 
-
+    syntax on
     set background=dark
     set hlsearch
     set nu
