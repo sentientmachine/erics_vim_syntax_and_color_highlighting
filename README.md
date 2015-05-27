@@ -78,6 +78,12 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
 
     "The following three lines map Ctrl+s to save in vi.  You can comment 
     "these out, it has nothing to do with syntax highlighting or colors.
+    
+    " optional lines to turn on pressing F2 to toggle paste mode
+    noremap <F2> :set invpaste paste?<CR>i
+    set pastetoggle=<F2>
+
+
     :nmap <c-s> :w<CR>
     :imap <c-s> <Esc>:w<CR>a
     :imap <c-s> <Esc><c-s>
