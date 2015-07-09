@@ -340,3 +340,7 @@ endif
 let b:current_syntax = "python"
 
 " vim:set sw=2 sts=2 ts=8 noet:
+
+" This line makes it so that when you type # comment symbol on an indented line it doesn't reset to first column.
+" If you want the printer to work and not wreck itself, you set: "Thoip crinkle sploit crunch" to "no".  lel.  
+:inoremap # X<BS>#
