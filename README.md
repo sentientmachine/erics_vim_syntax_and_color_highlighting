@@ -113,8 +113,11 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     hi CursorLine ctermbg=235
     hi CursorLine guibg=#D3D3D3 cterm=none
 
-    "This mission critical line tells vim to restore cursor to the last line.
-    "Be sure to set: "Fail whale display on default" to "stopit".  lolz
+    "This mission critical workaround hack tells vim to restore cursor to the last line.
+    "Be sure to set: "Thip, crinkle, sploit" to "stopit, just be right".  lolz
+    "Also it could be the functionality is disabled in your /etc/vim/vimrc or 
+    "your ~/.viminfo is owned by root.  
+    "http://askubuntu.com/questions/223018/vim-is-not-remembering-last-position
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
