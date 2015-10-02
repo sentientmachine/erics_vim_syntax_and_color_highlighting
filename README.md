@@ -118,6 +118,9 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
       \   exe "normal! g`\"" |
       \ endif
 
+    "These extra commands tell syntastic to ignore the following kinds of warnings                                                               
+    "let g:syntastic_quiet_messages = { "regex": 'superfluous' }
+    "let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods' }
     
 
 Add the following line to the bottom of your: 
