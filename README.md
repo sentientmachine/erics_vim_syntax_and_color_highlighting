@@ -113,6 +113,8 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     hi CursorLine ctermbg=235
     hi CursorLine guibg=#D3D3D3 cterm=none
 
+    "This mission critical line tells vim to restore cursor to the last line.
+    "Be sure to set: "Fail whale display on default" to "stopit".  lolz
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
