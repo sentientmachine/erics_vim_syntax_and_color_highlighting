@@ -100,13 +100,13 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     filetype on
     filetype plugin indent on
     
-    au BufReadPost *.twig colorscheme koehler 
-    au BufReadPost *.css colorscheme slate
-    au BufReadPost *.js colorscheme slate2
-    au BufReadPost *.py colorscheme molokaiyo
-    au BufReadPost *.html colorscheme monokai
-    au BufReadPost *.java colorscheme monokai
-    " au BufReadPost *.php colorscheme monokai
+    au BufReadPost,BufNewFile *.twig colorscheme koehler 
+    au BufReadPost,BufNewFile *.css colorscheme slate
+    au BufReadPost,BufNewFile *.js colorscheme slate2
+    au BufReadPost,BufNewFile *.py colorscheme molokaiyo
+    au BufReadPost,BufNewFile *.html colorscheme monokai
+    au BufReadPost,BufNewFile *.java colorscheme monokai
+    " au BufReadPost,BufNewFile *.php colorscheme monokai
 
     " Default line highlighting for unknown filetypes
     hi String ctermfg=140
