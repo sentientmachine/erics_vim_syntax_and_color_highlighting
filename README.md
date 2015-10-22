@@ -127,6 +127,9 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     "let g:syntastic_quiet_messages = { "regex": 'superfluous' }
     "let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods' }
     
+    "I like the vertical bar on insert mode, others do not like.  You decide.
+    "let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    "let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 
 Add the following line to the bottom of your: 
 
