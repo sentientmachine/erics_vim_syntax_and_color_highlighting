@@ -235,3 +235,8 @@ if &t_Co > 255
 end " }}}
 
 hi Visual term=reverse cterm=reverse guibg=Grey
+
+"I like it when extra unnecessary whitespace at the end is highlighted
+highlight ExtraWhitespace ctermbg=234 guibg=red
+match ExtraWhitespace /\s\+$\| \+\ze\t/                                                                        
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=234 guibg=red
