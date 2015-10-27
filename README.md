@@ -113,6 +113,16 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     hi CursorLine ctermbg=235
     hi CursorLine guibg=#D3D3D3 cterm=none
 
+    "What follows are optional things, I like them
+    
+    "au BufNewFile,BufRead *.py 
+    "        \ set tabstop=4 
+    "        \ set shiftwidth=4 
+    "        \ set textwidth=79 
+    "        \ set expandtab 
+    "        \ set autoindent 
+    "        \ set fileformat=unix
+
     "This mission critical workaround hack tells vim to restore cursor to the last line.
     "Be sure to set: "Thip, crinkle, sploit" to "stopit, just be right".  lolz
     "Also it could be the functionality is disabled in your /etc/vim/vimrc or 
