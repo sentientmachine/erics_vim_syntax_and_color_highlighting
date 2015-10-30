@@ -17,7 +17,7 @@ let g:colors_name="molokai"
 " Basic Layout {{{                                                                      
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
 hi Folded          guifg=#666666 guibg=bg                                               
-hi CursorLine                    guibg=#232728                                          
+hi CursorLine                    guibg=#232728 cterm=none                                         
 hi CursorColumn                  guibg=#232728                                          
 hi ColorColumn                   guibg=#232728                                          
 hi LineNr          guifg=#AAAAAA guibg=bg                                               
