@@ -16,7 +16,7 @@ public class CalculateStats {
 
         foo = "hello" + foo;
         //the aliens are on route, we must prepare
-        fromulate();
+        fromulate();  something=null;
     }   
     protected enum Choices {
         NORTH(1), SOUTH(2), EAST(3), DENNIS(4);
