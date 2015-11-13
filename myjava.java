@@ -7,12 +7,12 @@ public class CalculateStats {
         String foo = "ok";
         System.out.println("hi \n " + b + 9 * (2 % 1));
         final Point p = new Point(23, 94);
-        float browndischarge = 13.75f;
-        if (browndischarge > 3 && true)
+        float paladin = 13.75f;
+        if (paladin > 3 && true)
             throw new RuntimeException("too many " +
                    "cats clogging the intertubes");
         else
-            browndischarge = 5 & 3;
+            paladin = 5 & 3;
 
         foo = "hello" + foo;
         //the aliens are on route, we must prepare
