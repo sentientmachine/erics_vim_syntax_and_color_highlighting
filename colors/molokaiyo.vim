@@ -238,6 +238,7 @@ hi Visual term=reverse cterm=reverse guibg=Grey
 
 "I like it when extra unnecessary whitespace at the end is highlighted
 highlight ExtraWhitespace ctermbg=24 guibg=red
-"match ExtraWhitespace /\s\+$\| \+\ze\t/            "this one includes blank lines.
-match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/        "this one doesn't include blank lines.
+"match ExtraWhitespace /\s\+$\| \+\ze\t/            "this one includes blank lines as well. sucky.
+"match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
+match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
