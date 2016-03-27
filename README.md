@@ -92,7 +92,8 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     set background=dark
     set hlsearch
     set nu
-    set smartindent
+    " set smartindent  "smartindent doesn't take care of python hashtag comments correctly, use cindent:    
+    set cindent
     set tabstop=4
     set shiftwidth=4
     set expandtab
