@@ -5,7 +5,6 @@
 noremap <F2> :set invpaste paste?<CR>i
 set pastetoggle=<F2>
 
-
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
 :imap <c-s> <Esc><c-s>
@@ -38,27 +37,27 @@ hi CursorLine guibg=#D3D3D3 cterm=none
 
 "What follows are optional things, I like them
 
-"au BufNewFile,BufRead *.py 
-"        \ set tabstop=4 
-"        \ set shiftwidth=4     "aand fedora doesn't like this parameter, remove this line.
-"        \ set textwidth=79 
-"        \ set expandtab 
-"        \ set autoindent 
-"        \ set fileformat=unix
+au BufNewFile,BufRead *.py 
+        \ set tabstop=4 
+        \ set shiftwidth=4     "aand fedora doesn't like this parameter, remove this line.
+        \ set textwidth=79 
+        \ set expandtab 
+        \ set autoindent 
+        \ set fileformat=unix
 
 " Commenting blocks of code.
 " This specifies the comment character when specifying block comments.
-"autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
-"autocmd FileType sh,ruby,python   let b:comment_leader = '#'
-"autocmd FileType conf,fstab       let b:comment_leader = '#'
-"autocmd FileType tex              let b:comment_leader = '%'
-"autocmd FileType mail             let b:comment_leader = '>'
-"autocmd FileType vim              let b:comment_leader = '"'
+autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
+autocmd FileType sh,ruby,python   let b:comment_leader = '#'
+autocmd FileType conf,fstab       let b:comment_leader = '#'
+autocmd FileType tex              let b:comment_leader = '%'
+autocmd FileType mail             let b:comment_leader = '>'
+autocmd FileType vim              let b:comment_leader = '"'
 
 "this makes it so you can Shift-V highlight lots of text then press ,cc to
 "comment it or ,cu to uncomment.  
-"noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-"noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 "This mission critical workaround hack tells vim to restore cursor to the last line.
 "Be sure to set: "Thip, crinkle, sploit" to "stopit, just be right".  lolz
