@@ -46,3 +46,7 @@ def slug(self):
     yarr(__debug__)
 
 exit(0)
+
+def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]"):
+    print(min(max([3,5,2])))   """builtins"""      '''extra comment'''
+    
