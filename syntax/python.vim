@@ -145,9 +145,10 @@ endif
 " Keywords
 "
 
+syn keyword pythonConstant      False None True
 syn keyword pythonStatement     break continue del
 syn keyword pythonStatement     exec return
-syn keyword pythonStatement     pass raise
+syn keyword pythonStatement     pass raise print
 syn keyword pythonStatement     global assert
 syn keyword pythonStatement     lambda
 syn keyword pythonStatement     with
@@ -157,6 +158,7 @@ syn keyword pythonConditional   if elif else
 syn keyword pythonImport        import
 syn keyword pythonException     try except finally
 syn keyword pythonOperator      and in is not or
+syn keyword pythonInclude       from import
 
 syn match pythonStatement   "\<yield\>" display
 syn match pythonImport      "\<from\>" display
@@ -173,6 +175,14 @@ else
   syn keyword pythonBoolean     True False
   syn match   pythonFunction    "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
 endif
+
+syn region pythonVars start="(" end=")" contained contains=pythonParameters transparent keepend
+syn match pythonParameters "[^,]*" contained contains=pythonParam,pythonBrackets skipwhite
+syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
+syn match pythonBrackets "[(|)]" contained skipwhite
+syn match   pythonFunction
+      \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonVars
+
 
 "
 " Decorators (new in Python 2.4)
@@ -202,8 +212,13 @@ syn match pythonError		"[$?]" display
 syn match pythonError		"[&|]\{2,}" display
 syn match pythonError		"[=]\{3,}" display
 
+"syn match   pythonDecorator "@" display nextgroup=pythonFunction skipwhite
+syn region pythonVars start="(" end=")" contained contains=pythonParameters transparent keepend
+syn region pythonClassVars start="(" end=")" contained contains=pythonClassParameters transparent keepend
+syn match pythonClassParameters "[^,]*" contained contains=pythonBuiltin,pythonBrackets skipwhite
 " Mixing spaces and tabs also may be used for pretty formatting multiline
 " statements
+"
 if s:Enabled("g:python_highlight_indent_errors")
   syn match pythonIndentError	"^\s*\%( \t\|\t \)\s*\S"me=e-1 display
 endif
@@ -479,13 +494,18 @@ if version >= 508 || !exists("did_python_syn_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  HiLink pythonStatement        Statement
+  "HiLink pythonStatement        Statement
+  HiLink pythonStatement        Structure
   HiLink pythonImport           Include
   HiLink pythonFunction         Function
   HiLink pythonConditional      Conditional
   HiLink pythonRepeat           Repeat
   HiLink pythonException        Exception
   HiLink pythonOperator         Operator
+
+  HiLink pythonInclude  Operator
+  HiLink pythonExtraOperator Operator
+  HiLink pythonExtraPseudoOperator Operator
 
   HiLink pythonDecorator        Define
   HiLink pythonDottedName       Function
@@ -546,7 +566,40 @@ if version >= 508 || !exists("did_python_syn_inits")
 
   HiLink pythonExClass          Structure
 
+  HiLink pythonParameters Identifier
+  HiLink pythonParam Normal
+  HiLink pythonClassParameters InheritUnderlined
+
+syn keyword pythonBuiltin abs all any bin bool chr classmethod
+syn keyword pythonBuiltin compile complex delattr dict dir divmod
+syn keyword pythonBuiltin enumerate eval filter float format
+syn keyword pythonBuiltin frozenset getattr globals hasattr hash
+syn keyword pythonBuiltin help hex id input int isinstance
+syn keyword pythonBuiltin issubclass iter len list locals map max
+syn keyword pythonBuiltin min next object oct open ord pow print
+syn keyword pythonBuiltin property range repr reversed round set
+syn keyword pythonBuiltin setattr slice sorted staticmethod str
+syn keyword pythonBuiltin sum super tuple type vars zip __import__
+" Python 2.6 only
+syn keyword pythonBuiltin basestring callable cmp execfile file
+syn keyword pythonBuiltin long raw_input reduce reload unichr
+syn keyword pythonBuiltin unicode xrange
+" Python 3.0 only
+syn keyword pythonBuiltin ascii bytearray bytes exec memoryview
+" non-essential built-in functions; Python 2.6 only
+syn keyword pythonBuiltin apply buffer coerce intern
+
+HiLink pythonBuiltin Builtin
+
+
   delcommand HiLink
 endif
 
 let b:current_syntax = "python"
+
+" NOTE: @pfdevilliers added this
+" I copied this directly from the ruby.vim syntax file inorder to highlight all
+" the operators. This must offcourse be revised to only contain the operators
+" that exists in python.
+syn match  pythonExtraOperator   "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
+syn match  pythonExtraPseudoOperator  "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
