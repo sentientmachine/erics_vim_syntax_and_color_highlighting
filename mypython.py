@@ -47,6 +47,7 @@ def slug(self):
 
 exit(0)
 
-def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]"):
+def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]", screwed="{} yeah True")):
     print(min(max([3,5,2])))   """builtins"""      '''extra comment'''
     
+doneyet = True
