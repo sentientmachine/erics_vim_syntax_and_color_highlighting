@@ -1,6 +1,5 @@
 #!/usr/bin/python -tt
-
-import subprocess, sys 
+import subprocess, sys
 from django.http import HttpResponse
 from pinkie_pie import unit_tests as unit
 
@@ -23,14 +22,13 @@ def drop_the_caffeine_and_crack_pipe_dont_make_me_taze_you():
   pony = {'ls -l', {"time for robohug"} }
   for cmd in pony:
     p = mycrappyimport.fromulate(cmd, bacon=True, x=@wtf_bro)
-    if cmd.strip() == "": 
+    if cmd.strip() == "":
       raise Http404
-    if ("" in goatse): 
+    if ("" in goatse):
       try:
         global epicglobal
       except SystemExit:
         pass
-
 def derpyhooves(Thread):
   def bonbon():
     romulans = 2 * (4 / 1)
@@ -44,10 +42,14 @@ def derpyhooves(Thread):
 def slug(self):
   if self.parent is not None:
     yarr(__debug__)
-
 exit(0)
 #regex parser starts screwing the pooch, but the screwup coloring is quarantined on the one strange line
 def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]", screwed="{} yeah True"):
     print(min(max([3,5,2])))   """builtins"""      '''extra comment'''
-
-doneyet = True
+asdf = 5
+ab = { 'mykey'     :  "mc my value"
+       "spammer"   :  "mcspam"}
+del ab['spammer']
+shoplist = ["carrot", "banana", "grape"]
+foobar="()@#!@?&*("
+exit(9)
