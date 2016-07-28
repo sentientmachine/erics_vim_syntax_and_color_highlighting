@@ -46,8 +46,8 @@ def slug(self):
     yarr(__debug__)
 
 exit(0)
-
-def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]", screwed="{} yeah True")):
+#regex parser starts screwing the pooch, but the screwup coloring is quarantined on the one strange line
+def screwdup(stupid='yeah (23) wtf', oohkay="wtf[ brackets?? ]", screwed="{} yeah True"):
     print(min(max([3,5,2])))   """builtins"""      '''extra comment'''
-    
+
 doneyet = True
