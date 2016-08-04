@@ -80,8 +80,8 @@ hi MoreMsg         guifg=#E6DB74
 hi Operator        guifg=#F92672
 
 " Completion Menu {{{
-highlight Pmenu ctermfg=lightblue ctermbg=black guifg=black guibg=black
-highlight PmenuSel   ctermfg=white      ctermbg=darkgrey
+highlight Pmenu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=darkblue
+highlight PmenuSel   ctermfg=black      ctermbg=white
 "hi Pmenu           guifg=#cccccc guibg=#232728
 "hi PmenuSel        guifg=#000000 guibg=#AAF412
 "hi PmenuSbar                     guibg=#131414
