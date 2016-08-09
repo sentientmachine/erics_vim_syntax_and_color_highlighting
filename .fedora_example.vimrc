@@ -81,10 +81,15 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 "Also it could be the functionality is disabled in your /etc/vim/vimrc or 
 "your ~/.viminfo is owned by root.  
 "http://askubuntu.com/questions/223018/vim-is-not-remembering-last-position
-autocmd BufReadPost *
-  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
+"autocmd BufReadPost *
+"  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+"  \   exe "normal! g`\"" |
+"  \ endif
+
+"This makes the window view 
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
 
 "These extra commands tell syntastic to ignore the following kinds of warnings                                                               
 "let g:syntastic_quiet_messages = { "regex": 'superfluous' }
