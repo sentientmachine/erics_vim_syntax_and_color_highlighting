@@ -39,6 +39,18 @@ set cursorline
 filetype on
 filetype plugin indent on
 
+
+function RestoreViewPane()
+  "This makes the window view cursor and view pane snap back 
+  "for all files except for 'man' files
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent loadview
+endfunction
+if (&filetype=~'man')
+  call RestoreViewPane()   "man files can't tolerate restoration of window pane
+endif
+
+
 au BufReadPost,BufNewFile *.twig colorscheme koehler 
 au BufReadPost,BufNewFile *.css colorscheme slate
 au BufReadPost,BufNewFile *.js colorscheme slate2
@@ -92,9 +104,6 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 "  \   exe "normal! g`\"" |
 "  \ endif
 
-"This makes the window view 
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
 
 
 "These extra commands tell syntastic to ignore the following kinds of warnings                                                               
