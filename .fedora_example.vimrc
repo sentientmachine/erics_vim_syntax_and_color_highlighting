@@ -46,6 +46,7 @@ au BufReadPost,BufNewFile *.py colorscheme molokaiyo
 au BufReadPost,BufNewFile *.html colorscheme monokai
 au BufReadPost,BufNewFile *.java colorscheme monokai
 " au BufReadPost,BufNewFile *.php colorscheme monokai
+autocmd BufWinEnter,FileType man colorscheme molokaiyo
 
 " Default line highlighting for unknown filetypes
 hi String ctermfg=140
