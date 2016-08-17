@@ -46,7 +46,12 @@ au BufReadPost,BufNewFile *.py colorscheme molokaiyo
 au BufReadPost,BufNewFile *.html colorscheme monokai
 au BufReadPost,BufNewFile *.java colorscheme monokai
 " au BufReadPost,BufNewFile *.php colorscheme monokai
-autocmd BufWinEnter,FileType man colorscheme molokaiyo
+autocmd BufWinEnter,FileType man call SetManOptions()
+function SetManOptions()
+  colorscheme molokaiyo  "No line numbers on man pages
+  set nonu               "No line numbers on man pages
+endfunction
+
 
 " Default line highlighting for unknown filetypes
 hi String ctermfg=140
