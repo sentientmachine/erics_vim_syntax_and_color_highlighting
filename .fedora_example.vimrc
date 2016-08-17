@@ -40,16 +40,10 @@ filetype on
 filetype plugin indent on
 
 
-function RestoreViewPane()
-  "This makes the window view cursor and view pane snap back 
-  "for all files except for 'man' files
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent loadview
-endfunction
-if (&filetype=~'man')
-  call RestoreViewPane()   "man files can't tolerate restoration of window pane
-endif
-
+"This stores a file under ~/.vim/view that keeps data about the window 
+"view and cursor for all files so it snaps back on reopen 
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
 
 au BufReadPost,BufNewFile *.twig colorscheme koehler 
 au BufReadPost,BufNewFile *.css colorscheme slate
@@ -58,12 +52,6 @@ au BufReadPost,BufNewFile *.py colorscheme molokaiyo
 au BufReadPost,BufNewFile *.html colorscheme monokai
 au BufReadPost,BufNewFile *.java colorscheme monokai
 " au BufReadPost,BufNewFile *.php colorscheme monokai
-autocmd BufWinEnter,FileType man call SetManOptions()
-function SetManOptions()
-  colorscheme molokaiyo  "No line numbers on man pages
-  set nonu               "No line numbers on man pages
-endfunction
-
 
 " Default line highlighting for unknown filetypes
 hi String ctermfg=140
@@ -113,3 +101,5 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 "I like the vertical bar on insert mode, others do not like.  You decide.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+
+
