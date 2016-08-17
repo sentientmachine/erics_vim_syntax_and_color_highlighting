@@ -42,6 +42,11 @@ php files:
 
 ![Imgur](http://i.imgur.com/EzfU9vl.png)
 
+man files: 
+
+![Imgur](http://i.imgur.com/gpC5GK4.png)
+
+
 
 I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
 
