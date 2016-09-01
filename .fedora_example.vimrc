@@ -42,8 +42,10 @@ filetype plugin indent on
 
 "This stores a file under ~/.vim/view that keeps data about the window 
 "view and cursor for all files so it snaps back on reopen 
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
+"autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * silent loadview
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
 
 au BufReadPost,BufNewFile *.twig colorscheme koehler 
 au BufReadPost,BufNewFile *.css colorscheme slate
