@@ -99,3 +99,9 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 
+" Make it so Alt + up down left right works when switching vim windows                                                         
+nnoremap <A-Up> :wincmd k<cr>
+nnoremap <A-Down> :wincmd j<cr>
+nnoremap <A-Left> :wincmd l<cr>
+nnoremap <A-Right> :wincmd h<cr>
+
