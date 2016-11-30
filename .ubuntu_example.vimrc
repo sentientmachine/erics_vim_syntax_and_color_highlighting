@@ -36,6 +36,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cursorline
+set textwidth=100   "The textwidth is the width of a line before forced wrapping takes place
 filetype on
 filetype plugin indent on
 
@@ -65,7 +66,6 @@ hi CursorLine guibg=#D3D3D3 cterm=none
 au BufNewFile,BufRead *.py 
         \ set tabstop=4 
         "\ set shiftwidth=4     "aand fedora doesn't like this parameter, remove this line.
-        \ set textwidth=79 
         \ set expandtab 
         \ set autoindent 
         \ set fileformat=unix
