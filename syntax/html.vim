@@ -289,4 +289,7 @@ if main_syntax == 'html'
   unlet main_syntax
 endif
 
+#for html files I don't like auto indenting
+filetype indent off
+
 " vim: ts=8
