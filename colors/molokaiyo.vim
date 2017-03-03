@@ -7,8 +7,10 @@
 " by Wimer Hazenberg and its darker variant                                             
 " by Hamish Stuart Macpherson                                                           
 "                                                                                       
-                                                                                        
-hi clear                                                                                
+
+"Commenting this out because I want highlighting instructions from the vimrc to also apply
+"hi clear                                                                                
+
                                                                                         
 set background=dark                                                                     
 set cursorline                                                                          
