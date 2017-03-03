@@ -27,7 +27,9 @@ if exists("b:current_syntax")
 endif
 
 "syn iskeyword @,48-57,_,.
-syn iskeyword @,48-57,_,192-255
+"syn iskeyword @,48-57,_,192-255
+"set iskeyword @,48-57,_,192-255
+syn iskeyword=@,48-57,_,192-255
 
 if exists("g:r_syntax_folding") && g:r_syntax_folding
   setlocal foldmethod=syntax
