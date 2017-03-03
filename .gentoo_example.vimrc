@@ -361,3 +361,21 @@ command LatexTable :r ~/.vim/snippets/latex/LatexTable.txt
 
 
 let g:tex_flavor = "latex"
+
+
+"This is great for a proof of concept in writing my own highlighter:
+"When doing a / search, then pressing n, highlight the block you're on and blinking red
+"to draw our eyes there.  This rewires n and N to do the highlighing.
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+highlight WhiteOnRed ctermfg=red ctermbg=red
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')                                                                               
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#\%('.@/.'\)'
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 500) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
