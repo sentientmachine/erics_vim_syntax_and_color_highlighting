@@ -129,6 +129,7 @@ au BufReadPost,BufNewFile *.java colorscheme monokai
 "au BufReadPost,BufNewFile *.php colorscheme two2tango
 au BufReadPost,BufNewFile *.php colorscheme molokaiyophp
 au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r
+au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r
 au BufWinEnter,FileType vim colorscheme molokai
 au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
 au BufWinEnter,FileType tex colorscheme molokaiyo_tex
