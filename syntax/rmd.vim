@@ -82,4 +82,7 @@ hi def link rmdSlidifySpecial Special
 
 let b:current_syntax = "rmd"
 set nocindent
+
+syn iskeyword=@,48-57,_,192-255
+
 " vim: ts=8 sw=2
