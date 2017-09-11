@@ -91,20 +91,28 @@ nnoremap <c-l> <c-t>
 :imap <c-s> <Esc>:w<CR>a
 :imap <c-s> <Esc><c-s>
 
+
+
+
 syntax on
 set background=dark
 set hlsearch
+"Show line numbers
 set nu
 " set smartindent  "smartindent doesn't take care of python hashtag comments correctly, use cindent
 set cindent
+"literal tabs should be shown as 4 spaces wide.
 set tabstop=4
 set shiftwidth=4
+"when you press tabs it expands into tabstop spaces
 set expandtab
 set cursorline
 "Textwidth defines how wide the line can be in characters before vim automatically adds a newline.
 "I don't like autowrapping in my code files, but do where I write things.  Set to 0 to disable
-"#shortcut is :set tw=0
+"shortcut is :set tw=0
 set textwidth=100
+
+
 
 filetype on
 filetype plugin indent on
