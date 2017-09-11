@@ -722,8 +722,8 @@ else
  let b:current_syntax = "sh"
 endif
 
-
-set tw=150
+#In my bash files I don't like wrapping
+set tw=0
 
 
 " vim: ts=16 fdm=marker
