@@ -603,3 +603,6 @@ let b:current_syntax = "python"
 " that exists in python.
 syn match  pythonExtraOperator   "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
 syn match  pythonExtraPseudoOperator  "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
+
+"Set the textwidth to zero which prevents vim from wrapping lines when they get too wide for java files                    
+set tw=0
