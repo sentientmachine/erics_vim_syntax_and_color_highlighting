@@ -342,4 +342,7 @@ endif
 
 let b:spell_options="contained"
 
+"Set the textwidth to zero which prevents vim from wrapping lines when they get too wide for java files                    
+set tw=0
+
 " vim: ts=8
