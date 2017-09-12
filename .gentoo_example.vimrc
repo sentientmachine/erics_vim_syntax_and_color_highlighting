@@ -415,3 +415,7 @@ function! UpdateTags()
 endfunction
 "Specify what files the ctag update works on:
 autocmd BufWritePost *.py,*.h,*.c call UpdateTags()
+
+"Pressing the asterisk shouldn't jump, and also shouldn't add an item to the jumplist                                          
+nnoremap * :keepjumps normal! mi*`i<CR>
+
