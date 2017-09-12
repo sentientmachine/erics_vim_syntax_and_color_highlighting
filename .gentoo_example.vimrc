@@ -181,6 +181,12 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 "comment it or ,cu to uncomment.  
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+"BUT WAIT USE THIS builtin comment method, ITS BETTER
+"Put your cursor where you want the comment block to go
+"press Ctrl-Q (alias for Ctrl-Shift-V), arrow down, press shift+I (to insert before)
+"type the characters, like " for comment.  Press esc (or jk), give it a second.
+"to uncomment, press Ctrl-Q, Arrow down, press x for delete.  Whammo awesome  
+
 
 
 "These extra commands tell syntastic to ignore the following kinds of warnings                                                               
