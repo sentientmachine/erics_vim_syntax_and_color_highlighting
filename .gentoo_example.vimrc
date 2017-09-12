@@ -147,12 +147,6 @@ au BufWinEnter,FileType vim colorscheme molokai
 au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
 au BufWinEnter,FileType tex colorscheme molokaiyo_tex
 
-"this makes it so you can Shift-V highlight lots of text then press ,cc
-"to comment it or ,cu to uncomment.  
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-
 " Default line highlighting for unknown filetypes
 hi String ctermfg=140
 hi CursorLine ctermbg=235
