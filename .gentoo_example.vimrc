@@ -54,7 +54,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " END VUNDLE THINGS
 
-"======== Good for windows users who want to paste with Ctrl-V to snap it in to paste mode
+
+"======== Good for windows users and linux users who want to paste 
+"with Ctrl-V to snap it in to paste mode automatically so it doesn't mess up 'jk'
+
 if &term =~ "xterm.*"
     let &t_ti = &t_ti . "\e[?2004h"
     let &t_te = "\e[?2004l" . &t_te
