@@ -241,15 +241,19 @@ end " }}}
 
 hi Visual term=reverse cterm=reverse guibg=Grey
 
-"I like it when extra unnecessary whitespace at the end is highlighted
 highlight ExtraWhitespace ctermbg=24 guibg=red
-"match ExtraWhitespace /\s\+$\| \+\ze\t/            "this one includes blank lines as well. sucky.
-"match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
-match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
+
+"I like it when extra unnecessary whitespace at the end is highlighted
+:match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
+
+"Dr Haaxxxx!
+"This instruction puts teal background (the same color scheme specified for extra whitespace)
+"around words that have any amount of any character, a single quote, letters a-z then a literal doublequote 
+:2match ExtraWhitespace /.*'[a-z_\-{}/]*"\| \+\ze\t/
+
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
 
-"Haaxxxx
 "This instruction puts a teal background (the same color scheme specified for extra whitespace) 
 "around the words: 'else if' because in python else if is a syntax error
 "Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
-match ExtraWhitespace /^\s*else if\| \+\ze\t/  
+:3match ExtraWhitespace /^\s*else if\| \+\ze\t/
