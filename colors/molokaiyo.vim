@@ -241,19 +241,24 @@ end " }}}
 
 hi Visual term=reverse cterm=reverse guibg=Grey
 
-highlight ExtraWhitespace ctermbg=24 guibg=red
+"Kickass things follow, bigly
 
-"I like it when extra unnecessary whitespace at the end is highlighted
-:match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
+highlight EricsCustomPythonMatcherHighlights ctermbg=24 guibg=red
 
-"Dr Haaxxxx!
-"This instruction puts teal background (the same color scheme specified for extra whitespace)
-"around words that have any amount of any character, a single quote, letters a-z then a literal doublequote 
-:2match ExtraWhitespace /.*'[a-z_\-{}/]*"\| \+\ze\t/
-
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
-
-"This instruction puts a teal background (the same color scheme specified for extra whitespace) 
-"around the words: 'else if' because in python else if is a syntax error
+"This instruction puts a teal background around the words: 'else if' because in python else if is a syntax error
 "Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
-:3match ExtraWhitespace /^\s*else if\| \+\ze\t/
+"The \z crap determines where the beginning and ending of the selection go.  Fucking kickass
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')  
+
+"Dr Haaxxxx!  this fails....
+"This instruction puts teal background (the same color scheme specified for extra whitespace)
+"I like it when extra unnecessary whitespace at the end is highlighted
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
+
+"Purpose of this is to highlight red any string that starts with single quote and ends with double quote
+"To escape a literal single quote you use two of them.  AAAHHH HAHAHA
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*''[a-z\-_{}]*"\)')
+
+"Purpose of this is to highlight red any string that starts with double quote and ends with single quote
+"To escape a literal single quote you use two of them.  AAAHHH HAHAHA
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*"[a-z\-_{}]*''\)')
