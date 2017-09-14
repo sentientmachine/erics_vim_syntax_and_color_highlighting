@@ -257,14 +257,12 @@ let g:syntastic_java_javac_classpath=".:./lib/*"
 :inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
 
 
-"The list of filetypes for which youcompleteme should not load
+"The list of filetypes for which youcompleteme (including path completion) should not load                                     
 let g:ycm_filetype_blacklist = {
       \ 'javascript' : 1,
       \ 'c' : 1,
-      \ 'java' : 1,
       \ 'notes' : 1,
       \ 'vim' : 1,
-      \ 'sh' : 1,
       \ 'text' : 1,
       \ 'vimwiki' : 1,
       \ 'pandoc' : 1,
@@ -273,6 +271,8 @@ let g:ycm_filetype_blacklist = {
       \ 'php' : 1,
       \ 'markdown' : 1
       \}
+      " 'sh' : 1,      "It was fucking up on sh before, but now path completion in quotes is good
+      " 'java' : 1,    "It was fucking up on java before, but now path completion in quotes is good
 
 
 " let g:syntastic_java_javac_classpath=".:./lib/*"
