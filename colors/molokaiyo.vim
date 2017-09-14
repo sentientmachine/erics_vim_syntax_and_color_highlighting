@@ -262,3 +262,11 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*''[a-z\-_{}]*"\)
 "Purpose of this is to highlight red any string that starts with double quote and ends with single quote
 "To escape a literal single quote you use two of them.  AAAHHH HAHAHA
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*"[a-z\-_{}]*''\)')
+
+
+"Purpose of this is to highlight teal any string that has ampersand ampersand (invalid python)
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
+
+"Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
+
