@@ -110,7 +110,7 @@ set cursorline
 "Textwidth defines how wide the line can be in characters before vim automatically adds a newline.
 "I don't like autowrapping in my code files, but do where I write things.  Set to 0 to disable
 "shortcut is :set tw=0
-set textwidth=100
+set textwidth=0
 
 
 
