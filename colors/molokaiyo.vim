@@ -247,3 +247,9 @@ highlight ExtraWhitespace ctermbg=24 guibg=red
 "match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
 match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
+
+"Haaxxxx
+"This instruction puts a teal background (the same color scheme specified for extra whitespace) 
+"around the words: 'else if' because in python else if is a syntax error
+"Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
+match ExtraWhitespace /^\s*else if\| \+\ze\t/  
