@@ -422,3 +422,7 @@ autocmd BufWritePost *.py,*.h,*.c call UpdateTags()
 "Pressing the asterisk shouldn't jump, and also shouldn't add an item to the jumplist                                          
 nnoremap * :keepjumps normal! mi*`i<CR>
 
+#This line makes it so when you type up arrow or Ctrl+P on the commandline it shows history
+#but does not show duplicates.  It keeps them in history, just doesn't show them
+export HISTCONTROL=ignoreboth:erasedups 
+
