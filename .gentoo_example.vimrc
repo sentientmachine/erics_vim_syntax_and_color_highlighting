@@ -134,17 +134,17 @@ filetype plugin indent on
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
-au BufReadPost,BufNewFile *.twig colorscheme koehler
+au BufReadPost,BufNewFile *.twig colorscheme koehler 
 au BufReadPost,BufNewFile *.css colorscheme slate
 au BufReadPost,BufNewFile *.js colorscheme slate2
 au BufReadPost,BufNewFile *.py colorscheme molokaiyo
 au BufReadPost,BufNewFile *.html colorscheme monokai
 au BufReadPost,BufNewFile *.java colorscheme monokai
-"au BufReadPost,BufNewFile *.php colorscheme two2tango
-au BufReadPost,BufNewFile *.php colorscheme molokaiyophp
+au BufReadPost,BufNewFile *.json colorscheme monokambat
+au BufReadPost,BufNewFile *.php colorscheme molokaiyophp                                                                       
 au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r
 au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r
-au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab                                                                     
+au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab
 au BufReadPost,BufNewFile *.Rmd colorscheme molokaiyo_r
 au BufWinEnter,FileType vim colorscheme molokai
 au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
