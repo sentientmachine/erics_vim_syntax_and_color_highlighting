@@ -46,6 +46,12 @@ man files:
 
 ![Imgur](http://i.imgur.com/gpC5GK4.png)
 
+json files:
+
+![Imgur](https://i.imgur.com/7NTpWIT.png)
+
+
+
 
 
 I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
