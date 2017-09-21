@@ -1,6 +1,73 @@
+// this comment should be highlighted as an error
+// example json file to exercise the highlighter
 {
+    unquotedKeyword:'singleQuotedString',
+    'singleQuotedKeyword':true,
+    "decimalCantStartWithPeriod":.1,
+    "semicolonAtEndOfThisObject":"trailingComma",
+};
+
+
+//even with concealment, strings and numbers & booleans are distinct
+{
+    "string": "this is a string, with a escaped \" inside",                                                                    
+    "string": "500",
+    "NOT a string": 500,
+    "string": "true",
+    "NOT a string": true
+}
+
+
+// normative JSON examples from http://json.org/example.html
+{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]   
+  }
+}}
+
+{
+    "glossary": {
+        "title": "example glossary",
+        "GlossDiv": {
+            "title": "S",
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "SortAs": "SGML",
+                    "GlossTerm": "Standard Generalized Markup Language",
+                    "Acronym": "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML"]
+                    },
+                    "GlossSee": "markup"
+                }
+            }
+        }
+    }   
+}
+
+
+{"widget": {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500 
+}}}
+
+//the following is incorrectly formed, (missing comma) to demonstrate error highlighting
+
   "firstName": "John",
-  "lastName": "Smith",
+  "lastName": "Smith"        
   "isAlive": true,
   "age": 25,
   "address": {
