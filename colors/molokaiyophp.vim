@@ -249,3 +249,7 @@ highlight ExtraWhitespace ctermbg=24 guibg=red
 "match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
 match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
+
+"I'm always editing html inside php files and I don't like the automatic indenting
+"Turn off cindent for PHP files (this is for the hopper, I just like it this way)                                              
+set nocindent
