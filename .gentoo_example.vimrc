@@ -19,7 +19,10 @@ Plugin 'VundleVim/neomake'
 Plugin 'VundleVim/YouCompleteMe'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'VundleVim/Nvim-R'
+"Plugin 'VundleVim/Nvim-R'
+Plugin 'martingms/vipsql'
+Plugin 'VundleVim/dbext.vim'
+Plugin 'scrooloose/nerdcommenter'    "Enables <leader> cc to comment visual selection neatly 
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
