@@ -22,6 +22,12 @@ JAVA:
 
 ![Imgur](http://i.imgur.com/d27fa1d.png)
 
+
+C++:
+
+![Imgur](https://i.imgur.com/nGQiNMX.png)
+
+
 HTML:
 
 ![Imgur](http://i.imgur.com/hl2G0U8.png)
