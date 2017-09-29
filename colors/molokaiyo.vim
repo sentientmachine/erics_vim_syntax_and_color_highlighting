@@ -3,14 +3,10 @@
 " Author: Tomas Restrepo <tomas@winterdom.com>
 " Modified by: Steve Losh <steve@stevelosh.com>
 "
-" Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant                                             
-" by Hamish Stuart Macpherson                                                           
-"                                                                                       
+" Fixer upper-er Eric Leschinski
 
-"Commenting this out because I want highlighting instructions from the vimrc to also apply
+
 "hi clear                                                                                
-
                                                                                         
 set background=dark                                                                     
 set cursorline                                                                          
@@ -40,9 +36,10 @@ hi Debug           guifg=#BCA3A3               gui=bold
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
 hi Float           guifg=#AE81FF
-hi Function        guifg=#A6E22E
+hi Function        guifg=#FFE22E
 hi Identifier      guifg=#FD971F
 hi Builtin         guifg=#AE81FF               gui=bold
+
 " }}}
 " Diffs {{{
 hi DiffAdd                       guibg=#0F1D0B
@@ -84,6 +81,7 @@ hi Operator        guifg=#F92672
 " Completion Menu {{{
 highlight Pmenu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=darkblue
 highlight PmenuSel   ctermfg=black      ctermbg=white
+
 "hi Pmenu           guifg=#cccccc guibg=#232728
 "hi PmenuSel        guifg=#000000 guibg=#AAF412
 "hi PmenuSbar                     guibg=#131414
@@ -185,10 +183,10 @@ if &t_Co > 255
    hi Operator        ctermfg=161
 
    " complete menu
-   " hi Pmenu           ctermfg=81  ctermbg=16
-   " hi PmenuSel                    ctermbg=244
-   " hi PmenuSbar                   ctermbg=232
-   " hi PmenuThumb      ctermfg=81
+   "hi Pmenu           ctermfg=81  ctermbg=16
+   "hi PmenuSel                    ctermbg=244
+   "hi PmenuSbar                   ctermbg=232
+   "hi PmenuThumb      ctermfg=81
 
    hi PreCondit       ctermfg=118               cterm=bold
    hi PreProc         ctermfg=118
@@ -271,4 +269,4 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
 
 "float or int as the first thing is an error
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\|^\s*int\)')   
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\|^\s*int\)')
