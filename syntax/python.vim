@@ -597,18 +597,22 @@ endif
 
 let b:current_syntax = "python"
 
-
+"syn match python
 " NOTE: @pfdevilliers added this
 " I copied this directly from the ruby.vim syntax file inorder to highlight all
 " the operators. This must offcourse be revised to only contain the operators
-" that exists in python. 
-syn match  pythonExtraOperator   "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
+" that exists in python.
+syn match  pythonExtraOperator   "\%([~!^&|*/%-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
 syn match  pythonExtraPseudoOperator  "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
 
-syn match  pythonError   "\%(\%(class\s*\)|\%(\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|=\~\|::\)"
+
+" colon colon happens all the time with numpy array slicing
+" triple equals isn't legal python
+" double ampersand and double pipe are not and and or in python
+
+syn match  pythonError   "\%(\%(class\s*\)|\%(\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|=\~\)"
 "Set the textwidth to zero which prevents vim from wrapping lines when they get too wide for java files                    
 set tw=0
 
-
-"syn match python
-
+syn match  pythonError   "\%(asdf\)"
+syn match  pythonError   "\%(++\)"  
