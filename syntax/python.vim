@@ -596,8 +596,6 @@ HiLink pythonBuiltin Builtin
 endif
 
 let b:current_syntax = "python"
-
-"syn match python
 " NOTE: @pfdevilliers added this
 " I copied this directly from the ruby.vim syntax file inorder to highlight all
 " the operators. This must offcourse be revised to only contain the operators
@@ -615,4 +613,6 @@ syn match  pythonError   "\%(\%(class\s*\)|\%(\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\
 set tw=0
 
 syn match  pythonError   "\%(asdf\)"
-syn match  pythonError   "\%(++\)"  
+syn match  pythonError   "\%(++\)"
+
+"syn match python       
