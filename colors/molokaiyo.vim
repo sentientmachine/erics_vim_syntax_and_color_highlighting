@@ -270,3 +270,5 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 "Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
 
+"float or int as the first thing is an error
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\|^\s*int\)')   
