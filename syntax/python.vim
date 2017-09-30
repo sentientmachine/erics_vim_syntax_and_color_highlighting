@@ -591,7 +591,8 @@ syn keyword pythonBuiltin apply buffer coerce intern
 
 HiLink pythonBuiltin Builtin
 
-
+  "This delcommand is required so that when this file is re-run by commands like ctag Ctrl-] and Ctrl-t 
+  "it doesn't puke on the command HiLink
   delcommand HiLink
 endif
 
