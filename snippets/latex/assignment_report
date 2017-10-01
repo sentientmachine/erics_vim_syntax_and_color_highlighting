@@ -1,0 +1,115 @@
+\documentclass{article}    %defines that this is an article
+\usepackage{graphicx}      %allows for handling of images in figures
+\usepackage{xcolor}        %allows for setting background colors
+\usepackage{listings}      %allows for tables and listing
+\usepackage{tabularx}      %awesome formatted tables
+\usepackage{color}         %for defining custom colors
+\usepackage{amsmath}       %for defining math commands
+\setlength{\parindent}{0pt}                   %turn off indenting everywhere
+\renewcommand{\familydefault}{\sfdefault}     %Reset the font
+\usepackage{tgheros}                          %This is a font many academics use.
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{greycolor}{rgb}{0.9,0.9,0.9}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{greycolor},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=t,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=lrtb
+}
+%refresher:
+%newline is two backslashes 
+
+\lstset{style=pythonstyle,
+        breaklines=true,
+        xleftmargin=0.1cm,
+        xrightmargin=0.1cm} 
+\usepackage[
+  top    = 1.50cm,
+  bottom = 1.50cm,
+  left   = 1.0cm,
+  right  = 1.5cm,
+  marginparsep   = 0pt,
+  marginparwidth = 0pt,
+  ]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\author{Name: Eric Leschinski \\Email: eric.leschinski@hotmail.com\\ Username: myusername}
+
+\date{2017-02-10}
+\lfoot{Eric Leschinski}       %left footer
+\cfoot{}                      %center footer
+\rfoot{Page \thepage}         %right footer
+
+\begin{document}              %beginning of document area
+
+\title{Data Visualization}
+\maketitle
+
+\thispagestyle{fancy}
+\begin{abstract}
+    my abstract
+\end{abstract}
+
+\section*{Part 1: totally awesome stuff }
+\subsection*{1. refromulate subspace responders }
+
+words words words
+
+\begin{lstlisting}[language=python, columns=fullflexible, caption=mytitle]
+pythoncode = 3.5
+print(foo)
+\end{lstlisting}
+
+
+\clearpage
+
+My Large Equation: 
+
+\large
+\begin{align}
+log((n - 1)!)
+\end{align}
+
+\normalsize
+
+
+
+\begin{table}[h!]
+\caption{Description of Factorial}
+\begin{tabularx}{\textwidth}{ |X|X|X| }
+  \hline
+    \textbf{expression} & \textbf{mnemonic} & \textbf{value} \\
+  \hline
+    0! & 1 & 1\\
+  \hline
+    1! & 1 & 1\\
+  \hline 
+    2!  & 1*2 & 2 \\
+  \hline
+    3!  & 1*2*3 & 6 \\
+  \hline
+    6!  & 1*2*3*4*5*6 & 720 \\
+  \hline
+\end{tabularx}
+\end{table}
+
+
+\end{document}
