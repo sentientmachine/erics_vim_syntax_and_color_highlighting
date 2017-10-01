@@ -1,0 +1,3 @@
+#print the full numpy array without ellipsis to stdout
+numpy.set_printoptions(threshold=numpy.nan)
+print(my_huge_numpy_array)
