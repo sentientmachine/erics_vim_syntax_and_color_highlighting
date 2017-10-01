@@ -1,0 +1,4 @@
+myfunction = function(){
+    print("ok")
+}
+myfunction()
