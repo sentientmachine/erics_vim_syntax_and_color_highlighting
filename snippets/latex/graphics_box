@@ -1,0 +1,69 @@
+%===Frame Within a Frame Awesome OmegaThreeSlick example:
+
+\usepackage[hidelinks]{hyperref}
+\autoref{fig:OmegaThreeSlick}.  Petal to the metal private!
+\begin{figure}[ht]
+  \textcolor{black}{\fboxrule=1pt\fbox{
+    \begin{minipage}{.5\textwidth}
+      \frame{\includegraphics[width=175pt]{omega_three_slick.png}}
+      \caption{Our Omega 3 slick will take them down.}
+      \label{fig:OmegaThreeSlick}
+    \end{minipage}
+  }}
+\end{figure}
+
+%===Three images side by side with subcaptions
+\usepackage{graphicx, xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \textcolor{black}{\fboxrule=1pt\fbox{
+        \includegraphics[width=\textwidth]{cs6242_hm2_image1.png}}}
+        \caption{A gull}
+        \label{fig:gull}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.2\textwidth}
+        \textcolor{black}{\fboxrule=1pt\fbox{
+        \includegraphics[width=\textwidth]{cs6242_hm2_image2.png}}}
+        \caption{A tiger}
+        \label{fig:tiger}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.2\textwidth}
+        \textcolor{black}{\fboxrule=1pt\fbox{
+        \includegraphics[width=\textwidth]{cs6242_hm2_image3.png}}}
+        \caption{A mouse}
+        \label{fig:mouse}
+    \end{subfigure}
+    \caption{Pictures of animals}\label{fig:animals}
+\end{figure}
+
+%===mini page left justified with border
+\usepackage{graphicx, xcolor}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{caption}
+\begin{figure}[h!]
+\begin{minipage}{.5\textwidth}\centering
+\textcolor{black}{\fboxrule=2pt\fbox{
+\includegraphics[width=200pt]{diamonds_price.png}}}
+\caption{A picture of a gull}
+\end{minipage}
+\end{figure}
+
+%===graphics box bare image, no image scaling
+\frame{\includegraphics{myimage.png}}
+
+%===graphics box, make about 60% of the pdf page width
+\frame{\includegraphics[width=400pt]{myimage.png}}
+
+%===a figure with a caption
+\begin{figure}[h!]
+  \includegraphics[width=0.5\textwidth, frame]{myimage.png}
+  \caption{A picture of the universe!}
+\end{figure}
