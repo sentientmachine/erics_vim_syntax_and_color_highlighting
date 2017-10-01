@@ -1,0 +1,34 @@
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{greycolor}{rgb}{0.9,0.9,0.9}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{sqlstyle}{
+    backgroundcolor=\color{greycolor},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true, 
+    captionpos=t,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=lrtb
+}
+\lstset{style=sqlstyle,
+        breaklines=true,
+        xleftmargin=0.1cm,
+        xrightmargin=0.1cm} 
+
+\begin{lstlisting}[language=sql, columns=fullflexible, caption=SQL to sum percentage column]
+select sum(cast(percentage as double precision) 
+from commerceanalytics.customer_profile_by_geography
+where created_date = '2017-02-02'
+\end{lstlisting}
