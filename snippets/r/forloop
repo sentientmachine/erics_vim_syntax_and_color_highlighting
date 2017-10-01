@@ -1,0 +1,17 @@
+#C style for loop, closest match
+i <- 1
+while(i < 13){
+  print(i)     #prints 1 through 12 to stdout
+  i <- i + 1
+}
+
+#iterate over a sequence:
+for (i in 1:5){    #iterate the sequence 1 through 5 on variable i 
+    print(i)       #prints five single item vectors containing a typeof integer
+    #print(typeof(i))   #this prints integer
+}
+
+#iterate over a dataframe:
+for(i in 1:nrow(dataFrame)) {
+    row <- dataFrame[i,]
+}
