@@ -1,0 +1,16 @@
+\small
+\bgroup                    %this is to contain the underscore configs to this section only
+\catcode`\_=13             %this makes it so you can type literal underscores without escape
+\def_{\textunderscore}
+\begin{tabularx}{\textwidth}{ |l|X|l| }
+  \hline
+    \textbf{header1} & \textbf{header2} & \textbf{header3} \\
+  \hline
+    stuff_1 & asdf_asdf & 0.99325 \\
+  \hline 
+    stuff_2 & asdf2_asdf2? & 1.0 \\
+  \hline
+    stuff_3 & asdf3_asdf3 ? & 2.0 \\
+  \hline
+\end{tabularx}
+\egroup
