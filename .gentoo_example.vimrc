@@ -1,432 +1,486 @@
+# /etc/skel/.bashrc
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+        # Shell is non-interactive.  Be done now!
+        return
+fi
+alias whatismyip="lynx --dump http://ipecho.net/plain | tr -d ''"
+
+# Put your fun stuff here.
+#alias angeliqe="ssh 10.0.0.10 -p 22"
+#angeliqe is on a different network so I have to go out, then in to get there:
+alias angeliqe="ssh -p 5001 localhost"
+alias angeliqe_local="ssh 10.0.0.10 -p 22"
+
+alias mbook="ssh el@10.0.0.10 -p 10722"  #Requires port forward on charity router
+#alias apollo="ssh 10.0.0.3 -p 10522"
+#alias apollo="ssh 192.168.1.6 -p 10522"
+#alias apollo="ssh 192.168.1.8 -p 10522"
+alias apollo="ssh 10.204.138.128 -p 10522"
+alias voyager="ssh -o ServerAliveInterval=30 10.0.0.14 -p 10022"
+#alias rosewill="ssh -o ServerAliveInterval=30 10.0.0.18 -p 10222"
+#alias rosewill="ssh -o ServerAliveInterval=30 192.168.1.7 -p 10222"
+#alias rosewill="ssh -o ServerAliveInterval=30 192.168.1.8 -p 10222"
+alias rosewill="ssh -o ServerAliveInterval=30 10.204.138.122 -p 10222"
+alias justhost="ssh reversf4@reverseengineerthebrain.com"
+alias ll="ls -l"
+alias ls="ls --color=auto"
+alias locate="sudo updatedb; sudo locate "
+alias paint="kolourpaint"
+alias pdf="okular"
+alias oct="octave -q"
+alias vi="vim"
+alias el="ssh -o ServerAliveInterval=30 ericlesc@69.195.124.181"  #sitelock security measure CDN redirect, use ip
+alias mac="ssh -o ServerAliveInterval=30 machines@machinesentience.com"
+alias refresh="cd /home/el/bin/migrate_blog; javac Main.java && java Main"
+alias wekacli="java -cp '.:/usr/share/weka/lib/weka.jar'"
+alias site="cd /var/www/localhost/htdocs/blog/"
+alias domco="ssh -l ubuntu -i /home/el/bin/domco/key.pem domco.us"
+alias termpix="/home/el/bin/termpix/target/debug/termpix "
+#alias awsec2="ssh -i ec2-user@54.210.206.149"  #lol don't clobber aws tool
+alias buff="ssh -X eleschinski3@buffet02.cc.gatech.edu"
+alias flv2mp4=flv2mp4
+alias redshift='PGPASSWORD=DF01jjja9N! psql "host=52.207.120.81 user=softnas dbname=softnas port=5439 sslmode=verify-ca sslrootcert=/home/el/.ssh/redshift-ssl-ca-cert.pem"'
+alias kurz_bare='PGPASSWORD=nochin4u psql "host=10.0.0.18 user=pgadmin dbname=kurz_prod port=5432"'
+alias kurz='pgcli postgres://pgadmin:nochin4u@10.0.0.18:5432/kurz_prod'
+alias sub="/home/el/bin/sublime_text_3/sublime_text"
+alias htop="htop -s Tree"
+
+alias matlab="/mnt/3tb_defiant/MATLAB_install_huge/bin/matlab -nodisplay"
+alias olddefiant="ssh el@10.204.138.134 -p 10122"  #ps weborg
+
+####################  source.mp4  start_time  end_time                      output.mp4
+alias mp4splice="ffmpeg -i $1 -ss 00:00:00 -t 00:00:00 -vcodec copy -acodec copy $2"
+
+#attempting to get a startup hook on python for modules
+#alias python="python -i ~/.pythonrc.py"
+
+
+#################  source1.mp4  source2.mp4
+# encodes source1.mp4 and source2.mp4 to intermediate1 and intermediate2.ts and joins them together into output.mp4
+alias mp4join='ffmpeg -i $1 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts; ffmpeg -i $2 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts; ffmpeg -i "concat:intermediate1.ts|intermediate2.ts" -c copy -bsf:a aac_adtstoasc output.mp4"'
+
+
+#pgcli is best thing ever
+#pgcli postgres://amjith:pa$$w0rd@example.com:5432/app_db
+
+
+
+flv2mp4(){
+    #cut off last 4 characters
+    v2=${1::-4}
+    ffmpeg -i $1 -codec copy $v2.mp4
+}
+take_screenshot(){
+    /usr/bin/python3 /home/el/bin/screenshot.py $1
+}
+alias ss=take_screenshot
+
+
+ericleschinski_connect() {
+    result=`/usr/bin/tmux has-session -t ericleschinski 2>&1`
+    #bash for trim spaces left and right
+
+    if [[ $result == *"find session ericleschinski"* ]] || [[ $result == *"no server running on"* ]]; then
+        echo -e "rebooted.. you have to login manually first using command el and password";
+        sleep 2
+        /usr/bin/tmux -2 new -s ericleschinski
+    else
+        #This command attachs us to the existing ericleschinski instance
+        /usr/bin/tmux -2 a -t ericleschinski
+    fi
+}
+machinesentience_connect() {
+    result=`/usr/bin/tmux has-session -t machinesentience 2>&1`
+    #bash for trim spaces left and right
+    #result=`echo $result | xargs`
 
-execute pathogen#infect()
-
-set nocompatible       "use the modern version of Vim, not the one backwards compatible
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'VundleVim/YouCompleteMe'
-"Plugin 'lambdalisue/vim-manpager'
-Plugin 'scrooloose/syntastic'
-Plugin 'VundleVim/neomake'
-Plugin 'VundleVim/YouCompleteMe'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/vimproc.vim'
-"Plugin 'VundleVim/Nvim-R'
-Plugin 'martingms/vipsql'
-Plugin 'VundleVim/dbext.vim'
-Plugin 'scrooloose/nerdcommenter'    "Enables <leader> cc to comment visual selection neatly 
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" END VUNDLE THINGS
-
-
-"======== Good for windows users and linux users who want to paste 
-"with Ctrl-V to snap it in to paste mode automatically so it doesn't mess up 'jk'
-
-if &term =~ "xterm.*"
-    let &t_ti = &t_ti . "\e[?2004h"
-    let &t_te = "\e[?2004l" . &t_te
-    function XTermPasteBegin(ret)
-        set pastetoggle=<Esc>[201~
-        set paste
-        return a:ret
-    endfunction
-    map <expr> <Esc>[200~ XTermPasteBegin("i")
-    imap <expr> <Esc>[200~ XTermPasteBegin("")
-    vmap <expr> <Esc>[200~ XTermPasteBegin("c")
-    cmap <Esc>[200~ <nop>
-    cmap <Esc>[201~ <nop>
-endif
-"=====END =======
-
-
-"The following three lines map Ctrl+s to save in vi.  You can comment 
-"these out, it has nothing to do with syntax highlighting or colors.
-
-" optional lines to turn on pressing F2 to toggle paste mode
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
-
-map <f12> :!ctags -R .<cr>
-nnoremap <f5> :redraw!<cr>
-
-"This is for ctags, Ctrl-t and Ctrl-] is hard to hit so I make that Ctrl h and Ctrl l
-nnoremap <c-h> <c-]>
-nnoremap <c-l> <c-t>
-
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
-:imap <c-s> <Esc><c-s>
-
-
-
+    if [[ $result == *"find session machinesentience"* ]] || [[ $result == *"no server running on"* ]] || [[ $result == *"no sessions"* ]]; then
+        echo -e "rebooted.. you have to login manually first using command mac and password";
+        sleep 2
+        /usr/bin/tmux -2 new -s machinesentience
+    else
+        #This command attachs us to the existing machinesentience instance
+        /usr/bin/tmux -2 a -t machinesentience
+    fi
+}
+
+#tmux is kickass, use command tmux to make a new screen and ericleschinski to get in, then use 'e' to attach.
+alias e=ericleschinski_connect
+alias m=machinesentience_connect
+
+
+
+alias ev3="ssh root@10.0.0.16 -p 22"
+alias ajax="ssh 10.0.0.19 -p 10622"
+alias rasp="ssh pi@10.0.0.17"
+alias fire="ssh 10.0.0.3 -p 10522 'cd /workspace/MissileDefense; sudo /usr/bin/python /workspace/MissileDefense/retaliation.py fire'"
+alias halt="sudo halt"
+alias reboot="sudo reboot"
+
+
+
+
+HISTSIZE=100000
+HISTFILESIZE=200000
+
+#I like defiant to have a cool blue bold console prompt:
+PS1='\[\033[1;36m\]\u@defiant\[\033[1;36m\] \w \n\$\[\033[00m\] '
+
+export SVN_EDITOR="/usr/bin/vim"
+
+#this makes it so that pressing ctrl-d in the terminal doesn't close konsole until you do it twice
+export IGNOREEOF=2
+
+#export PYTHONPATH="/usr/lib64/python2.7/site-packages"
+#export PYTHONPATH="/home/el/lib/python2.7/site-packages"
+export PYTHONPATH=$PYTHONPATH:/home/el/bin:/home/el/mo_money
+
+export EDITOR="/usr/bin/vim"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval $(dircolors -b $HOME/.dircolors)
+
+#I think this maps Ctrl-S in vim to 'save file'
+bind -r '\C-s'
+stty -ixon
+
+# Reset
+#Color_Off='\e[0m'       # Text Reset
+#Excellent help with whole color spectrum bash colors:
+
+#https://askubuntu.com/questions/558280/changing-colour-of-text-and-background-of-terminal
+#https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+
+
+#== SHOW THE RAINBOW OF BACKGROUND COLORS IN BASH ===============================
+##!/bin/bash
+#for((i=16; i<256; i++)); do
+#    printf "\e[48;5;${i}m%03d" $i;
+#    printf '\e[0m';
+#    [ ! $((($i - 15) % 6)) -eq 0 ] && printf ' ' || printf '\n'
+#done
+
+
+#pretty lightish blue: 0;96
+#38 is code for background
+#48 is code for foreground
+#BackgroundWhite =  \e[48;5;255m
+#BackgroundGreen =  \e[48;5;046m
+
+# Regular Colors
+#Black='\e[0;30m'        # Black
+#White='\e[0;37m'        # White
+#Red='\e[0;31m'          # Red
+#Green='\e[0;32m'        # Green
+#Blue='\e[0;34m'         # Blue
+#Yellow='\e[0;33m'       # Yellow
+#Purple='\e[0;35m'       # Purple
+#Cyan='\e[0;36m'         # Cyan
+#Pink='\e[01;38;5;213m'  # Pink
+
+# Bold is signified by code [1m  (note the 1 before the 30m)
+#justbold = '\e[1m'       # Bold
+
+#BBlack='\e[1;30m'       # Black
+#BRed='\e[1;31m'         # Red
+#BGreen='\e[1;32m'       # Green
+#BYellow='\e[1;33m'      # Yellow
+#BBlue='\e[1;34m'        # Blue
+#BPurple='\e[1;35m'      # Purple
+#BCyan='\e[1;36m'        # Cyan
+#BWhite='\e[1;37m'       # White
+
+# Underline
+#UBlack='\e[4;30m'       # Black
+#URed='\e[4;31m'         # Red
+#UGreen='\e[4;32m'       # Green
+#UYellow='\e[4;33m'      # Yellow
+#UBlue='\e[4;34m'        # Blue
+#UPurple='\e[4;35m'      # Purple
+#UCyan='\e[4;36m'        # Cyan
+#UWhite='\e[4;37m'       # White
+
+# Background
+#On_Black='\e[40m'       # Black
+#On_Red='\e[41m'         # Red
+#On_Green='\e[42m'       # Green
+#On_Yellow='\e[43m'      # Yellow
+#On_Blue='\e[44m'        # Blue
+#On_Purple='\e[45m'      # Purple
+#On_Cyan='\e[46m'        # Cyan
+#On_White='\e[47m'       # White
+
+# High Intensity
+#IBlack='\e[0;90m'       # Black
+#IRed='\e[0;91m'         # Red
+#IGreen='\e[0;92m'       # Green
+#IYellow='\e[0;93m'      # Yellow
+#IBlue='\e[0;94m'        # Blue
+#IPurple='\e[0;95m'      # Purple
+#ICyan='\e[0;96m'        # Cyan
+#IWhite='\e[0;97m'       # White
+
+# Bold High Intensity
+#BIBlack='\e[1;90m'      # Black
+#BIRed='\e[1;91m'        # Red
+#BIGreen='\e[1;92m'      # Green
+#BIYellow='\e[1;93m'     # Yellow
+#BIBlue='\e[1;94m'       # Blue
+#BIPurple='\e[1;95m'     # Purple
+#BICyan='\e[1;96m'       # Cyan
+#BIWhite='\e[1;97m'      # White
+
+# High Intensity backgrounds
+#On_IBlack='\e[0;100m'   # Black
+#On_IRed='\e[0;101m'     # Red
+#On_IGreen='\e[0;102m'   # Green
+#On_IYellow='\e[0;103m'  # Yellow
+#On_IBlue='\e[0;104m'    # Blue
+#On_IPurple='\e[0;105m'  # Purple
+#On_ICyan='\e[0;106m'    # Cyan
+
+TERM=xterm-256color
+
+#purpose of vr is to set the 'v' to that file and r to run it in the
+#selected filename, for example  vr python myfile.py
+set_v_and_r() {
+    #this is a bit of a haaaxx because it's forcing python, but is for
+    #java and others later on, I expect to run java programs good like this
+    name_of_compiler=$1
+    name_of_file=$2
+    cp /home/el/bin/wrapper_main_python.py .
+    mv ./wrapper_main_python.py ./wrapper_${name_of_file}
+    name_of_file_no_py=${name_of_file::-3}
+    echo "import $name_of_file_no_py" >> wrapper_${name_of_file}
+    alias v="vi $name_of_file"
+    alias r="$name_of_compiler wrapper_$name_of_file"
+}
+alias vr=set_v_and_r
+
+set_v_and_r_with_python() {
+    name_of_compiler="python"
+    name_of_file=$1
+    cp /home/el/bin/wrapper_main_python.py .
+    mv ./wrapper_main_python.py ./wrapper_${name_of_file}
+    name_of_file_no_py=${name_of_file::-3}
+    echo "import $name_of_file_no_py" >> wrapper_${name_of_file}
+    alias v="vi $name_of_file"
+    alias c="cat $name_of_file"
+    alias r="$name_of_compiler wrapper_$name_of_file"
+}
+alias vrp=set_v_and_r_with_python
+
+
+
+whenchanged_cpp_function() {
+    file_to_watch=$1
+    #date +%H:%M:%S
+    #g++ -o s $file_to_watch && ./s;
+    when-changed -s $file_to_watch "date +%H:%M:%S; g++ -o s $file_to_watch && ./s; printf -- '\n------ C Plus Plus ------- '";
+}
+alias whenchanged_cpp=whenchanged_cpp_function
+
+whenchanged_perl_function() {
+    file_to_watch=$1
+    #date +%H:%M:%S
+    #g++ -o s $file_to_watch && ./s;
+    when-changed -s $file_to_watch "date +%H:%M:%S; perl $file_to_watch; printf -- '\n------ Perl ------- '";
+}
+alias whenchanged_perl=whenchanged_perl_function
+
+whenchanged_m_function() {
+    file_to_watch=$1
+    #date +%H:%M:%S
+    when-changed -s $file_to_watch "date +%H:%M:%S; octave -q $file_to_watch; printf -- '\n------ Octave ------- '";
+}
+alias whenchanged_m=whenchanged_m_function
+
+whenchanged_php_function() {
+    file_to_watch=$1
+    #date +%H:%M:%S
+    when-changed -s $file_to_watch "date +%H:%M:%S; php $file_to_watch; printf -- '\n------ PHP ------- '";
+}
+alias whenchanged_php=whenchanged_php_function
+
+whenchanged_c_function() {
+    file_to_watch=$1
+    #date +%H:%M:%S
+    #g++ -o s $file_to_watch && ./s;
+    when-changed -s $file_to_watch "date +%H:%M:%S; cc -o s $file_to_watch && ./s; printf -- '\n------ C ------- '";
+}
+alias whenchanged_c=whenchanged_c_function
+
+whenchanged_python_function() {
+    #python default to python2.7
+    file_to_watch=$1
+    when-changed -s $file_to_watch "date +%H:%M:%S; python $file_to_watch; printf -- '------ PYTHON2 ------- '";
+}
+alias whenchanged_python=whenchanged_python_function
+
+whenchanged_python2_function() {
+    #python default to python2.7
+    file_to_watch=$1
+    date +%H:%M:%S
+    python2c $file_to_watch;
+    printf -- '\n ------ PYTHON2.7 ------- ';
+    when-changed $file_to_watch "date +%H:%M:%S; python2c $file_to_watch; printf -- '------ PYTHON2.7 ------- '";
+}
+alias whenchanged_python2=whenchanged_python2_function
+
+whenchanged_text_function() {
+    #load file and use that as re-runner
+    file_to_watch=$1
+    date +%H:%M:%S
+    directory=`sed -n '2p' < $file_to_watch`
+    echo $directory
+    command_to_rerun=`sed -n '3p' < $file_to_watch`
+    fil_1=`sed -n '4p' < $file_to_watch`
+    fil_2=`sed -n '5p' < $file_to_watch`
+    fil_3=`sed -n '6p' < $file_to_watch`
+    fil_4=`sed -n '7p' < $file_to_watch`
+    fil_5=`sed -n '8p' < $file_to_watch`
+    eval $command_to_rerun
+    printf -- '\n ------ RERUN ------- ';
+    #when-changed $file_to_watch "date +%H:%M:%S; python2c $file_to_watch; printf -- '------ PYTHON2.7 ------- '";
+    when-changed $file_to_watch $fil_1 $fil_2 $fil_3 $fil_4 $fil_5 -c "date +%H:%M:%S; $command_to_rerun; printf -- '------ PYTHON2.7 ------- '";
+}
+alias whenchanged_text=whenchanged_text_function
+
+
+whenchanged_python3_function() {
+    #python default to python3
+    file_to_watch=$1
+    date +%H:%M:%S
+    python3 $file_to_watch;
+    printf -- '\n ------ PYTHON3 ------- ';
+    when-changed $file_to_watch "date +%H:%M:%S; python3 $file_to_watch; printf -- '------ PYTHON3 ------- '";
+}
+alias whenchanged_python3=whenchanged_python3_function
+whenchanged_javascript_5() {
+    file_to_watch=$1
+    when-changed -s $file_to_watch "date +%H:%M:%S; node $file_to_watch; printf -- '------ Javascript 5 -------'";
+}
+alias whenchanged_javascript_5=whenchanged_javascript_5
+
+whenchanged_javascript_6() {
+    file_to_watch=$1
+    when-changed -s $file_to_watch "date +%H:%M:%S; babel-node $file_to_watch; printf -- '------ Javascript 6 -------'";
+}
+alias whenchanged_javascript_6=whenchanged_javascript_6
+
+whenchanged_bash() {
+    file_to_watch=$1
+    when-changed -s $file_to_watch "date +%H:%M:%S; /bin/bash $file_to_watch; printf -- '------ Bash -------'";
+}
+alias whenchanged_bash=whenchanged_bash
+
+whenchanged_java() {
+    file_to_watch=$1
+    name_of_file=`cut -d "." -f 1 <<< "$file_to_watch"`
+    #echo $1
+    #echo $file_to_watch
+    #echo $name_of_file
+
+    when-changed -s $file_to_watch "date +%H:%M:%S; javac $file_to_watch && java $name_of_file; printf -- '------ Java -------'";
+}
+alias whenchanged_java=whenchanged_java
+
+
+compile_run_wait(){
+    extension=`cut -d "." -f 2 <<< $1`
+    #printf $extension
+
+    if [ $extension == "js" ]; then                                                                              
+        whenchanged_javascript_5 $1
+    elif [ $extension == "py" ]; then
+        #whenchanged_python3 $1
+        whenchanged_python2 $1
+    elif [ $extension == "txt" ]; then
+        whenchanged_text $1
+    elif [ $extension == "sh" ]; then
+        whenchanged_bash $1
+    elif [ $extension == "java" ]; then
+        whenchanged_java $1
+    elif [ $extension == "cpp" ]; then
+        whenchanged_cpp $1
+    elif [ $extension == "c" ]; then
+        whenchanged_c $1
+    elif [ $extension == "m" ]; then
+        whenchanged_m $1
+    elif [ $extension == "php" ]; then
+        whenchanged_php $1
+    elif [ $extension == "pl" ]; then
+        whenchanged_perl $1
+    fi  
+}
+
+
+alias ifdown=ifdown
+alias ifup=ifup
+
+ifdown() { 
+    /sbin/ifconfig $1 down 
+    /etc/init.d/net.$1 stop 
+    return 0 
+} 
+
+ifup() { 
+    /sbin/ifconfig $1 up 
+    /etc/init.d/net.$1 start 
+    return 0 
+} 
+
+
+alias pro=compile_run_wait
+
+export CLASSPATH="$CLASSPATH:/home/el/bin/ml_cs7641_project1/lib/libsvm.jar"
+export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'
+
+eval "$(rbenv init -)"
+
+#export MANPAGER="/usr/bin/most"
+#export MANPAGER=/usr/bin/vimmanpager
+
+#export PAGER=/usr/local/bin/vimpager 
+#export MANPAGER="/usr/bin/vim -c MANPAGER -"
+
+
+export PAGER=/usr/bin/vimpager 
+alias less=$PAGER 
+alias zless=$PAGER 
+
+#export MANPAGER="vimpager"
+
+#alias python="python2c"
+#alias python3="python3c"
+alias python2="python2c"
+
+set -o noclobber    #make it so stream redirection > does not overwrite without prompt
+alias mv="mv -i"    #make mv interactive so if overwrite, then prompt  -i overrides the former so -f will over-override the former
+alias cp="cp -i"    #make cp interactive so if overwrite, then prompt. -i overrides the former so -f will over-override
+
+#make it so I can login remotely through ISP's blocking SSH.
+#ssh -fN -R 10100:localhost:53 reversf4@reverseengineerthebrain.com > /home/el/tmp.txt
+
+function vipsql {
+    vim -c 'setlocal buftype=nofile | VipsqlOpenSession '$@
+}
 
-syntax on
-set background=dark
-set hlsearch
-"Show line numbers
-set nu
-" set smartindent  "smartindent doesn't take care of python hashtag comments correctly, use cindent
-set cindent
-"literal tabs should be shown as 4 spaces wide.
-set tabstop=4
-set shiftwidth=4
-"when you press tabs it expands into tabstop spaces
-set expandtab
-set cursorline
-"Textwidth defines how wide the line can be in characters before vim automatically adds a newline.
-"I don't like autowrapping in my code files, but do where I write things.  Set to 0 to disable
-"shortcut is :set tw=0
-set textwidth=0
-
-
-
-filetype on
-filetype plugin indent on
-
-"function RestoreViewPane()
-    "This mission critical workaround hack tells vim to restore cursor 
-    "to the last line.  But don't run it on man pages.
-    "Be sure to set: 'Thip, crinkle, sploit' to 'stopit, just be right'.  lolz
-    "Also it could be the functionality is disabled in your /etc/vim/vimrc or 
-    "your ~/.viminfo is owned by root.  
-    "http://askubuntu.com/questions/223018/vim-is-not-remembering-last-position
-    "autocmd BufReadPost *
-    "  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    "  \   exe "normal! g`\"" |
-    "  \ endif
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
-
-au BufReadPost,BufNewFile *.java colorscheme monokai
-au BufReadPost,BufNewFile *.cpp colorscheme molokaicpp
-au BufReadPost,BufNewFile *.py colorscheme molokaiyo
-au BufReadPost,BufNewFile *.html colorscheme monokai
-au BufReadPost,BufNewFile *.twig colorscheme koehler 
-au BufReadPost,BufNewFile *.css colorscheme slate
-au BufReadPost,BufNewFile *.js colorscheme slate2
-au BufReadPost,BufNewFile *.json colorscheme monokambat
-au BufReadPost,BufNewFile *.php colorscheme molokaiyophp                                                                       
-au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r
-au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r
-au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab
-au BufReadPost,BufNewFile *.Rmd colorscheme molokaiyo_r
-au BufWinEnter,FileType vim colorscheme molokai
-au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
-au BufWinEnter,FileType tex colorscheme molokaiyo_tex
-
-" Default line highlighting for unknown filetypes
-hi String ctermfg=140
-hi CursorLine ctermbg=235
-hi CursorLine guibg=#D3D3D3 cterm=none
-
-"What follows are optional things, I like them
-
-au BufNewFile,BufRead *.py 
-        \ set tabstop=4 
-"        \ set shiftwidth=4     "aand fedora/gentoo doesn't like this parameter, remove this line.
-        \ set expandtab 
-        \ set autoindent 
-        \ set fileformat=unix
-
-" Commenting blocks of code.
-" This specifies the comment character when specifying block comments.
-autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
-autocmd FileType sh,ruby,python,php let b:comment_leader = '#'
-autocmd FileType conf,fstab       let b:comment_leader = '#'
-autocmd FileType tex              let b:comment_leader = '%'
-autocmd FileType mail             let b:comment_leader = '>'
-autocmd FileType vim              let b:comment_leader = '"'
-autocmd FileType r                let b:comment_leader = '#'
-
-" This command lets it so if you press F10, it runs the python program
-" This will need to be adapted so it runs any program correctly
-nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-
-
-"this makes it so you can Shift-V highlight lots of text then press ,cc to
-"comment it or ,cu to uncomment.  
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-"BUT WAIT USE THIS builtin comment method, ITS BETTER
-"Put your cursor where you want the comment block to go
-"press Ctrl-Q (alias for Ctrl-Shift-V), arrow down, press shift+I (to insert before)
-"type the characters, like " for comment.  Press esc (or jk), give it a second.
-"to uncomment, press Ctrl-Q, Arrow down, press x for delete.  Whammo awesome  
-
-
-
-"These extra commands tell syntastic to ignore the following kinds of warnings                                                               
-let g:syntastic_quiet_messages = { "regex": 'superfluous' }
-let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods' }
-
-"I like the vertical bar on insert mode, others do not like.  You decide.
-let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1 
-let g:syntastic_auto_loc_list = 1 
-let g:syntastic_check_on_wq = 0       "Important that this is 0, or it will error out.
-let g:syntastic_error_symbol = 'x'    "replace with any character to denote an error.
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_python_pylint_post_args="--max-line-length=95"
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }    "Disable syntastic on vi start for python
-let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }      "Disable syntastic on vi start for java 
-let g:syntastic_mode_map = { 'passive_filetypes': ['r'] }         "Disable syntastic on vi start for java 
-
-"let g:syntastic_mode_map = { 'mode': 'active',
-"     \ 'active_filetypes': ['r', 'python'], }
-
-"let g:syntastic_enable_r_lintr_checker = 1
-"let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(120))"
-
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_r_checkers=['lintr']
-"let g:syntastic_r_exec = '/usr/bin/R'
-
-"let g:syntastic_r_lint_styles = 'list(spacing.indentation.notabs, spacing.indentation.evenindent)'
-
-" This should cause YouCompleteMe popup method preview to automatically close
-" after insertion.
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" Map the command :s to :SyntasticToggleMode
-:command Sd SyntasticToggleMode
-:command Sc w | SyntasticCheck
-
-" let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods\|redefined-outer-name\|invalid-name\|too-many-public-methods\|unused-wildcard-import\|wildcard-import\|trailing-whitespace\|bare-except\|C0103\|R0903\|C0324\|C0321\|C0111\|R0201' }
-
-let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods\|redefined-outer-name\|invalid-name\|too-many-public-methods\|unused-wildcard-import\|wildcard-import\|trailing-whitespace\|bare-except\|broad-except\|rawtypes\|missing-docstring\|unused-import\|bad-continuation\|attribute-defined-outside-init\|line-too-long\|bad-whitespace\|protected-access\|too-many-locals\|too-many-statements\|unused-variable\|no-self-use\|too-many-branches\|too-many-return-statements\|too-many-arguments\|E265\|E303\|E221\|E202\|E262\|E501\|E302\|W391\|E302\|F401\|E251\|E231\|E502\|E128\|E125\|E261\|E225\|W293\|W291\|E712\|E127\|E701\|unnecessary-pass\|multiple-statements\|unused-argument\|E402\|F403\|unidiomatic-typecheck\|relative-import\|too-many-lines\|E401\|too-many-function-args\|global-statement\|E116' }
-
-let g:ycm_autoclose_preview_window_after_completion=2
-"let g:ycm_path_to_python_interpreter='/usr/bin/python2'
-let g:ycm_path_to_python_interpreter='/usr/bin/python'
-"let g:ycm_path_to_r_interpreter='/usr/bin/Rscript'
-let g:ycm_auto_trigger = 1
-
-"This one is for java, for letting us absorb what is under the lib directory
-let g:syntastic_java_javac_classpath=".:./lib/*"
-
-"This makes it so pressing enter on a selection selects it.
-:inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
-
-
-"The list of filetypes for which youcompleteme (including path completion) should not load                                     
-let g:ycm_filetype_blacklist = {
-      \ 'javascript' : 1,
-      \ 'c' : 1,
-      \ 'notes' : 1,
-      \ 'vim' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'pandoc' : 1,
-      \ 'infolog' : 1,
-      \ 'mail' : 1,
-      \ 'php' : 1,
-      \ 'markdown' : 1
-      \}
-      " 'sh' : 1,      "It was fucking up on sh before, but now path completion in quotes is good
-      " 'java' : 1,    "It was fucking up on java before, but now path completion in quotes is good
-
-
-" let g:syntastic_java_javac_classpath=".:./lib/*"
-" This searches for a .vim.custom file in the current directory and applies
-" it if it exists.
-if filereadable(".vim.custom")
-    so .vim.custom
-endif
-
-
-" Prevent vim from hanging during paste of huge text
-if has('arabic')
-     set noarabicshape
-endif
-
-"On a PC, remap the keys that the default Alt-k through Alt-h map to, to
-"the correct window remap commands.
-nnoremap <A-Up> :wincmd k<cr>
-nnoremap <A-Down> :wincmd j<cr>
-nnoremap <A-Left> :wincmd h<cr>
-nnoremap <A-Right> :wincmd l<cr>
-
-map <Esc>k :wincmd k<cr>
-map <Esc>j :wincmd j<cr>
-map <Esc>l :wincmd l<cr>
-map <Esc>h :wincmd h<cr>
-
-"In a Mac, remap the keys that the default option-k through option-h map to to
-"the correct window remap commands
-"map ˚ :wincmd k<cr>
-"map ∆ :wincmd j<cr>
-"map ¬  :wincmd l<cr>
-"map ˙  :wincmd h<cr>
-"nnoremap <Esc>[D :wincmd k<cr>
-"nnoremap <Esc>[C :wincmd j<cr>
-"nnoremap <Esc>[A :wincmd l<cr>
-"nnoremap <Esc>[B :wincmd h<cr>
-
-:command V vimshell
-
-
-"This command makes it so that pressing enter after a #mycomment or
-"//mycomment does not add another comment on the next line
-"au BufNewFile,BufRead * set formatoptions-=r
-"What the hell this doesn't stick!!!
-set formatoptions-=r
-
-
-"This sets it so that new tabs in Konsole get the name of the file.
-"let &titlestring = $USER . "@" . hostname() . " " . expand("%:p")
-let &titlestring = expand("%:p")
-if &term == "screen"
-  set t_ts=^[k
-  set t_fs=^[\
-endif
-if &term == "screen" || &term == "xterm"
-  set title
-endif
-
-:imap jk <c-c>
-:nnoremap K <PageUp>
-:nnoremap J <PageDown>
-:nnoremap c J
-
-":inoremap      <Esc>    <NOP>
-":noremap       <Esc>    <NOP>
-
-nnoremap <C-j> <Esc>
-inoremap <C-j> <Esc>
-
-"command Ru execute "!python %"
-nnoremap ru execute "!python %"
-
-"Open a cheat sheet
-"autocmd FileType html split | edit /home/el/.vim/cheatsheets/html.txt
-
-
-"nnoremap <F1> :split<Esc>:edit &cheatsheet_file<CR>
-
-autocmd FileType html nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets/html.txt<CR>
-autocmd FileType r nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets/r.txt<CR>
-autocmd FileType python nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets/python.txt<CR>
-autocmd FileType java nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets/java.txt<CR>
-
-
-command LatexTable :r ~/.vim/snippets/latex/LatexTable.txt
-
-:source /home/el/.vim/menu.vim
-:set wildmenu
-:set cpo-=<
-:set wcm=<C-Z>
-:map <C-n> :emenu <C-Z>
-:aunmenu Edit
-
-:nmenu Snippet.Add\ Var         wb"zye:menu! Words.<C-R>z <C-R>z<CR>
-
-:menu Snippet.Change\ Colorscheme  :colorscheme default<CR>
-:menu Snippet.Insert\ Dummy\ Text  :i<CR>asdf<CR><Esc>
-
-
-let g:tex_flavor = "latex"
-
-
-"This is great for a proof of concept in writing my own highlighter:
-"When doing a / search, then pressing n, highlight the block you're on and blinking red
-"to draw our eyes there.  This rewires n and N to do the highlighing.
-nnoremap <silent> n   n:call HLNext(0.4)<cr>
-nnoremap <silent> N   N:call HLNext(0.4)<cr>
-highlight WhiteOnRed ctermfg=red ctermbg=red
-function! HLNext (blinktime)
-    let [bufnum, lnum, col, off] = getpos('.')                                                                               
-    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    let target_pat = '\c\%#\%('.@/.'\)'
-    let ring = matchadd('WhiteOnRed', target_pat, 101)
-    redraw
-    exec 'sleep ' . float2nr(a:blinktime * 500) . 'm'
-    call matchdelete(ring)
-    redraw
-endfunction
-
-
-"Automatically update the ctags file when you write:
-function! DelTagOfFile(file)
-  let fullpath = a:file
-  let cwd = getcwd()
-  let tagfilename = cwd . "/tags"
-  let f = substitute(fullpath, cwd . "/", "", "")
-  let f = escape(f, './')
-  let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
-  let resp = system(cmd)
-endfunction
-
-function! UpdateTags()
-  let f = expand("%:p")
-  let cwd = getcwd()
-  let tagfilename = cwd . "/tags"
-  let cmd = 'ctags -a -f ' . tagfilename . ' --c++-kinds=+p --fields=+iaS --extra=+q ' . '"' . f . '"'
-  call DelTagOfFile(f)
-  let resp = system(cmd)
-endfunction
-"Specify what files the ctag update works on:
-autocmd BufWritePost *.py,*.h,*.c call UpdateTags()
-
-"Pressing the asterisk shouldn't jump, and also shouldn't add an item to the jumplist                                          
-nnoremap * :keepjumps normal! mi*`i<CR>
 
 #This line makes it so when you type up arrow or Ctrl+P on the commandline it shows history
 #but does not show duplicates.  It keeps them in history, just doesn't show them
-export HISTCONTROL=ignoreboth:erasedups 
+export HISTCONTROL=ignoreboth:erasedups
 
+#PYTHONSTARTUP only applies to interactive mode, not when you run it like python whatever.py
+#export PYTHONSTARTUP=/home/el/.pythonrc.py
