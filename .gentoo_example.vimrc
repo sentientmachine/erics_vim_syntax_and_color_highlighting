@@ -49,8 +49,8 @@ alias termpix="/home/el/bin/termpix/target/debug/termpix "
 #alias awsec2="ssh -i ec2-user@54.210.206.149"  #lol don't clobber aws tool
 alias buff="ssh -X eleschinski3@buffet02.cc.gatech.edu"
 alias flv2mp4=flv2mp4
-alias redshift='PGPASSWORD=DF01jjja9N! psql "host=52.207.120.81 user=softnas dbname=softnas port=5439 sslmode=verify-ca sslrootcert=/home/el/.ssh/redshift-ssl-ca-cert.pem"'
-alias kurz_bare='PGPASSWORD=nochin4u psql "host=10.0.0.18 user=pgadmin dbname=kurz_prod port=5432"'
+#alias redshift='PGPASSWORD=asdfasdf psql "host=52.207.120.81 user=softnas dbname=softnas port=5439 sslmode=verify-ca sslrootcert=/home/el/.ssh/redshift-ssl-ca-cert.pem"'
+#alias kurz_bare='PGPASSWORD=asdfasdf psql "host=10.0.0.18 user=pgadmin dbname=kurz_prod port=5432"'
 alias kurz='pgcli postgres://pgadmin:nochin4u@10.0.0.18:5432/kurz_prod'
 alias sub="/home/el/bin/sublime_text_3/sublime_text"
 alias htop="htop -s Tree"
