@@ -48,7 +48,7 @@ php files:
 
 ![Imgur](http://i.imgur.com/EzfU9vl.png)
 
-man files: 
+man files (`man 3 printf`)
 
 ![Imgur](http://i.imgur.com/gpC5GK4.png)
 
