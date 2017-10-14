@@ -14,8 +14,8 @@ print("the aliens are on route, we must prepare")
 class MyClass(penguin):
     def __init__(self, *args):
         self.x = 10
-
-sys.path.append("mypath")
+if (mode=0777):
+    sys.path.append("mypath")
 execfile("/home/el/tuvok.py");
 
 def drop_the_caffeine_and_crack_pipe_dont_make_me_taze_you():
