@@ -25,7 +25,7 @@ JAVA:
 
 C++:
 
-![Imgur](https://i.imgur.com/nGQiNMX.png)
+![Imgur](https://i.imgur.com/yGgAGrj.png)
 
 
 HTML:
