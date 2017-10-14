@@ -10,7 +10,7 @@
                                                                                         
 set background=dark                                                                     
 set cursorline                                                                          
-let g:colors_name="molokai"                                                             
+let g:colors_name="molokaiyo_sh"                                                             
                                                                                         
 " Basic Layout {{{                                                                      
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
@@ -241,14 +241,27 @@ hi Visual term=reverse cterm=reverse guibg=Grey
 
 "Kickass things follow, bigly
 
-#It says python, but it's for bash.... Changing as needed.
-
 highlight EricsCustomPythonMatcherHighlights ctermbg=24 guibg=red
+
+"Any amount of letters or numbers with a space and equals sign is a big rooky fail
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#\s]\+\s\+=\s*\)')
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#\s]\+=\s\+\)')
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[a-zA-Z0-9]\+\s\+=\s*\)')
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[a-zA-Z0-9]\+=\s\+\)')
+
+"The word print is wrong, it's echo or printf
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(print\s\+\)')
+
+"The word pass isn't right, highlight that as an error
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^\s*pass$\)')
 
 "This instruction puts a teal background around the words: 'else if' because in python else if is a syntax error
 "Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
 "The \z crap determines where the beginning and ending of the selection go.  Fucking kickass
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')  
+
+"exit command doesn't take left parenthesis
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*exit(\)')  
 
 "Dr Haaxxxx!  this fails....
 "This instruction puts teal background (the same color scheme specified for extra whitespace)
@@ -257,25 +270,26 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
 
 "Purpose of this is to highlight red any string that starts with single quote and ends with double quote
 "To escape a literal single quote you use two of them.  AAAHHH HAHAHA
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*''[a-z\-_{}]*"\)')
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*''[a-z\-_{}]*"\)')
 
 "Purpose of this is to highlight red any string that starts with double quote and ends with single quote
 "To escape a literal single quote you use two of them.  AAAHHH HAHAHA
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*"[a-z\-_{}]*''\)')
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*"[a-z\-_{}]*''\)')
 
 
 "Purpose of this is to highlight teal any string that has ampersand ampersand (invalid python)
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 
 "Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
 
 "float or int as the first thing is an error
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\s\|^\s*int\s\)')
 
-"incorrectly labelled true or false is an error
+"incorrectly labelled True or False is an error
 "This false positives when it's in a block comment with three doublequotes
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*true\|^[^#]*false\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*True\|^[^#]*False\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*TRUE\|^[^#]*FALSE\)')
 
 "Invisible tabs at beginning of line are evil
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\t\)')
