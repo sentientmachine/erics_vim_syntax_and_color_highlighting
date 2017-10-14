@@ -12,6 +12,15 @@ done
 
 exit 1
 
+#Positional parameters $1,$2,$3 ... and their corresponding array representation, count and IFS expansion $@, $#, and $*.
+#$-    current options set for the shell.
+#$$    pid of the current shell (not subshell)
+#$_    most recent parameter (or the abs path of the command to start the current shell immediately after startup)
+#$IFS  the (input) field separator
+#$?    most recent foreground pipeline exit status
+#$!    PID of the most recent background command
+#$0    name of the shell or shell script
+
 echo 'pr 1/3.' | gnuplot        #lolz
 
 echo 'print( 1./3. )' | python   #You clever bugger, inject code into python
