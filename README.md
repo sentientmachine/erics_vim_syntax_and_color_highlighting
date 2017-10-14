@@ -50,6 +50,20 @@ php files:
 
 man files (`man 3 printf`)
 
+    $ man man
+    1 Executable programs or shell commands
+    2 System calls (functions provided by the kernel)
+    3 Library calls (functions within system libraries)
+    4 Special files (usually found in /dev)
+    5 File formats and conventions eg /etc/passwd
+    6 Games
+    7 Macro packages and conventions eg man(7), groff(7).
+    8 System administration commands (usually only for root)
+    9 Kernel routines [Non standard]
+
+https://www.linuxquestions.org/questions/linux-general-1/how-is-%27man-3-printf%27-different-from-%27man-printf%27-30907
+
+
 ![Imgur](http://i.imgur.com/gpC5GK4.png)
 
 json files:
@@ -609,6 +623,20 @@ Test it with a cpp file:
         return to_string(598);
     }
 
+
+
+Test it with a bash file:
+---------
+
+    #!/bin/bash
+    STUFFI=9
+    if [ $STUFFI == "10" ]; then
+        echo "yes";
+    elif [ $STUFFI == "9" ]; then
+        echo "maybe";
+    else
+        echo "no";
+    fi
 
 
 
