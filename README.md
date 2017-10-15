@@ -154,7 +154,7 @@ Put this code at the bottom of your .vimrc, create it if it doesn't exist:
     
     "au BufNewFile,BufRead *.py 
     "        \ set tabstop=4 
-    "        \ set shiftwidth=4     "aand fedora doesn't like this parameter, remove this line.
+    "        \ set shiftwidth=4     "and fedora doesn't like this parameter, remove this line.
     "        \ set textwidth=79 
     "        \ set expandtab 
     "        \ set autoindent 
