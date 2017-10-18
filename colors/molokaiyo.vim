@@ -1,8 +1,8 @@
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" Modified by: Steve Losh <steve@stevelosh.com>
-"
+" Vim color file                                                                                                               
+"                                                                                                                              
+" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
+" Modified by: Steve Losh <steve@stevelosh.com>                                                                                
+"                                                                                                                              
 " Fixer upper-er Eric Leschinski
 
 
@@ -60,6 +60,7 @@ hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold
 hi EasyMotionShade  guifg=#444444 guibg=bg gui=bold
 hi Directory       guifg=#A6E22E               gui=bold
 hi Error           guifg=#960050 guibg=#1E0010
+hi NumpyDatatype   guifg=#960050 guibg=#1E0010
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#A6E22E               gui=bold
 hi Ignore          guifg=#808080 guibg=bg
@@ -160,6 +161,11 @@ if &t_Co > 255
 
    hi Directory       ctermfg=118               cterm=bold
    hi Error           ctermfg=219 ctermbg=89
+   hi NumpyDatatype   ctermfg=118 ctermbg=16
+   hi NumpyBuiltin    ctermfg=81 ctermbg=16     cterm=bold
+   hi NumpyMethod     ctermfg=100 ctermbg=16     cterm=bold
+   hi CV2Method       ctermfg=97 ctermbg=16     cterm=bold
+   hi DtypePopout     ctermfg=999 ctermbg=16     cterm=bold
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    hi Exception       ctermfg=118               cterm=bold
    hi Float           ctermfg=135
@@ -269,4 +275,20 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
 
 "float or int as the first thing is an error
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\|^\s*int\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\s\|^\s*int\s\)')
+
+"incorrectly labelled true or false is an error
+"This false positives when it's in a block comment with three doublequotes
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*true\|^[^#]*false\)')
+
+"Invisible tabs at beginning of line are evil
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\t\)')
+
+"return with an equals sign after it is wrong
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*return\s*=\)')
+
+
+"TODO: HELP I need to be able to apply these settings only if they're not in a block
+"comment!
+"the word numpy. methodname is wrong, always use np
+"call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(numpy.\)')
