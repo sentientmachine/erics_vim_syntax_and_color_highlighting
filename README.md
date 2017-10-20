@@ -139,15 +139,3 @@ script files:
 
 ![Imgur](https://i.imgur.com/m3J1z7L.png)
 
-
-
-
-
-
-I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It should work with all linux distributions.
-
-
-Installation instructions:
----------
-
-delorted!  Go away!
