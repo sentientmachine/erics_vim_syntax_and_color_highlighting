@@ -78,4 +78,4 @@ I designed this to work for Ubuntu 12.10, Fedora 17 and Gentoo 3.10.17.  It shou
 Installation instructions:
 ---------
 
-delorted!
+delorted!  Go away!
