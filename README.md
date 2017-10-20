@@ -6,6 +6,8 @@ Pearls before swine, no longer cast.
 
 https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
 
+![Imgur](https://i.imgur.com/g1aiyXi.jpg)
+
     Lay it, lay it down, let me see your hand
     Show me what you got
     You're always talking, but you're not playing
@@ -69,16 +71,14 @@ https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
     Don't leave me
     Never leave me out
 
-
-
-[comment]: <> (Python)
+Python
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
 
+Python Exceptions 1
 
-[comment]: <> (Python Exceptions 1)
 ![Imgur](https://i.imgur.com/e4Zj7au.png)
 
-[comment]: <> (Python Exceptions 2)
+Python Exceptions 2
 
 ![Imgur](https://i.imgur.com/au4LEJV.png)
 
