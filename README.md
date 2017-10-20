@@ -6,68 +6,68 @@ Pearls before swine, no longer cast.
 
 https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
 
-Lay it, lay it down, let me see your hand
-Show me what you got
-You're always talking, but you're not playing
-It doesn't match your face
-Gotta find my way, away from this place
-Can you take me now
-I-I want it, I want it real
-Are you afraid of me now?
-Are you afraid of me now?
+    Lay it, lay it down, let me see your hand
+    Show me what you got
+    You're always talking, but you're not playing
+    It doesn't match your face
+    Gotta find my way, away from this place
+    Can you take me now
+    I-I want it, I want it real
+    Are you afraid of me now?
+    Are you afraid of me now?
 
-Do you feel it, do you feel it?
-Do you feel that I can see your soul?
-Do you feel it, do you feel it?
-Do you feel the beat in your heart?
+    Do you feel it, do you feel it?
+    Do you feel that I can see your soul?
+    Do you feel it, do you feel it?
+    Do you feel the beat in your heart?
 
-I-I want it, I want it real
-Run away with me now
-I-I want it, I want it real
-Run away with me now
+    I-I want it, I want it real
+    Run away with me now
+    I-I want it, I want it real
+    Run away with me now
 
-Someday's I'm built of metal, I can't be broken
-But not when I'm with you
-You love me real, we have it all
-Can't leave me now
-I love the way, you are today
-Run away with me now
-Wind in my hair, cause I don't care
-Baby run away with me now
-Run away with me now
+    Someday's I'm built of metal, I can't be broken
+    But not when I'm with you
+    You love me real, we have it all
+    Can't leave me now
+    I love the way, you are today
+    Run away with me now
+    Wind in my hair, cause I don't care
+    Baby run away with me now
+    Run away with me now
 
-Do you feel it, do you feel it?
-Do you feel that I can see your soul?
-Do you feel it, do you feel it?
-Do you feel the beat in your heart?
+    Do you feel it, do you feel it?
+    Do you feel that I can see your soul?
+    Do you feel it, do you feel it?
+    Do you feel the beat in your heart?
 
-I-I want it, I want it real
-Run away with me now
-I-I want it, I want it real
-Run away with me now
+    I-I want it, I want it real
+    Run away with me now
+    I-I want it, I want it real
+    Run away with me now
 
-Drinking in the summer, I'm good at running
-I beat you in the race again
-Are you afraid, when I look your way
-It's easiest to stay at home
-But then we taste it, we got to have it
-We have no control
-Where is the love, the kind we dream of
-The kind that makes us young
-The kind that makes us young
+    Drinking in the summer, I'm good at running
+    I beat you in the race again
+    Are you afraid, when I look your way
+    It's easiest to stay at home
+    But then we taste it, we got to have it
+    We have no control
+    Where is the love, the kind we dream of
+    The kind that makes us young
+    The kind that makes us young
 
-Don't leave me
-Never leave me out
-Don't leave me
-Never leave me out
-Don't leave me
-Never leave me out
-Don't leave me
-Never leave me out
-Don't leave me
-Never leave me out
-Don't leave me
-Never leave me out
+    Don't leave me
+    Never leave me out
+    Don't leave me
+    Never leave me out
+    Don't leave me
+    Never leave me out
+    Don't leave me
+    Never leave me out
+    Don't leave me
+    Never leave me out
+    Don't leave me
+    Never leave me out
 
 
 
