@@ -1,18 +1,11 @@
-Code syntax highlighting and color settings for vim.
-=====================
-
 What is this?
 ---------
+None of your business.
 
-This will enable your code to look beautiful within vim for the following code types:
+Pearls before swine, no longer cast. 
 
-java, python, html, javascript, php, css, bash, haml, viml
+https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
 
-If you don't recognize some of these don't worry, you won't see them unless you use them.
-
-If anything here doesn't work for you or you see anything wrong, let me know eric.leschinski@hotmail.com and I'll try to fix it.  It works for me, but then again I know how to surmount problems you may not know how to.
-
-When you open python files in vi, it will look something like this:
 
 PYTHON:
 
