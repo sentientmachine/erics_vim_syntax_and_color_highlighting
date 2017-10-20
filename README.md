@@ -2,7 +2,6 @@ What is this?
 ---------
 None of your business.
 
-Pearls before swine, no longer cast. 
 
 https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
 
