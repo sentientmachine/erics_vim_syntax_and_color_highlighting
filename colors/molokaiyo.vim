@@ -1,8 +1,8 @@
-" Vim color file                                                                                                               
-"                                                                                                                              
-" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
-" Modified by: Steve Losh <steve@stevelosh.com>                                                                                
-"                                                                                                                              
+" Vim color file
+"
+" Author: Tomas Restrepo <tomas@winterdom.com>
+" Modified by: Steve Losh <steve@stevelosh.com>
+"
 " Fixer upper-er Eric Leschinski
 
 
@@ -183,7 +183,9 @@ if &t_Co > 255
    hi MailHeaderEmail ctermfg=3  ctermbg=233
    hi MailEmail       ctermfg=3  ctermbg=233
 
-   hi MatchParen      ctermfg=999  ctermbg=233 cterm=bold
+   "hi MatchParen      ctermfg=999  ctermbg=233 cterm=bold
+   "Matchparens should be super eye-catching white on red
+   hi MatchParen      ctermfg=999  ctermbg=196 cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
@@ -260,16 +262,15 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
 
 "Purpose of this is to highlight red any string that starts with single quote and ends with double quote
-"To escape a literal single quote you use two of them.  AAAHHH HAHAHA
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*''[a-z\-_{}]*"\)')
+"This doesn't work everywhere, like when there are single quotes inside double
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]\+''[a-z\-_{}]\+"\s*$\)')
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]\+"[a-z\-_{}]\+''\s*$\)')
 
-"Purpose of this is to highlight red any string that starts with double quote and ends with single quote
-"To escape a literal single quote you use two of them.  AAAHHH HAHAHA
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*"[a-z\-_{}]*''\)')
 
 
 "Purpose of this is to highlight teal any string that has ampersand ampersand (invalid python)
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
+
 
 "Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
@@ -287,6 +288,15 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\t\)')
 "return with an equals sign after it is wrong
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*return\s*=\)')
 
+
+"trim isn't a valid word for strings, I don't want to see it
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(trim()\)')
+
+"strip as its own method is a syntax error
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(\s\+strip(\)')
+
+"for i in number, it seems right but it needs xrange or range or something
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*for.*in\s\+[0-9]\+:$\)')
 
 "TODO: HELP I need to be able to apply these settings only if they're not in a block
 "comment!
