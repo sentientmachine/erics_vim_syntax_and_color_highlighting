@@ -7,33 +7,33 @@
 " by Wimer Hazenberg and its darker variant 
 " by Hamish Stuart Macpherson
 "
-
-hi clear
-
-set background=dark
-let g:colors_name="molokai"
-
-" Basic Layout {{{
-hi Normal          guifg=#F8F8F2 guibg=#1B1E1F
-hi Folded          guifg=#666666 guibg=bg
-hi CursorLine                    guibg=#232728
-hi CursorColumn                  guibg=#232728
-hi ColorColumn                   guibg=#232728
-hi LineNr          guifg=#AAAAAA guibg=bg
-hi FoldColumn      guifg=#AAAAAA guibg=bg
-hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
-hi Search          guifg=#000000 guibg=#E4E500
-hi IncSearch       guibg=#000000 guifg=#FF8D00
-" }}}
-" Syntax {{{
-hi Boolean         guifg=#AE81FF
-hi Comment         guifg=#5c7176
-hi Character       guifg=#E6DB74
-hi Number          guifg=#AE81FF
-hi String          guifg=#E6DB74
-hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
-hi Debug           guifg=#BCA3A3               gui=bold
+                                                                                                                               
+hi clear                                                                                                                       
+                                                                                                                               
+set background=dark                                                                                                            
+let g:colors_name="molokai"                                                                                                    
+                                                                                                                               
+" Basic Layout {{{                                                                                                             
+hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                                                                 
+hi Folded          guifg=#666666 guibg=bg                                                                                      
+hi CursorLine                    guibg=#232728                                                                                 
+hi CursorColumn                  guibg=#232728                                                                                 
+hi ColorColumn                   guibg=#232728                                                                                 
+hi LineNr          guifg=#AAAAAA guibg=bg                                                                                      
+hi FoldColumn      guifg=#AAAAAA guibg=bg                                                                                      
+hi VertSplit       guifg=#AAAAAA guibg=bg gui=none                                                                             
+hi Search          guifg=#000000 guibg=#E4E500                                                                                 
+hi IncSearch       guibg=#000000 guifg=#FF8D00                                                                                 
+" }}}                                                                                                                          
+" Syntax {{{                                                                                                                   
+hi Boolean         guifg=#AE81FF                                                                                               
+hi Comment         guifg=#5c7176                                                                                               
+hi Character       guifg=#E6DB74                                                                                               
+hi Number          guifg=#AE81FF                                                                                               
+hi String          guifg=#E6DB74                                                                                               
+hi Conditional     guifg=#F92672               gui=bold                                                                        
+hi Constant        guifg=#AE81FF               gui=bold                                                                        
+hi Debug           guifg=#BCA3A3               gui=bold                                                                        
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
 hi Float           guifg=#AE81FF
@@ -235,3 +235,11 @@ end " }}}
 highlight Comment cterm=bold
 hi Visual term=reverse cterm=reverse guibg=Grey
 
+
+
+highlight EricsCustomVimMatcherHighlights ctermbg=24 guibg=red
+
+"Dr Haaxxxx!  this fails....
+"This instruction puts teal background (the same color scheme specified for extra whitespace)
+"I like it when extra unnecessary whitespace at the end is highlighted
+call matchadd('EricsCustomVimMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
