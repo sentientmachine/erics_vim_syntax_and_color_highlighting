@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+
+accuracy_list = [15.853658536585368, 49.390243902439025, 62.80487804878049, 70.73170731707317, 73.17073170731707]
+k_list = [1, 3, 5, 7, 9]
+
+#This code makes it so you can save out chart.png without an X gui server
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+
+title = "plot k, against accuracy"
+fig = plt.figure(title)
+ax = fig.add_subplot(1, 1, 1)
+
+plt.xlabel("k")
+plt.ylabel("accuracy")
+                                                                                                                               
+plt.grid()                                                                                                                     
+                                                                                                                               
+ax.plot(k_list, accuracy_list, 'o-', linewidth=2, markersize=4, color='b')                                                     
+                                                                                                                               
+saved_filename = "stuffi.png"                                                                                                  
+plt.savefig(saved_filename)                                                                                                    
+plt.show()                                                                                                                     
+plt.close() 
