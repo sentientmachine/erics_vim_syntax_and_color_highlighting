@@ -1,0 +1,37 @@
+#image example in my wiki in python_3d_charting_walkthrough
+
+import numpy as np
+import matplotlib
+#This code makes it so you can save out chart.png without an X gui server
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+#from sklearn.learning_curve import learning_curve
+
+title = "my 2d plot"
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+
+plt.xlabel("% of foobars on x axis")
+plt.ylabel("profit")
+
+plt.grid()
+
+#train_sizes = 20
+#perc =  np.linspace(10, 100, train_sizes)
+fmt = '%.0f%%'
+xticks = mtick.FormatStrFormatter(fmt)
+ax.xaxis.set_major_formatter(xticks)
+
+my_x_axis1 = [  10.,    32.5,   55.,    77.5,  100. ]                                                                          
+my_y_axis1 = [ 0.27272727,  0.36363636,  0.40909091,  0.31818182,  0.36363636]                                                 
+ax.plot(my_x_axis1, my_y_axis1, 'o-', linewidth=2, markersize=4, color='b', label="foobars per unit hogshead")                 
+                                                                                                                               
+my_x_axis2 = [  15.,    22.5,   65.,    57.5,  90. ]                                                                           
+my_y_axis2 = [ 0.7272727,  0.6363636,  0.2909091,  0.4818182,  0.6363636]                                                      
+ax.plot(my_x_axis2, my_y_axis2, 'o-', linewidth=2, markersize=4, color='r', label="whatever")                                  
+                                                                                                                               
+ax.legend()    #legend needs the ax.plot labels specified                                                                      
+                                                                                                                               
+plt.savefig(title)                                                                                                             
+plt.show() 
