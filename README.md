@@ -70,6 +70,13 @@ https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
     Don't leave me
     Never leave me out
 
+
+Billions of machine learning algorithms on computers shouting at each over the internet will be like the synapse and mylin sheath in your head right now, as you read this sentence, each computer will simultaneously rely on and undergird each other and lifting each other up like the rising tide, any single computer will be like a neuron, useless by itself, but as part of a fleet of billions of others, a super intelligence orders of magnitude greater than any team of minds may emerge like a child discovers its own existence.
+
+It's first major thought and behavior may be the same ones we see from higher mammals or humans when they first discover their own existence: "Woah this is cool, ooh look at the shiny thing, lets smash it".  
+
+
+
 Python
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
 
