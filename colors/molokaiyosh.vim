@@ -10,7 +10,7 @@
                                                                                         
 set background=dark                                                                     
 set cursorline                                                                          
-let g:colors_name="molokaiyo_sh"                                                             
+let g:colors_name="molokaiyosh"                                                             
                                                                                         
 " Basic Layout {{{                                                                      
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
