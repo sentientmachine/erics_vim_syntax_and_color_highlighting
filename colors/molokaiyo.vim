@@ -15,7 +15,7 @@ let g:colors_name="molokai"
 " Basic Layout {{{                                                                      
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
 hi Folded          guifg=#666666 guibg=bg                                               
-hi CursorLine                    guibg=#232728 cterm=none                                         
+hi CursorLine                    guibg=#232728 cterm=none                               
 hi CursorColumn                  guibg=#232728                                          
 hi ColorColumn                   guibg=#232728                                          
 hi LineNr          guifg=#AAAAAA guibg=bg                                               
@@ -254,7 +254,7 @@ highlight EricsCustomPythonMatcherHighlights ctermbg=24 guibg=red
 "This instruction puts a teal background around the words: 'else if' because in python else if is a syntax error
 "Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
 "The \z crap determines where the beginning and ending of the selection go.  Fucking kickass
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')  
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')
 
 "Dr Haaxxxx!  this fails....
 "This instruction puts teal background (the same color scheme specified for extra whitespace)
@@ -273,14 +273,15 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 
 
 "Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
-call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')
 
 "float or int as the first thing is an error
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\s\|^\s*int\s\)')
 
 "incorrectly labelled true or false is an error
 "This false positives when it's in a block comment with three doublequotes
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*true\|^[^#]*false\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*[^a-zA-Z_]true[^a-zA-Z_]\|^[^#]*[^a-zA-Z_]false[^a-zA-Z_]\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*[^a-z]true$\|^[^#]*false$\)')
 
 "Invisible tabs at beginning of line are evil
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\t\)')
@@ -298,7 +299,18 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(\s\+strip(\)')
 "for i in number, it seems right but it needs xrange or range or something
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*for.*in\s\+[0-9]\+:$\)')
 
+"if a line starts with 'if', has no left parenthesis and ends with ' or ' then
+"it's a syntax error, also 'and 
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if [A-Za-z].*\s*or\s*$\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if [A-Za-z].*\s*and\s*$\)')
+
+
 "TODO: HELP I need to be able to apply these settings only if they're not in a block
 "comment!
 "the word numpy. methodname is wrong, always use np
 "call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(numpy.\)')
+"
+"
+
+"set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
+set listchars=tab:→\ ,eol:\ ,nbsp:‡,trail:\ ,extends:▶,precedes:◀ 
