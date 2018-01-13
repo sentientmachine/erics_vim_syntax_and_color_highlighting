@@ -1,3 +1,4 @@
+
 execute pathogen#infect()
 
 set nocompatible       "use the modern version of Vim, not the one backwards compatible
@@ -10,32 +11,33 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 "let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'VundleVim/YouCompleteMe'
-"Plugin 'lambdalisue/vim-manpager'
-Plugin 'scrooloose/syntastic'
-Plugin 'VundleVim/neomake'
-Plugin 'VundleVim/YouCompleteMe'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/vimproc.vim'
-"Plugin 'VundleVim/Nvim-R'
-Plugin 'martingms/vipsql'
-Plugin 'VundleVim/dbext.vim'
-Plugin 'scrooloose/nerdcommenter'    "Enables <leader> cc to comment visual selection neatly
-
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
+Plugin 'VundleVim/Vundle.vim'                                                                                                                                      
+"Plugin 'VundleVim/YouCompleteMe'                                                                                                                                  
+Plugin 'lambdalisue/vim-manpager'                                                                                                                                  
+Plugin 'scrooloose/syntastic'                                                                                                                                      
+Plugin 'VundleVim/neomake'                                                                                                                                         
+Plugin 'VundleVim/YouCompleteMe'                                                                                                                                   
+Plugin 'Shougo/vimshell.vim'                                                                                                                                       
+Plugin 'Shougo/vimproc.vim'          "Needed as support libraries for vim-vebegger                                                                                 
+"Plugin 'VundleVim/Nvim-R'                                                                                                                                         
+Plugin 'martingms/vipsql'                                                                                                                                          
+Plugin 'VundleVim/dbext.vim'                                                                                                                                       
+Plugin 'scrooloose/nerdcommenter'    "Enables <leader> cc to comment visual selection neatly                                                                       
+Plugin 'idanarye/vim-vebugger'                                                                                                                                     
+                                                                                                                                                                   
+                                                                                                                                                                   
+" The following are examples of different formats supported.                                                                                                       
+" Keep Plugin commands between vundle#begin/end.                                                                                                                   
+" plugin on GitHub repo                                                                                                                                            
+" Plugin 'tpope/vim-fugitive'                                                                                                                                      
+" plugin from http://vim-scripts.org/vim/scripts.html                                                                                                              
+" Plugin 'L9'                                                                                                                                                      
+" Git plugin not hosted on GitHub                                                                                                                                  
+" Plugin 'git://git.wincent.com/command-t.git'                                                                                                                     
+" git repos on your local machine (i.e. when working on your own plugin)                                                                                           
+" Plugin 'file:///home/gmarik/path/to/plugin'                                                                                                                      
+" The sparkup vim script is in a subdirectory of this repo called vim.                                                                                             
+" Pass the path to set the runtimepath properly.                                                                                                                   
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -59,6 +61,8 @@ call vundle#end()            " required
 
 "======== Good for windows users and linux users who want to paste 
 "with Ctrl-V to snap it in to paste mode automatically so it doesn't mess up jk
+
+
 if &term =~ "xterm.*"
     let &t_ti = &t_ti . "\e[?2004h"
     let &t_te = "\e[?2004l" . &t_te
@@ -132,7 +136,8 @@ filetype plugin indent on
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
-au BufReadPost,BufNewFile *.java colorscheme monokai
+
+au BufReadPost,BufNewFile *.java colorscheme monokaijava
 au BufReadPost,BufNewFile *.cpp colorscheme molokaicpp
 au BufReadPost,BufNewFile *.py colorscheme molokaiyo
 au BufReadPost,BufNewFile *.html colorscheme monokai
@@ -140,7 +145,7 @@ au BufReadPost,BufNewFile *.twig colorscheme koehler
 au BufReadPost,BufNewFile *.css colorscheme slate
 au BufReadPost,BufNewFile *.js colorscheme slate2
 au BufReadPost,BufNewFile *.json colorscheme monokambat
-au BufReadPost,BufNewFile *.php colorscheme molokaiyophp                                                                       
+au BufReadPost,BufNewFile *.php colorscheme molokaiyophp
 au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r
 au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r
 au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab
@@ -148,6 +153,21 @@ au BufReadPost,BufNewFile *.Rmd colorscheme molokaiyo_r
 au BufWinEnter,FileType vim colorscheme molokai
 au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
 au BufWinEnter,FileType tex colorscheme molokaiyo_tex
+au BufWinEnter,FileType gitcommit colorscheme monokai
+au BufWinEnter,FileType *.sh colorscheme molokaiyosh
+"markdown needs two commands to set syntax and filetype
+au BufWinEnter,FileType *.markdown colorscheme monokai
+au BufWinEnter,FileType *.markdown set filetype=markdown.pandoc
+au BufNewFile,BufRead .gitignore set filetype=gitignore
+au BufWinEnter,FileType .gitignore colorscheme molokaigitignore
+au BufWinEnter,FileType .bashrc colorscheme molokaiyosh
+au BufWinEnter,FileType .vimrc colorscheme molokaiyovimrc
+
+
+"TODO for markdown.pandoc, underscores not highlighted red
+"Fix the issue where you use ..*  asdf *.. highlights all white, bs
+"triple asterisk seems to screw up markdown.  Everything excellent otherwise
+
 
 
 "this makes it so you can Shift-V highlight lots of text then press ,cc
@@ -208,13 +228,17 @@ inoremap <C-I> <Esc>:syntax sync fromstart<CR>
 "noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 
-"These extra commands tell syntastic to ignore the following kinds of warnings                                                               
+"These extra commands tell syntastic to ignore the following kinds of warnings
 let g:syntastic_quiet_messages = { "regex": 'superfluous' }
 let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods' }
 
-"I like the vertical bar on insert mode, others do not like.  You decide.
+"I like the cursor to be vertical bar on insert mode, others do not like.  You decide.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+
+"Adjust the cursor blink rate
+"It can be done but it has to fight with your konsole window settings
+
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -257,7 +281,7 @@ let g:syntastic_r_checkers=['lintr']
 
 " let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods\|redefined-outer-name\|invalid-name\|too-many-public-methods\|unused-wildcard-import\|wildcard-import\|trailing-whitespace\|bare-except\|C0103\|R0903\|C0324\|C0321\|C0111\|R0201' }
 
-let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods\|redefined-outer-name\|invalid-name\|too-many-public-methods\|unused-wildcard-import\|wildcard-import\|trailing-whitespace\|bare-except\|broad-except\|rawtypes\|missing-docstring\|unused-import\|bad-continuation\|attribute-defined-outside-init\|line-too-long\|bad-whitespace\|protected-access\|too-many-locals\|too-many-statements\|unused-variable\|no-self-use\|too-many-branches\|too-many-return-statements\|too-many-arguments\|E265\|E303\|E221\|E202\|E262\|E501\|E302\|W391\|E302\|F401\|E251\|E231\|E502\|E128\|E125\|E261\|E225\|W293\|W291\|E712\|E127\|E701\|unnecessary-pass\|multiple-statements\|unused-argument\|E402\|F403\|unidiomatic-typecheck\|relative-import\|too-many-lines\|E401\|too-many-function-args\|global-statement\|E116\|E111\|E129' }
+let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instance-attributes\|too-few-public-methods\|redefined-outer-name\|invalid-name\|too-many-public-methods\|unused-wildcard-import\|wildcard-import\|trailing-whitespace\|bare-except\|broad-except\|rawtypes\|missing-docstring\|unused-import\|bad-continuation\|attribute-defined-outside-init\|line-too-long\|bad-whitespace\|protected-access\|too-many-locals\|too-many-statements\|unused-variable\|no-self-use\|too-many-branches\|too-many-return-statements\|too-many-arguments\|E265\|E303\|E221\|E202\|E262\|E501\|E302\|W391\|E302\|F401\|E251\|E231\|E502\|E128\|E125\|E261\|E225\|W293\|W291\|E712\|E127\|E701\|unnecessary-pass\|multiple-statements\|unused-argument\|E402\|F403\|unidiomatic-typecheck\|relative-import\|too-many-lines\|E401\|too-many-function-args\|global-statement\|E116\|E111\|E129\|E301\|E222\|global-variable-not-assigned\|E201' }
 
 
 "To get youcompleteme to move the cursor to the upper help buffer, use
@@ -267,6 +291,7 @@ let g:syntastic_quiet_messages = { "regex": 'superfluous-parens\|too-many-instan
 "let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_autoclose_preview_window_after_insertion=0
 let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_min_num_of_chars_for_completion = 2
 
 
 
@@ -279,8 +304,8 @@ let g:ycm_auto_trigger = 1
 let g:syntastic_java_javac_classpath=".:./lib/*"
 
 "Map <space>jd to navigate to the implementation definition of the function underneath
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <leader>do :YcmCompleter GetDoc<CR>
+nnoremap ,gd :YcmCompleter GoTo<CR>
+nnoremap ,do :YcmCompleter GetDoc<CR>
 
 "This makes it so pressing enter on a selection selects it.
 :inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
@@ -360,6 +385,7 @@ if &term == "screen" || &term == "xterm"
   set title
 endif
 
+
 :imap jk <c-c>
 "Map capital C to J which at this point means join lines
 :nnoremap C J
@@ -382,7 +408,8 @@ nnoremap <C-j> <Esc>
 inoremap <C-j> <Esc>
 
 "command Ru execute "!python %"
-nnoremap ru execute "!python %"
+"You dummy haha, ru means replace with u, BAD
+"nnoremap ru execute "!python %"
 
 "Open a cheat sheet
 "autocmd FileType html split | edit /home/el/.vim/cheatsheets/html.txt
@@ -396,6 +423,21 @@ autocmd FileType python nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets
 autocmd FileType java nnoremap <F1> :split<Esc>:edit /home/el/.vim/cheatsheets/java.txt<CR>
 
 
+
+"Snippets
+"Defined in ~/.vim/plugins/snippets.vim
+"MAPPINGS (<leader> is space)
+"<leader>sse -- EditSnippet (press Ctrl_n and Ctrl-p to pick)
+"<leader>ssa -- Add Snippet with current buffer (normal mode) 
+"<leader>ssa -- AddSnippet with range of lines (visual select mode) 
+"<leader>ssd -- DeleteSnippet 
+"<leader>ssp -- AppendSnippet 
+"<leader>ssP -- InsertSnippet 
+"<leader>ssl -- ListSnippets  (ugly, dumps to message gutter)
+
+
+
+"manual menu, Snippets
 "command LatexTable :r ~/.vim/snippets/latex/LatexTable.txt
 :source /home/el/.vim/menu.vim
 :set wildmenu
@@ -435,7 +477,7 @@ set spelllang=en
 "    redraw
 "endfunction
 
-"This is for R crap
+"This stuff is required for unfucking up Ubuntu and R garbage
 "syn iskeyword=@,48-57,_,192-255
 "set iskeyword=@,48-57,_
 "set iskeyword=@,48-57,192-255 
@@ -515,7 +557,7 @@ let g:vipsql_new_buffer_cmd = "rightbelow split"
 " ======================================================
 "
 " MySQL
-"let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=el:passwd=nochin4u:dbname=sentientmachine'
+"let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=el:passwd=asdf:dbname=sentientmachine'
 let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=el:dbname=sentientmachine'
 let g:dbext_default_profile_mysql_machines = 'type=MYSQL:host=machinesentience.com:user=machines:port=3306:passwd=`cat /home/el/mysql_machines_pw.txt`:dbname=machines_organizedthought'
 
@@ -564,9 +606,18 @@ endfunction
 autocmd BufWritePost *.py,*.h,*.c call UpdateTags()
 
 
-"Pressing the asterisk shouldn't jump, and also shouldn't add an item to the jumplist
+"Ctags, change the vulcan nerve pinch inducing Ctrl-] and Ctrl-t for a super common keystroke
+"Change Ctrl-t to \t  and change Ctrl-] to \]
+:nnoremap \] <C-]>
+:nnoremap \t <C-t>
+
+"Pressing the asterisk shouldn't jump to next match, and also shouldn't add 
+"an item to the jumplist and it shouldn't center the screen on that line.
 "This has a problem, it does a 'zz' when the thing under cursor isn't focused.  
-nnoremap * :keepjumps normal! mi*`i<CR>
+"This command should work but is fail:   nnoremap * :keepjumps normal! mi*`i<CR>
+"nnoremap * *``
+""following like is magic line (inefficient) that does all three)
+noremap * msHmt`s*`tzt`s
 
 
 "scrooloose/nerdcommenter
@@ -607,6 +658,7 @@ let g:NERDTrimTrailingWhitespace = 0
 "endfunction
 
 
+" bash duplicates not logged set in ~/.bashrc
 " Use persistent history.
 if !isdirectory("/home/el/.vim/vim-undo-dir")
     call mkdir("/home/el/.vim/vim-undo-dir", "", 0700)
@@ -615,4 +667,95 @@ set undodir=/home/el/.vim/vim-undo-dir
 set undofile
 
 
+"Set cursor blink rate:
+
 "commang gx in normal mode opens link under cursor  (also middle click works)
+
+
+" Commands for Python vim-vebugger:
+"
+"
+
+let g:vebugger_leader='\d'
+"comma stp stands for start, these will need to be custom made for each kind of file.
+"There are parameters for python2 or python3
+":nnoremap <leader>stp :VBGstartPDB %<cr>
+
+"let g:vebugger_path_pdb="pdb"
+
+"One more thing to make this very usable, I need to be able to do massive type
+"dumps like dtype.
+
+""Super python command to put a breakpoint here, start pdb debugger, and run until that breakpoint
+":nnoremap ,p :VBGtoggleBreakpointThisLine<cr>:VBGstartPDB %<cr>:VBGcontinue<cr>
+:nnoremap ,p :VBGtoggleBreakpointThisLine<cr>:VBGstartPDB experiment.py<cr>:VBGcontinue<cr>
+
+"comma stj stands for start, these will need to be custom made for each kind of file.
+:nnoremap ,stj :!javac -g Main.java<cr><cr>:call vebugger#jdb#start('Main',{'classpath':'.', 'srcpath':'.', 'args':['hello','world']})<cr>
+
+:nnoremap ,stc !g++ -g main.cpp<cr><cr>:VBGstartGDB <cr>
+:nnoremap ,stc :!g++ -g -o a.out main.cpp<cr>:VBGstartGDB a.out<cr>
+
+
+"Toggle a breakpoint for the current line
+:nnoremap ,b :VBGtoggleBreakpointThisLine<cr>
+"Continue the execution and don't stop uless you see breakpoints.
+:nnoremap ,c :VBGcontinue<cr>
+"Evaluate word under cursor.  WOW!   (For selection you must use \de
+:nnoremap ,e :VBGevalWordUnderCursor<cr>
+"Evaluate and print the expression supplied as argument.
+:nnoremap ,E :VBGeval
+
+"execute this line in normal mode
+":nnoremap ,x VBGexecute:exec '!'.getline('.')
+":nnoremap ,x VBGexecute . getline('.')<cr>
+":nnoremap ,x 'exe "VBGexecute ".getline(".")'
+
+
+"awwwwwwwwwwwwwwwwwwwwwwwwww yeahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+:nnoremap ,x :exe "VBGexecute ".getline(".")<cr>
+"to pass in current line, and I don't know how.   use \dt and \dx to show the
+"window and run the line in pdb
+"
+"
+"prompt for an argument for VBGexecute
+:nnoremap ,X :VBGeval
+"toggle terminal buffer
+:nnoremap ,t :VBGtoggleTerminalBuffer<cr>
+"Continue the execution, stopping at the next statement.
+:nnoremap ,o :VBGstepOver<cr>
+"Continue the execution until the end of the current function
+:nnoremap ,O :VBGstepOut<cr>
+"Same as VBGstepOver but stepps into functions.
+:nnoremap ,i :VBGstepIn<cr>
+"Clear all breakpoints.
+:nnoremap ,B :VBGclearBreakpoints<cr>
+
+":VBGkill Terminates the debugger
+:nnoremap ,k :VBGkill<cr>
+
+"Select mode only, raw write selected text
+:nnoremap ,r :VBGrawWriteSelectedText<cr>
+"Prompt for an argument for VBGrawWrite
+:nnoremap ,R :VBGrawWrite<cr>
+"Get this Debugger to work for Java, C, Python.
+
+
+"TODO: Learn what extends, precedes and nbsp is, Demo this with an image
+"list and listchars are two separate concepts
+"give tab characters a unicode doublearrow right, and give non breaking space a centered dot
+"I don't like the nbsp crap because it puts a dot over after every word when "typing
+"Keep the alternatives around while I configure them:
+"set list listchars=tab:»·,trail:T,nbsp:*
+"set list listchars=tab:»
+"set listchars=tab:→\ ,eol:\ ,nbsp:\ ,trail:\ ,extends:\ ,precedes:\ 
+"
+"This is overridden under the colors/molokaiyo.vim, some files need better space explicitness
+set listchars=tab:→\ ,eol:\ ,nbsp:‡,trail:\ ,extends:▶,precedes:◀
+"set listchars=tab:→\ ,eol:§,nbsp:‡,trail:\ ,extends:\ ,precedes:\ 
+
+
+"Terminal vim doesn't see the difference between Backspace and Ctrl-Backspace 
+"so your alternatives are pressing db  pressing Ctrl-w in insert mode or
+"pressing C-Q in insert mode.  little hacky
+inoremap <C-Q> <C-\><C-O>dB
