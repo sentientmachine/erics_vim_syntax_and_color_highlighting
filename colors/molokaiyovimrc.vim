@@ -294,3 +294,4 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^[^#]*TRUE\|^[^#]*FALS
 "Invisible tabs at beginning of line are evil
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\t\)')
 
+set tw=0
