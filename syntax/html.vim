@@ -1,7 +1,7 @@
 " Vim syntax file
-" Language:	HTML
-" Maintainer:	Claudio Fleiner <claudio@fleiner.com>
-" URL:		http://www.fleiner.com/vim/syntax/html.vim
+" Language:     HTML
+" Maintainer:   Claudio Fleiner <claudio@fleiner.com>
+" URL:          http://www.fleiner.com/vim/syntax/html.vim
 " Last Change:  2006 Jun 19
 
 " Please check :help html.vim for some comments and a description of the options
@@ -289,7 +289,8 @@ if main_syntax == 'html'
   unlet main_syntax
 endif
 
-"for html files I don't like auto indenting
 filetype indent off
+set nocindent
 
 " vim: ts=8
+"
