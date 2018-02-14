@@ -140,7 +140,7 @@ au BufWinEnter *.* silent loadview
 au BufReadPost,BufNewFile *.java colorscheme monokaijava
 au BufReadPost,BufNewFile *.cpp colorscheme molokaicpp
 au BufReadPost,BufNewFile *.py colorscheme molokaiyo
-au BufReadPost,BufNewFile *.html colorscheme monokai
+au BufReadPost,BufNewFile *.html colorscheme monokaihtml
 au BufReadPost,BufNewFile *.twig colorscheme koehler 
 au BufReadPost,BufNewFile *.css colorscheme slate
 au BufReadPost,BufNewFile *.js colorscheme slate2
