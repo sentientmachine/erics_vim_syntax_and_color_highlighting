@@ -1,27 +1,27 @@
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" Modified by: Steve Losh <steve@stevelosh.com>
-"
-" Fixer upper-er Eric Leschinski
-
-
-"hi clear                                                                                
-                                                                                        
-set background=dark                                                                     
-set cursorline                                                                          
-let g:colors_name="molokaiyosh"                                                             
-                                                                                        
-" Basic Layout {{{                                                                      
-hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
-hi Folded          guifg=#666666 guibg=bg                                               
-hi CursorLine                    guibg=#232728 cterm=none                                         
-hi CursorColumn                  guibg=#232728                                          
-hi ColorColumn                   guibg=#232728                                          
-hi LineNr          guifg=#AAAAAA guibg=bg                                               
-hi FoldColumn      guifg=#AAAAAA guibg=bg                                               
-hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
-hi Search          guifg=#000000 guibg=#E4E500
+" Vim color file                                                                                                               
+"                                                                                                                              
+" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
+" Modified by: Steve Losh <steve@stevelosh.com>                                                                                
+"                                                                                                                              
+" Fixer upper-er Eric Leschinski                                                                                               
+                                                                                                                               
+                                                                                                                               
+"hi clear                                                                                                                      
+                                                                                                                               
+set background=dark                                                                                                            
+set cursorline                                                                                                                 
+let g:colors_name="molokaiyosh"                                                                                                
+                                                                                                                               
+" Basic Layout {{{                                                                                                             
+hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                                                                 
+hi Folded          guifg=#666666 guibg=bg                                                                                      
+hi CursorLine                    guibg=#232728 cterm=none                                                                      
+hi CursorColumn                  guibg=#232728                                                                                 
+hi ColorColumn                   guibg=#232728                                                                                 
+hi LineNr          guifg=#AAAAAA guibg=bg                                                                                      
+hi FoldColumn      guifg=#AAAAAA guibg=bg                                                                                      
+hi VertSplit       guifg=#AAAAAA guibg=bg gui=none                                                                             
+hi Search          guifg=#000000 guibg=#E4E500                                                                                 
 hi IncSearch       guibg=#000000 guifg=#FF8D00
 " }}}
 " Syntax {{{
@@ -183,10 +183,10 @@ if &t_Co > 255
    hi Operator        ctermfg=161
 
    " complete menu
-   "hi Pmenu           ctermfg=81  ctermbg=16
-   "hi PmenuSel                    ctermbg=244
-   "hi PmenuSbar                   ctermbg=232
-   "hi PmenuThumb      ctermfg=81
+   hi Pmenu           ctermfg=81  ctermbg=16
+   hi PmenuSel                    ctermbg=244
+   hi PmenuSbar                   ctermbg=232
+   hi PmenuThumb      ctermfg=81
 
    hi PreCondit       ctermfg=118               cterm=bold
    hi PreProc         ctermfg=118
@@ -258,10 +258,13 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^\s*pass$\)')
 "This instruction puts a teal background around the words: 'else if' because in python else if is a syntax error
 "Carrot means beginning of line.  \s* means 0 or more spaces.  literal else if. Not sure what the rest does
 "The \z crap determines where the beginning and ending of the selection go.  Fucking kickass
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')  
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*else if\)')
 
 "exit command doesn't take left parenthesis
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*exit(\)')  
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*exit(\)')
+
+"sleep command doesn't take left parenthesis
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*sleep(\)')
 
 "Dr Haaxxxx!  this fails....
 "This instruction puts teal background (the same color scheme specified for extra whitespace)
@@ -281,7 +284,7 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
 "call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*&&\)')
 
 "Purpose of this is to highlight teal any string that has pipe pipe, (invalid python)
-"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')          
+"call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]*||\)')
 
 "float or int as the first thing is an error
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*float\s\|^\s*int\s\)')
