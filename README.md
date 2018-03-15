@@ -145,3 +145,9 @@ script files:
 
 ![Imgur](https://i.imgur.com/m3J1z7L.png)
 
+gitignore files: 
+
+![Imgur](https://i.imgur.com/tSwNdmo.png)
+
+
+
