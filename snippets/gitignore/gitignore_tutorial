@@ -1,0 +1,80 @@
+#GIT sees every file in your working copy as one of three things:                                                              
+#1.  Tracked - a file which has been previously staged or committed
+#2.  untracked - a file which has not been staged or committed
+#3.  ignored - a file which git has been told to ignore
+
+#lines in the .gitignore file specify a regular expression pattern saying
+#which files to ignore. 
+
+#a blank line is no operation, whitespace at the end of lines is ignored
+#unless the whitespace is quoted with a backslash like \   (aka backslash space)
+
+#double asterisk means anywhere in the repository, single asterisk is
+#wildcard for that filename
+
+#A line starting with # serves as a comment. Put a backslash ("\") in 
+#front of the first hash for patterns that begin with a hash.
+
+
+
+
+
+#A word with a slash after is regarded as 'ignore this directory and its files 
+#and subdirectories' anywhere it may appear in the repository.  Any files
+#named 'target' are unaffected by this pattern.
+
+build/            #ignore build directory and everything beneath
+initial/target/   #ignore the directory target under directory initial
+
+
+#slashes before a word enforce top most directory
+
+/coredump.log      #ignore the file coredump.log in repo root
+
+
+#A single asterisk matches zero or more characters in the filename.  This ignores any
+#file anywhere in the repository ending in .class   notice periods are literal to their character
+*.class
+*.jar
+*.pdf
+
+
+#an exclamation point negates a pattern creating an exception (files not to ignore)
+#the above patterns say don't track anything ending in .class, the blow says: "except for this one"
+!importantclass.class
+
+
+#double asterisk matches zero or more directories, at the beginning like '**/logs' it is superfluous 
+#with 'logs/'.  slash word matches any directory in the repository named logs and everything underneath
+**/logs
+logs/**/debug.log         #any file named 'debug.log' anywhere underneath a directory named logs
+
+
+
+#square brackets are a regex range meaning any single character matches.
+#this matches debuga.log through debugc.log, but not debugd.log
+debug[a-c].log
+
+
+#wildcards can be used in directories.  Under the directory logs found anywhere in the
+#repository, match the file called debug.log that's under any directory 'whatever_day'
+logs/*day/debug.log    
+
+
+#Secrets should be ignored (brittle hiding)
+secrets.txt
+
+
+#IDE's often take little shits on the repo by plunking .project files there.  
+.project
+.idea
+
+
+# any file starting with hs_err
+hs_err*
+
+#Not sure what this is doing, I think dollarsign is literal, literal dollarsign and 0?  I don't get it
+${0}
+
+#Not sure what questionmark means since they don't look behind?  Weird
+*.sw?
