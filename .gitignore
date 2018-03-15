@@ -1,0 +1,38 @@
+                                                                                                  
+#a comment
+initial/target
+#TODO: something to do
+
+/build
+/code
+
+#ignore class files
+*.class
+*.jar
+
+# Ignore BS
+.mtj.tmp/
+*.sw?
+*.sw?
+.#*
+*#
+*~
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+${0}
+
+.classpath
+.project
+.settings/
+bin
+build
+target
+dependency-reduced-pom.xml
+*.sublime-*
+/scratch
+.gradle
+Guardfile
+README.html
+*.iml
+.idea
