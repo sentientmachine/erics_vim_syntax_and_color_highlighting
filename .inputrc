@@ -3,8 +3,16 @@
 
 
 # Ctrl-Delete: delete next word
-#"\e[3;5~": shell-kill-word                                                                                                    
+#"\e[3;5~": shell-kill-word
 
 #"\C-l": shell-kill-word
 
 #bind -x '"\C-l": clear; ls'
+
+
+#Put this in your ~/.inputrc
+#Press Ctrl-p and Ctrl-n for history search if you don't have it
+#"\e[A": history-search-backward
+#"\e[B": history-search-forward
+#"\C-p": history-search-backward
+#"\C-n": history-search-forward
