@@ -1,0 +1,10 @@
+#I want to press Ctrl-H and have it delete the previous word in bash terminal, as it is in vim
+"\C-H": shell-backward-kill-word
+
+
+# Ctrl-Delete: delete next word
+#"\e[3;5~": shell-kill-word                                                                                                    
+
+#"\C-l": shell-kill-word
+
+#bind -x '"\C-l": clear; ls'
