@@ -7,13 +7,13 @@
 " by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
-
+                                                                                        
 hi clear
-
+                                                                                        
 set background=dark
 set cursorline
 let g:colors_name="molokaiyophp"
-
+                                                                                        
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F
 hi Folded          guifg=#666666 guibg=bg
@@ -121,12 +121,25 @@ hi WildMenu        guifg=#66D9EF guibg=#000000
 hi MyTagListFileName guifg=#F92672 guibg=bg gui=bold
 
 " Spelling {{{
+"if has("spell")
+"    hi SpellBad    guisp=#FF0000 gui=undercurl
+"    hi SpellCap    guisp=#7070F0 gui=undercurl
+"    hi SpellLocal  guisp=#70F0F0 gui=undercurl
+"    hi SpellRare   guisp=#FFFFFF gui=undercurl
+"endif
+
+"Turn this on with #:set spell and :set nospell
 if has("spell")
-    hi SpellBad    guisp=#FF0000 gui=undercurl
-    hi SpellCap    guisp=#7070F0 gui=undercurl
-    hi SpellLocal  guisp=#70F0F0 gui=undercurl
-    hi SpellRare   guisp=#FFFFFF gui=undercurl
+   hi SpellBad ctermbg=52
+   hi SpellCap ctermbg=17
+   hi SpellLocal ctermbg=17
+   hi SpellRare ctermfg=none ctermbg=none cterm=reverse
 endif
+
+
+
+
+
 " }}}
 " Visual Mode {{{
 hi VisualNOS  guibg=#403D3D
@@ -221,7 +234,7 @@ if &t_Co > 255
 
    " NOTE: @pfdevilliers added this shit
    " Not sure if this color with underlined was defined already
-   " but I added it for the definition of a class that is a
+   " but I added it for the definition of a class that is a 
    " subclass.
    hi InheritUnderlined      ctermfg=118               cterm=underline
 
@@ -250,6 +263,6 @@ highlight ExtraWhitespace ctermbg=24 guibg=red
 match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
 
-"I'm always editing html inside php files and I don't like the automatic indenting
-"Turn off cindent for PHP files (this is for the hopper, I just like it this way)                                              
+
+"Turn off cindent for PHP files (this is for the hopper, I just like it this way)
 set nocindent
