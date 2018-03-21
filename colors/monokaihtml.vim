@@ -1,7 +1,6 @@
-
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
+" Vim color file                                                                                                               
+"                                                                                                                              
+" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
 "
 " Note: Based on the monokai theme for textmate
 " by Wimer Hazenberg and its darker variant
@@ -298,3 +297,9 @@ syn match Tab "\t"
 hi def Tab ctermbg=235 guibg=#003000 
 
 filetype indent off
+
+
+highlight EricsCustomHTMLMatcherHighlights ctermbg=red guibg=red
+
+"Any non-ascii characters should be highlighted red background
+call matchadd('EricsCustomHTMLMatcherHighlights', '\zs\([^\x00-\x7F]\)')
