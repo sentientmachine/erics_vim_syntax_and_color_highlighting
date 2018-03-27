@@ -4,24 +4,24 @@
 " Modified by: Steve Losh <steve@stevelosh.com>
 "
 " Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant                                             
-" by Hamish Stuart Macpherson                                                           
-"                                                                                       
+" by Wimer Hazenberg and its darker variant
+" by Hamish Stuart Macpherson
+"
                                                                                         
-hi clear                                                                                
+hi clear
                                                                                         
-set background=dark                                                                     
-set cursorline                                                                          
-let g:colors_name="molokai"                                                             
+set background=dark
+set cursorline
+let g:colors_name="molokaiyo_r"
                                                                                         
-" Basic Layout {{{                                                                      
-hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
-hi Folded          guifg=#666666 guibg=bg                                               
-hi CursorLine                    guibg=#232728 cterm=none                                         
-hi CursorColumn                  guibg=#232728                                          
-hi ColorColumn                   guibg=#232728                                          
-hi LineNr          guifg=#AAAAAA guibg=bg                                               
-hi FoldColumn      guifg=#AAAAAA guibg=bg                                               
+" Basic Layout {{{
+hi Normal          guifg=#F8F8F2 guibg=#1B1E1F
+hi Folded          guifg=#666666 guibg=bg
+hi CursorLine                    guibg=#232728 cterm=none
+hi CursorColumn                  guibg=#232728
+hi ColorColumn                   guibg=#232728
+hi LineNr          guifg=#AAAAAA guibg=bg
+hi FoldColumn      guifg=#AAAAAA guibg=bg
 hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
@@ -245,3 +245,19 @@ highlight ExtraWhitespace ctermbg=24 guibg=red
 "match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
 match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
+
+
+
+highlight EricsCustomRMatcherHighlights ctermbg=red guibg=red
+
+"Any non-ascii characters should be highlighted red background
+call matchadd('EricsCustomRMatcherHighlights', '\zs\([^\x00-\x7F]\)')
+
+
+"Rmd is case sensitive, functions capitalized incorrectly are red errors
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(readRds\)')
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(readrds\)')
+
+"R syntax for else is bullshit, it has to be on the same line as the opening
+"curly brace
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*else.*\)')
