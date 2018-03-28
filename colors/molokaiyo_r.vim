@@ -1,17 +1,18 @@
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" Modified by: Steve Losh <steve@stevelosh.com>
-"
-" Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant
-" by Hamish Stuart Macpherson
-"
-                                                                                        
-hi clear
-                                                                                        
-set background=dark
-set cursorline
+" Vim color file                                                                                                               
+"                                                                                                                              
+" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
+" Modified by: Steve Losh <steve@stevelosh.com>                                                                                
+"                                                                                                                              
+" Note: Based on the monokai theme for textmate                                                                                
+" by Wimer Hazenberg and its darker variant                                                                                    
+" by Hamish Stuart Macpherson                                                                                                  
+                                                                                                                               
+"Improved by Eric Leschinski for .R and .Rmd files                                                                             
+                                                                                                                               
+hi clear                                                                                                                       
+                                                                                                                               
+set background=dark                                                                                                            
+set cursorline                                                                                                                 
 let g:colors_name="molokaiyo_r"
                                                                                         
 " Basic Layout {{{
@@ -228,7 +229,7 @@ if &t_Co > 255
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Normal          ctermfg=252 ctermbg=233
-   hi Comment         ctermfg=59   cterm=bold
+   hi Comment         ctermfg=246 cterm=bold
    hi CursorLine                  ctermbg=235   cterm=none
 
    hi CursorColumn                ctermbg=234
@@ -261,3 +262,6 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\(readrds\)')
 "R syntax for else is bullshit, it has to be on the same line as the opening
 "curly brace
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*else.*\)')
+
+"in R, return requires parenthesis
+call matchadd("EricsCustomRMatcherHighlights", '\zs\(^\s*return\s\)')
