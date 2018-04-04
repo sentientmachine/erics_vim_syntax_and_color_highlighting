@@ -132,11 +132,18 @@ train = function(1, "foobar")
 
 #c is a builtin R function that returns a vector of type double and class numeric
 whatevers = c(1,2,3)
+stuff = c(1, c(1,2))
+a = data.frame(c(1,2,3))
+whatevers = 5 + c(1,2,3)
+c(1,2,3)
+
+
 
 is.vector(whatevers)
 is.vector(whatevers)  #is.vector returns Boolean if thing is vector should be pleasing blue
 x = is.vector(whatevers)  #is.vector returns Boolean if thing is vector should be pleasing blue
 
+foobaric(asdf)
 print(is.vector(whatevers))
 print(is.vector(whatevers))    #is.vector returns Boolean if thing is vector should be pleasing blue
 
@@ -160,7 +167,6 @@ a = null
 foobarbaz(Null)
 foobarbaz(NULL)
 
-a = data.frame(c(1,2,3))
 if(data.frame(c(1,2,3)) == whatever){
     #Pass isn't correct
     pass
