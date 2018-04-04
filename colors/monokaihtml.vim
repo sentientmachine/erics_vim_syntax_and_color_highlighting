@@ -1,6 +1,6 @@
-" Vim color file                                                                                                               
-"                                                                                                                              
-" Author: Tomas Restrepo <tomas@winterdom.com>                                                                                 
+" Vim color file
+"
+" Author: Tomas Restrepo <tomas@winterdom.com>
 "
 " Note: Based on the monokai theme for textmate
 " by Wimer Hazenberg and its darker variant
@@ -88,6 +88,8 @@ if has("spell")
     hi SpellCap guisp=#7070F0 gui=undercurl
     hi SpellLocal guisp=#70F0F0 gui=undercurl
     hi SpellRare guisp=#FFFFFF gui=undercurl
+
+
 endif
 hi Statement guifg=#F92672 gui=bold
 hi StatusLine guifg=#455354 guibg=fg
@@ -207,8 +209,17 @@ if &t_Co > 255
    if has("spell")
        hi SpellBad ctermbg=52
        hi SpellCap ctermbg=17
-       hi SpellLocal ctermbg=17
-       hi SpellRare ctermfg=none ctermbg=none cterm=reverse
+       "hi SpellLocal ctermbg=17
+       "hi SpellRare ctermfg=none ctermbg=none cterm=reverse
+       "hi SpellRare ctermfg=17 ctermbg=none cterm=reverse
+       "hi SpellRare ctermfg=none ctermbg=none cterm=reverse
+
+        hi SpellLocal ctermfg=50
+        "Rarewords should just be a little bit less than black, just a little hint.
+        "hi SpellRare ctermbg=235 
+        "hi SpellRare ctermfg=50
+        hi SpellRare ctermfg=50 ctermbg=50
+
    endif
    hi Statement ctermfg=161 cterm=bold
    hi StatusLine ctermfg=238 ctermbg=253
@@ -303,3 +314,9 @@ highlight EricsCustomHTMLMatcherHighlights ctermbg=red guibg=red
 
 "Any non-ascii characters should be highlighted red background
 call matchadd('EricsCustomHTMLMatcherHighlights', '\zs\([^\x00-\x7F]\)')
+
+
+" Commonly duplicated words like 'and and' are always wrong, square brackets
+" are clevery way to deal with case invariability
+call matchadd('EricsCustomHTMLMatcherHighlights', '\zs\(\s[aA][nN][dD]\s[aA][nN][dD]\)')
+call matchadd('EricsCustomHTMLMatcherHighlights', '\zs\([tT][hH][eE]\s[tT][hH][eE]\)')
