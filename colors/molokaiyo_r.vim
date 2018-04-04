@@ -97,6 +97,19 @@ syn keyword rConditional   else if while quit
 hi rConditional   ctermfg=161 cterm=bold
 
 
+
+"========MOST VALUABLE PART OF VIM  ,do  BUILTIN FUNCTION HELP and INSPECTION===========
+
+"I expect to type ,do over    whatever = sample(stuff)  and get help on the
+"sample function.  Plugin YouCompleteMe does this
+"
+"TODO: Important
+
+
+"========CTAGS would be awesome then I can zip around ========
+"
+"Meh
+
 "===========CUSTOM HIGHLIGHTS FOR R====================
 
 
@@ -105,6 +118,8 @@ highlight EricsCustomRMatcherHighlights ctermbg=red guibg=red
 "Any non-ascii characters should be highlighted red background
 call matchadd('EricsCustomRMatcherHighlights', '\zs\([^\x00-\x7F]\)')
 
+"Tabs are evil, they should be highlighted red
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(\t\)')
 
 "Rmd is case sensitive, functions capitalized incorrectly are red errors
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(readRds\)')
@@ -174,6 +189,11 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*InF\)')
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*inf\)')
 
 
+"The word 'not' is not R, use pound
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*not\s\+\)')
+
+
+
 "Wrong spelling of NULL should be red, 
 "These are not good enough because 'null' can appear inside other things like is.null.
 "We can dismiss these since NULL glows purple, and default it's grey
@@ -206,31 +226,47 @@ highlight Type ctermfg=81
 "Custom workarounds for is.vector:
 highlight IsVectorHighlight ctermfg=81
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.vector\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*data\.frame\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#]*data\.frame(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.data\.frame\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.atomic\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.null\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.character\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.numeric\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.logical\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.matrix\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.list\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.function\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.nan\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*all(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*nrow(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*abs(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*sample(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*nrow(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*abs(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*max(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*min(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*sample(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*read.csv(\)')
 "call matchadd('IsVectorHighlight', '\zs\([^\(=[/#a-z]*t(\)')
 "
 "This t( is a bit brittle, it's not very unique
 call matchadd('IsVectorHighlight', '\zs\(\s\+t(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*c(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*ncol(\)')
+"call matchadd('IsVectorHighlight', '\zs\(\s\+dim(\)')
+"
+"call matchadd('IsVectorHighlight', '\zs\(^[^#=[/,]*c(\)')
+call matchadd('IsVectorHighlight', '\zs\((c(\)')        "Problamatic because c is short
+call matchadd('IsVectorHighlight', '\zs\(\sc(\)')
+call matchadd('IsVectorHighlight', '\zs\(^\s*c(\)')
+
+"zero or more of (beginning of line, literal left paren, equals, left square bracket, divide, 
+"pound or comma followed by dim then left parenthesis should "be blue.
+"Incredible, but it just works
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*dim(\)')     "This one is great
+call matchadd('IsVectorHighlight', '\zs\([^\(=+#,]*ncol(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*runif(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*sum(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=+/#]*length(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=+/#><,]*length(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*log(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*exp(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*typeof(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*class(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#,]*typeof(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=#,]*class(\)')
 
 "Try to get around the dot limitation with shenanigans like escapes or quotes or stuff ask google
 
