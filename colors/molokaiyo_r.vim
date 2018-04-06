@@ -26,33 +26,33 @@ setlocal spell spelllang=en_us   "Be nice and explicit
 "set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 "Until then, just manual
 
-
-
-
-
-"the definition of reverse is to make the color opposite of what it is now, genius
-hi Visual term=reverse cterm=reverse guibg=Grey
-
-"===========COMMENTS SHOULD BE LIGHT GREY AS PER TRADITION====================
-
-"syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"
-
-
-"Woah you're telling me spell can be made only to apply on lines that are
-"commented?  YEAH!!!!
-
-
-
-"Define what capital word groups are classified as white bold in comments to be eye catchy
-syn match rCommentTodo contained "\(BUG\|FIXME\|NOTE\|TODO\):"
-
-"comments should be spell checked, todo like comments should be white eye
-"catchy.  rOBlock is block comments which R is incapable of, SHITHEAD PARASITES
-syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"
-
-
-
-if has("spell")
+                                                                                                                               
+                                                                                                                               
+                                                                                                                               
+                                                                                                                               
+"the definition of reverse is to make the color opposite of what it is now, genius                                             
+hi Visual term=reverse cterm=reverse guibg=Grey                                                                                
+                                                                                                                               
+"===========COMMENTS SHOULD BE LIGHT GREY AS PER TRADITION====================                                                 
+                                                                                                                               
+"syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"                                                                 
+                                                                                                                               
+                                                                                                                               
+"Woah you're telling me spell can be made only to apply on lines that are                                                      
+"commented?  YEAH!!!!                                                                                                          
+                                                                                                                               
+                                                                                                                               
+                                                                                                                               
+"Define what capital word groups are classified as white bold in comments to be eye catchy                                     
+syn match rCommentTodo contained "\(BUG\|FIXME\|NOTE\|TODO\):"                                                                 
+                                                                                                                               
+"comments should be spell checked, todo like comments should be white eye                                                      
+"catchy.  rOBlock is block comments which R is incapable of, SHITHEAD PARASITES                                                
+syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"                                                                  
+                                                                                                                               
+                                                                                                                               
+                                                                                                                               
+if has("spell")                                                                                                                
     "Color 52 is a pleasing dark magenta background
     hi SpellBad ctermbg=52
     "Sentences after a period not capitalized should have a very dark blue background.
@@ -379,10 +379,11 @@ hi rOperator      ctermfg=161
 "252 is off white, 233 is black.   (Foreground of white is too aggressive)
 hi Normal  ctermfg=252 ctermbg=233
 
-"=============CURSOR OVER A PARENTHESIS, CURLY BRACE, SQUARE BRACKET OR ANGLE
-"BRACKET SHOULD HIGLIGHT ITS CLOSING NEIGHBOR LIKE PYTHON============
+"=============The CURSOR OVER A PARENTHESIS, CURLY BRACE, SQUARE BRACKET OR ANGLE BRACKET SHOULD HIGLIGHT ITS CLOSING NEIGHBOR RED LIKE PYTHON============
 
-"TODO:  important
+"NICE!  perfect
+"Matched parenthesis, square brackets, curly braces should be white foreground and red background
+hi MatchParen      ctermfg=999  ctermbg=196 cterm=bold
 
 "============= arrow left and equals should be highlighted properly ============
 
