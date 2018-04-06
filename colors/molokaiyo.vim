@@ -6,20 +6,20 @@
 " Fixer upper-er Eric Leschinski
 
 
-"hi clear                                                                                
+"hi clear
                                                                                         
-set background=dark                                                                     
-set cursorline                                                                          
-let g:colors_name="molokai"                                                             
+set background=dark
+set cursorline
+let g:colors_name="molokaiyo"
                                                                                         
-" Basic Layout {{{                                                                      
-hi Normal          guifg=#F8F8F2 guibg=#1B1E1F                                          
-hi Folded          guifg=#666666 guibg=bg                                               
-hi CursorLine                    guibg=#232728 cterm=none                               
-hi CursorColumn                  guibg=#232728                                          
-hi ColorColumn                   guibg=#232728                                          
-hi LineNr          guifg=#AAAAAA guibg=bg                                               
-hi FoldColumn      guifg=#AAAAAA guibg=bg                                               
+" Basic Layout {{{
+hi Normal          guifg=#F8F8F2 guibg=#1B1E1F
+hi Folded          guifg=#666666 guibg=bg
+hi CursorLine                    guibg=#232728 cterm=none
+hi CursorColumn                  guibg=#232728
+hi ColorColumn                   guibg=#232728
+hi LineNr          guifg=#AAAAAA guibg=bg
+hi FoldColumn      guifg=#AAAAAA guibg=bg
 hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
@@ -185,7 +185,7 @@ if &t_Co > 255
 
    "hi MatchParen      ctermfg=999  ctermbg=233 cterm=bold
    "Matchparens should be super eye-catching white on red
-   hi MatchParen      ctermfg=999  ctermbg=196 cterm=bold
+   hi MatchParen      ctermfg=999  ctermbg=000 cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
@@ -314,3 +314,9 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if [A-Za-z].*\s*an
 
 "set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 set listchars=tab:→\ ,eol:\ ,nbsp:‡,trail:\ ,extends:▶,precedes:◀ 
+
+
+"Hopefully the following doesn't interfere with the python special unicode above.
+highlight EricsCustomPHPMatcherHighlights ctermbg=red guibg=red
+"Any non-ascii characters should be highlighted red background
+call matchadd('EricsCustomPHPMatcherHighlights', '\zs\([^\x00-\x7F]\)')
