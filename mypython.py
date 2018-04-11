@@ -44,6 +44,12 @@ if (mode=0777):
     sys.path.append("mypath")
 execfile("/home/el/tuvok.py");
 
+#Python is neither C, R, nor Java so no bangs !  asdf!
+if (!myvar): 
+    pass
+
+stuff = !True
+
 def drop_the_caffeine_and_crack_pipe_dont_make_me_taze_you():
   pony = {'ls -l', {"time for robohug"} }
   for cmd in pony:
