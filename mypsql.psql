@@ -1,0 +1,188 @@
+--valid comments in psql is dash dash -- for single line and like java /* */ for multiline, color it light grey
+--This is a .psql file, Comments should be light gray, ASCII characters !@#$%^&*()_+-=,./<>? OK!
+/* multiline comment here
+*/
+--hashes, double slashes, double quotes or percent signs at the beginning are all stupid shit.
+--lines should never have superfluous spaces at the end like this one       
+θ
+-- non ASCII in comment or code, or on comment needs red background: θ
+superfluous spaces below:
+                                                                             
+superfluous spaces above:
+#badcomment
+"badcomment, asdf
+//Badcomment
+%BadComment
+--postgresql meta commands start with a backslash for example dt, ones I use frequently like \dt show tables
+--should be brilliantly colored
+\dt
+
+--For some reason the <leader>sel command in vim doesn't run \copyright, but it does if you select the line first, wtf
+--Get that straightened out later
+\copyright
+
+desc penguins;  --desc shouldn't be a colored word it's not allowed, use \d+ instead
+\d+ penguins
+
+
+
+\echo 'hi'
+
+--wow kickass you can echo dates to screen not having to use select!
+\echo `date`
+
+echo stuff
+
+--typical error I make is to forget the values keyword:, it should jump out as red error like this:
+create table penguins(name text, mystamp timestamp);
+--superfluous trailing one space makes sure trailing semicolon is enforced
+select * from chromosome; 
+select * from chromosome;
+select * from chromosome 
+select * from chromosome
+select * from chromosome;  --missing semicolons at the end are bad form, and should be highlighted teal for error
+
+--All caps is also fine, use same colors
+--text and timestamp needs to be signature orange
+CREATE table penguins(name text, mystamp timestamp);
+CREATE TABLE penguins(name text, mystamp timestamp);
+SELECT * FROM chromosome; 
+SELECT * FROM chromosome 
+SELECT * FROM chromosome
+SELECT * FROM chromosome;  --missing semicolons at the end are bad form, and should be highlighted teal for error
+
+select blahk
+
+select 'hello'
+
+--multiline select
+SELECT *
+FROM chromosome
+
+--This comment and following code has more than 1 trailing whitespace, fail
+\dt     
+\dt
+
+--It would be extra special fucking cool if tables that didn't exist are colored differently, making the sql
+--truly interactive, but I'll save that for later after I get a baseline
+
+
+--sql keywords should be properly highlighted as in:
+show tables;
+drop table penguins;
+
+--current_timestamp should be highlighted rightly
+insert into penguins values ('rico', current_timestamp);
+
+--Multiline insert.
+insert into penguins
+values ('rico', current_timestamp);
+--Multiline insert no trailing space
+insert into penguins
+values ('rico', current_timestamp);
+
+select * from file_mover_update;
+
+--Make sure Ctrl-w plus hjkl arrows move cursor, huge important
+--bread and butter asterisk should print out tables beautifully with command \sel
+select * from penguins;
+--double quotes in psql aren't valid for deliniating strings, they're used for keyword interpretation force
+insert into penguins values("skipper", current_timestamp);  --should be highlighted as errors, accordingly
+
+insert into penguins(...)   --is an error because you forgot 'insert into penguins values...' keyword
+insert into penguins (...); --is an error because you forgot 'insert into penguins values...' keyword
+
+--The word select in a comment should be okay
+--The word insert in a comment should be okay
+drop table penguins;
+insert into penguins values ('rico', current_timestamp);
+isert into penguins("skipper", current_timestamp);
+insert into penguins("kowalski", current_timestamp);
+
+select * from penguins
+where name = 'kowalski' and mystamp is not NULL
+
+
+insert into penguins values ('rico', current_timestamp);
+insert into penguins values ('skipper', current_timestamp);
+insert into penguins values ('kowalski', now())
+
+create table users (
+    id SERIAL PRIMARY KEY,
+    client_id INTEGER NOT NULL,
+    api_key VARCHAR(100) NULL,
+    t_id BIGINT NOT NULL UNIQUE,
+    usd DECIMAL(20, 8) NOT NULL,
+    datetime TIMESTAMP,
+    enabled BOOLEAN DEFAULT TRUE,
+    user_id BIGINT NOT NULL REFERENCES users(id)
+);
+
+--TODO: blah is todo, bright white
+
+\dt
+--A bit odd that \l is affected by the same bug as \copyright, it won't run
+\l
+
+--you can search for tablenames for wildcard agent wildcard
+\dt  *agent*
+
+select * from penguins;
+
+select * from 
+penguins;
+
+
+Highlight incorrect booleans 
+
+--psql is highly forgiving on casing, all these are correct
+select true from penguins;
+select True from penguins;
+select TRUE from penguins;
+
+select 1 from penguins;
+select -1 from penguins;
+select 35e5 from penguins;
+
+
+--Examples of: 
+--for loop whilte forall else if elseif
+
+select current_user;
+
+create database deleteme;
+drop database deleteme;
+
+--This works, but robs the flow control of vim, fail:
+SELECT 8; \watch 2 
+
+\?
+
+--switch databases
+\connect student_insights_development
+
+--returns t for true
+select 1=1
+
+--returns f for false
+select 0=1
+
+--psql has no double equals, should be red
+select 1 = 1
+
+--you can name a column after you create it from thin air
+select 'a' = 'a' foo;
+
+--this is a valid expression 
+select 2^32;
+
+--NICE, why did I ever give this up?  Eric you can do this, you can automate income
+select count(*) from penguins;
+
+--woot
+alter table penguins add moobar int;
+select * from penguins;
+alter table penguins drop column moobar;
+
+
+select random();
