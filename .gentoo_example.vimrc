@@ -137,32 +137,33 @@ au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
 
-au BufReadPost,BufNewFile *.java colorscheme monokaijava
-au BufReadPost,BufNewFile *.cpp colorscheme molokaicpp
-au BufReadPost,BufNewFile *.py colorscheme molokaiyo
-au BufReadPost,BufNewFile *.html colorscheme monokaihtml
-au BufReadPost,BufNewFile *.twig colorscheme koehler 
-au BufReadPost,BufNewFile *.css colorscheme slate
-au BufReadPost,BufNewFile *.js colorscheme slate2
-au BufReadPost,BufNewFile *.json colorscheme monokambat
-au BufReadPost,BufNewFile *.php colorscheme molokaiyophp
-au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r
-au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r
-au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab
-au BufReadPost,BufNewFile *.Rmd colorscheme molokaiyo_r
-au BufWinEnter,FileType vim colorscheme molokai
-au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex
-au BufWinEnter,FileType tex colorscheme molokaiyo_tex
-au BufWinEnter,FileType gitcommit colorscheme monokai
-au BufWinEnter,FileType *.sh colorscheme molokaiyosh
-"markdown needs two commands to set syntax and filetype
-au BufWinEnter,FileType *.markdown colorscheme monokai
-au BufWinEnter,FileType *.markdown set filetype=markdown.pandoc
-au BufNewFile,BufRead .gitignore set filetype=gitignore
-au BufWinEnter,FileType .gitignore colorscheme molokaigitignore
-au BufWinEnter,FileType .bashrc colorscheme molokaiyosh
-au BufWinEnter,FileType .vimrc colorscheme molokaiyovimrc
-
+au BufReadPost,BufNewFile *.java colorscheme monokaijava 
+au BufReadPost,BufNewFile *.cpp colorscheme molokaicpp 
+au BufReadPost,BufNewFile *.py colorscheme molokaiyo 
+au BufReadPost,BufNewFile *.html colorscheme monokaihtml 
+au BufReadPost,BufNewFile *.twig colorscheme koehler  
+au BufReadPost,BufNewFile *.css colorscheme slate 
+au BufReadPost,BufNewFile *.js colorscheme slate2 
+au BufReadPost,BufNewFile *.json colorscheme monokambat 
+au BufReadPost,BufNewFile *.php colorscheme molokaiyophp 
+au BufReadPost,BufNewFile *.r colorscheme molokaiyo_r 
+au BufReadPost,BufNewFile *.R colorscheme molokaiyo_r 
+au BufReadPost,BufNewFile *.m colorscheme molokaiyo_matlab 
+au BufReadPost,BufNewFile *.Rmd colorscheme molokaiyo_rmd 
+au BufWinEnter,FileType vim colorscheme molokai 
+au BufReadPost,BufNewFile *.tex colorscheme molokaiyo_tex 
+au BufWinEnter,FileType tex colorscheme molokaiyo_tex 
+au BufWinEnter,FileType gitcommit colorscheme monokai 
+au BufWinEnter,FileType *.sh colorscheme molokaiyosh 
+"markdown needs two commands to set syntax and filetype 
+au BufWinEnter,FileType *.markdown colorscheme monokai 
+au BufWinEnter,FileType *.markdown set filetype=markdown.pandoc 
+au BufNewFile,BufRead .gitignore set filetype=gitignore 
+au BufWinEnter,FileType .gitignore colorscheme molokaigitignore 
+au BufWinEnter,FileType .bashrc colorscheme molokaiyosh 
+au BufWinEnter,FileType .vimrc colorscheme molokaiyovimrc 
+au BufWinEnter,FileType *.psql colorscheme molokai_psql 
+au BufWinEnter,FileType *.psql set filetype=plsql
 
 "TODO for markdown.pandoc, underscores not highlighted red
 "Fix the issue where you use ..*  asdf *.. highlights all white, bs
