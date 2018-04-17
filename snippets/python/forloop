@@ -1,0 +1,86 @@
+                                                                                                                               
+for i, val in enumerate(['five', 'six', 'seven']):                                                                             
+    print(str(i) + val)   #prints: 0five 1six 2seven on different lines                                                        
+#=============================================================================================================                 
+#iterate a 0 to 3 range in python                                                                                              
+for i in range(3)                                                                                                              
+    print(i)          #prints 0, 1, 2, 3 on separate lines                                                                     
+#=============================================================================================================                 
+list_of_tuples = [(3, 10, 'abc'), (6, 20, 'def'), (9, 30, 'ghi')] 
+for i,j,k in list_of_tuples: 
+    print(str(i) + str(j) + str(k))    #prints 310abc, 620def, 930ghi on different lines 
+#=============================================================================================================
+#xrange evaluates lazily and goes a bit faster on first iteration, both are slow as heck
+for i in xrange(3)
+    print(i)          #prints 0, 1, 2, 3 on separate lines
+#=============================================================================================================
+while True:
+    print('k')
+    break             #prints k then stops
+#=============================================================================================================
+while i in [3, 6, 9]:
+    print(i)          #prints 3,6,9
+#=============================================================================================================
+mydict = {3: 'one', 5: "two", 9: 'foo' } 
+for key, val in mydict.iteritems(): 
+    print(key, val)                    #prints three 2-tuples (9, 'foo'), (3, 'one'), (5, 'two') 
+#=============================================================================================================
+print( [ x for x in range(9, 11) ])     #prints 9, 10 
+#=============================================================================================================
+mydict = {3: 'one', 5: "two", 9: 'foo' } 
+for key in mydict.keys(): 
+    print(key)             #prints 3,5,9 on different lines 
+#=============================================================================================================
+list1 = [3,  6, 9] 
+list2 = [10,20,30] 
+for a, b in zip(list1, list2): 
+    print(a + b)            #prints three integers 13, 26, 39 
+    print(a, b)             #prints three tuples (3, 10), (6, 20), (9, 30) 
+    print(str(a) + str(b))  #prints 310, 620, 930 
+#=============================================================================================================
+mydict = {8: "eight", 9: "nine"} 
+for i in range(0, len(mydict)): 
+    print(i)                       #prints 0, 1 on different lines 
+#=============================================================================================================
+#==================================IF SPEED IS OF FIRST IMPORTANCE: ==========================================
+#==================================VECTORIZATION =============================================================
+#map is python's vectorization way, it's hit or miss
+mylist = range(30000000)    #takes 10 seconds
+print("start") 
+s = "" 
+for x in mylist: 
+    str(x)        #takes 9 seconds because of loop overhead 
+#FASTER: 
+s = "".join(map(str, mylist))      #map uses C vectorization: 6 seconds
+#=============================================================================================================
+#list append is very slow, list comprehension 3x better
+mylist = [] 
+for i in range(30000000):      #this takes 8 seconds 
+    mylist.append(i) 
+#EQUIVALENT FAST: 
+mylist = [range(0, 30000000)]   #this takes 3 seconds 
+#=============================================================================================================
+#string concatenation with += is terrible, join significantly better
+biglist = [str(x) for x in range(30000000)]     #takes 10 seconds
+#plus equals on strings is very SLOW:
+s = "" 
+for i in biglist: 
+    s += str(i)          #takes 13 seconds 
+#string.join passed list is vectorized c:
+s = "".join(biglist)      #takes 1 second 
+#=============================================================================================================
+#ALSO BULLSHIT LACKLUSTER map and lambdas
+myfunc = lambda(x): x*x
+mylist = range(30000000)
+print("start")
+total = 0
+for x in mylist:     #takes 7 seconds
+    myfunc(x)
+#FASTER:
+map(myfunc, mylist)   #takes 6 seconds
+
+#================= PYTHON IS UNABLE TO LOOP!  LOOPING IS FAIL IN PYTHON============================
+
+#the only way to fix it and process 10 million items real quick is to either use write it in C use Hadoop 
+#distributed computing or redefine your algorithm as a matrix operation and write the program to run
+#in parallel with itself. 
