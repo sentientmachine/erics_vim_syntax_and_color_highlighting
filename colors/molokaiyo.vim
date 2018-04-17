@@ -234,7 +234,6 @@ if &t_Co > 255
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   hi Normal          ctermfg=252 ctermbg=233
    "hi Comment         ctermfg=59   cterm=bold
    hi Comment         ctermfg=245   cterm=bold
    hi CursorLine                  ctermbg=235   cterm=none
@@ -242,7 +241,7 @@ if &t_Co > 255
    hi CursorColumn                ctermbg=234
    hi ColorColumn                 ctermbg=234
    hi LineNr          ctermfg=250 ctermbg=233
-   hi NonText         ctermfg=240 ctermbg=233
+   hi NonText         ctermfg=240 ctermbg=234
 end " }}}
 
 hi Visual term=reverse cterm=reverse guibg=Grey
@@ -266,6 +265,9 @@ call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(\S\zs\s\{2,}$\)')
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]\+''[a-z\-_{}]\+"\s*$\)')
 call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]\+"[a-z\-_{}]\+''\s*$\)')
 
+"Bang equals is okay, but bang before a variablename is a syntax error, Python 
+"is not C, R nor Java 
+call matchadd('EricsCustomPythonMatcherHighlights', '\zs\(^[^#]\+![a-zA-Z]\)')
 
 
 "Purpose of this is to highlight teal any string that has ampersand ampersand (invalid python)
@@ -294,23 +296,58 @@ call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*return\s*=\)')
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(trim()\)')
 
 "strip as its own method is a syntax error
-call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(\s\+strip(\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(strip([a-z0-9]\+\)')
 
 "for i in number, it seems right but it needs xrange or range or something
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*for.*in\s\+[0-9]\+:$\)')
+
+"The word 'quit' or 'exit' by itself is just a variablename, it needs parens
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*quit\s*$\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*exit\s*$\)')
+
+"python doesn't have curly braces after the if, so highlight that shit red
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if.*{$\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*try.*{$\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*for.*{$\)')
+
 
 "if a line starts with 'if', has no left parenthesis and ends with ' or ' then
 "it's a syntax error, also 'and 
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if [A-Za-z].*\s*or\s*$\)')
 call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(^\s*if [A-Za-z].*\s*and\s*$\)')
 
+"I often times get equals and double equals mixed up since psql uses equals as
+"comparison and assignment.
+call matchadd("EricsCustomPythonMatcherHighlights", '\(^[^#]*\zs[^a-zA-Z]if.*\s=\s\)')
 
-"TODO: HELP I need to be able to apply these settings only if they're not in a block
-"comment!
-"the word numpy. methodname is wrong, always use np
-"call matchadd("EricsCustomPythonMatcherHighlights", '\zs\(numpy.\)')
-"
-"
+
+"Typical eric error is to include parenthes around python for loops like this:
+"(x in range(3)): which is always a syntax error
+call matchadd("EricsCustomPythonMatcherHighlights", '\(^[^#]*\s*\zsfor\s*(\)')
+
+
+"Demon Magic to make sure a python if statement terminates with a colon
+""An if statement that doesn't end in a \ or a colon is an error?
+"A line that must start with whitespace if space, that narrows
+call matchadd("EricsCustomPythonMatcherHighlights", '\(^[^#]*\s*if[^a-zA-Z].*[^\[\: \]\[or\]\[and\]]\+$\)')
+call matchadd("EricsCustomPythonMatcherHighlights", '\(^[^#]*\s*if[^a-zA-Z].*[^\[\: \]\[or\]\[and\]]\+\s$\)')
+
+"============== PYTHON DELIMITERS SHOULD BE ORANGE ============================
+"YEAH!  fucking right!  You don't need any of that other garbage
+syn region rRegion matchgroup=Delimiter start=/(/ matchgroup=Delimiter end=/)/ transparent 
+
+syn region rRegion matchgroup=Delimiter start=/{/ matchgroup=Delimiter end=/}/ transparent
+syn region rRegion matchgroup=Delimiter start=/\[/ matchgroup=Delimiter end=/]/ transparent
+
+hi Delimiter ctermfg=173 ctermbg=16     cterm=bold
+
+
+
+
+"================ PYTHON FOREGROUND OFF WHITE, BACKGROUND very dark grey =====================
+hi Normal          ctermfg=252 ctermbg=234
+
+
 
 "set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 set listchars=tab:→\ ,eol:\ ,nbsp:‡,trail:\ ,extends:▶,precedes:◀ 
