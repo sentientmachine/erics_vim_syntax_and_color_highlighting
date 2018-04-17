@@ -5,6 +5,16 @@
 hi clear     "start from a blank slate.
 
 
+"periodically turn the following off to evolve better
+"syntax reset   "undo all the syntax garbage defined from earlier in vim80/syntax/r.vim
+
+"We want the /usr/share/vim/vim80/syntax and color files to periodically show
+"us better ways to do things so we let it override our stuff as we migrate
+"from version to version over time.  Evolve = good
+"Use the command :scriptnames in the vim command terminal to ask what scripts
+"loaded and in what order, it seems to be chaotic and haphazard.
+
+
 "background parameter causes vim file to broadcast dark background
 "Without this sometimes comments are unreadable
 set background=dark
@@ -26,33 +36,33 @@ setlocal spell spelllang=en_us   "Be nice and explicit
 "set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 "Until then, just manual
 
-                                                                                                                               
-                                                                                                                               
-                                                                                                                               
-                                                                                                                               
-"the definition of reverse is to make the color opposite of what it is now, genius                                             
-hi Visual term=reverse cterm=reverse guibg=Grey                                                                                
-                                                                                                                               
-"===========COMMENTS SHOULD BE LIGHT GREY AS PER TRADITION====================                                                 
-                                                                                                                               
-"syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"                                                                 
-                                                                                                                               
-                                                                                                                               
-"Woah you're telling me spell can be made only to apply on lines that are                                                      
-"commented?  YEAH!!!!                                                                                                          
-                                                                                                                               
-                                                                                                                               
-                                                                                                                               
-"Define what capital word groups are classified as white bold in comments to be eye catchy                                     
-syn match rCommentTodo contained "\(BUG\|FIXME\|NOTE\|TODO\):"                                                                 
-                                                                                                                               
-"comments should be spell checked, todo like comments should be white eye                                                      
-"catchy.  rOBlock is block comments which R is incapable of, SHITHEAD PARASITES                                                
-syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"                                                                  
-                                                                                                                               
-                                                                                                                               
-                                                                                                                               
-if has("spell")                                                                                                                
+
+
+
+
+"the definition of reverse is to make the color opposite of what it is now, genius
+hi Visual term=reverse cterm=reverse guibg=Grey
+
+"===========COMMENTS SHOULD BE LIGHT GREY AS PER TRADITION====================
+
+"syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"
+
+
+"Woah you're telling me spell can be made only to apply on lines that are
+"commented?  YEAH!!!!
+
+
+
+"Define what capital word groups are classified as white bold in comments to be eye catchy
+syn match rCommentTodo contained "\(BUG\|FIXME\|NOTE\|TODO\):"
+
+"comments should be spell checked, todo like comments should be white eye
+"catchy.  rOBlock is block comments which R is incapable of, SHITHEAD PARASITES
+syn match rComment contains=@Spell,rCommentTodo,rOBlock "#.*"
+
+
+
+if has("spell")
     "Color 52 is a pleasing dark magenta background
     hi SpellBad ctermbg=52
     "Sentences after a period not capitalized should have a very dark blue background.
@@ -80,22 +90,40 @@ hi Todo           ctermfg=231 ctermbg=232 cterm=bold
 
 
 "===========NO SUPERFLUOUS SPACES AT END====================
+"           NO LINES OF ONLY WHITESPACE
 
 "I like it when extra unnecessary whitespace at the end is highlighted
 highlight ExtraWhitespace ctermbg=24 guibg=red
 "match ExtraWhitespace /\s\+$\| \+\ze\t/            "this one includes blank lines as well. sucky.
 "match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
-match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
+match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/
+
+
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
+"---
+
+"12 whitespace or more gets highlighted as evil
+"highlight OnlyWhitespace ctermbg=24 guibg=red
+"match OnlyWhitespace /\zs\s\{16,}$\| \+\ze\t/
+"autocmd ColorScheme * highlight OnlyWhitespace ctermbg=24 guibg=red
 
 
+
+"NEAT
+"Demo vim's ablity to search, but only  highlight part, the secret is in the
+"\zs and \ze
+"EXCELLENT, follow this and apply it elsewhere
+
+"OOHHH it's the \zs that tells vim where to start matching and where to highlight.
 
 "=============CONDITIONALS SHOULD BE BRIGHT RED==============================
 "
 
-syn keyword rConditional   else if while quit
+syn keyword rConditional   else if while quit in repeat for
 hi rConditional   ctermfg=161 cterm=bold
 
+"rRepeat has to be set because sometimes vim80/syntax/r.vim has to have the last fucking word on colorizing certain words
+hi rRepeat ctermfg=161 cterm=bold
 
 
 "========MOST VALUABLE PART OF VIM  ,do  BUILTIN FUNCTION HELP and INSPECTION===========
@@ -114,12 +142,27 @@ hi rConditional   ctermfg=161 cterm=bold
 
 
 highlight EricsCustomRMatcherHighlights ctermbg=red guibg=red
+highlight BringGreenBoldStrangeBuiltin ctermfg=118 ctermbg=16 cterm=bold
 
+"
 "Any non-ascii characters should be highlighted red background
 call matchadd('EricsCustomRMatcherHighlights', '\zs\([^\x00-\x7F]\)')
 
+"Highlight Whitespace lines that are more than 22 spaces wide. 
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s\{22,}\s\+$\)')
+
 "Tabs are evil, they should be highlighted red
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(\t\)')
+
+"Bare square bracket lists aren't allowed
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(=\s\[\)')
+
+
+"R has curly braces after if, for, while, etc, highlight python's colon
+call matchadd('EricsCustomRMatcherHighlights', '^\s*if.*\zs\(:\s*$\)')
+call matchadd('EricsCustomRMatcherHighlights', '^\s*for.*\zs\(:\s*$\)')
+call matchadd('EricsCustomRMatcherHighlights', '^\s*while.*\zs\(:\s*$\)')
+
 
 "Rmd is case sensitive, functions capitalized incorrectly are red errors
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(readRds\)')
@@ -128,9 +171,13 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\(readrds\)')
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(saveRds\)')
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(saverds\)')
 
+"mean() is python, mean(...) is R.
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(\.mean()\)')
+
+
 "R syntax for else is bullshit, it has to be on the same line as the opening
-"curly brace
-call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*else.*\)')
+"curly brace.  But problem is 'else if' can be on another line
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*else\s*{\)')
 
 "in R, return requires parenthesis
 call matchadd("EricsCustomRMatcherHighlights", '\zs\(^\s*return\s\)')
@@ -156,6 +203,9 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\(Return\)')
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*exit\)')
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*quit\s*$\)')
 
+"R demands that a number sent into quit must have a status=
+call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*quit(\d\)')
+
 
 "in R, type is 'typeof()  UNLIKE ALL THE OTHER LANGUAGES.
 call matchadd('EricsCustomRMatcherHighlights', '\zs\(^\s*type(\)')
@@ -163,10 +213,7 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\((type(\)')
 
 
 "In R, not len, but length(
-call matchadd('EricsCustomRMatcherHighlights', '\zs\(len(\)')
-
-"In R, bare vector isn't a thing
-call matchadd('EricsCustomRMatcherHighlights', '\zs\(len(\)')
+call matchadd('EricsCustomRMatcherHighlights', '\zs\([^_a-z]len(\)')
 
 "In R, print must have parens
 "Start of line, any amount of anything but a comment pound sign, literal print
@@ -200,6 +247,50 @@ call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*not\s\+\)')
 "call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*Null\)')
 "call matchadd('EricsCustomRMatcherHighlights', '\zs\(^[^#]*null\)')
 
+"=============pre prodcessing header keywords HEADERS===========
+" Functions that may add new objects
+syn keyword rPreProc     library require attach detach source options
+hi rPreProc         ctermfg=81
+
+"============= rFunction is defined in the /usr/share/vim/vim80/syntax/r.vim=============
+
+"WAIT STOP! If you higlight all user defined functions bright green then it will 
+"latch on to things like to.string( with bright green making it look like a
+"valid builtin when it's not.  So leave it normal
+"hi rFunction     ctermfg=118 ctermbg=16     cterm=bold
+
+"functions should be a bit brighter than comments with the same background as Normal
+hi rFunction     ctermfg=254 ctermbg=234
+syn match rFunction '[0-9a-zA-Z_\.]\+\s*\ze('
+
+
+"==================== DOLLAR SIGN ======================================
+"Dollar signs delimit R data.frame columns
+syn match rDollar display contained "\$" 
+hi rDollar     ctermfg=161              cterm=bold
+
+
+"==================== DELIMITERS ===============================================
+"Delimiters should be white like the functions?  meh
+"hi rDelimiter ctermfg=999 ctermbg=16     cterm=bold
+
+"Delimiter refers to parenthesis, square brackets curly braces and commas ({[]}),
+"The code that matches them is in syntax/r.vim
+"This gives the Delimiters a popout Black background because they are important
+
+
+syn region rRegion matchgroup=Delimiter start=/(/ matchgroup=Delimiter end=/)/ transparent contains=ALLBUT,rError,rBraceError,rCurlyError 
+syn region rRegion matchgroup=Delimiter start=/{/ matchgroup=Delimiter end=/}/ transparent contains=ALLBUT,rError,rBraceError,rParenError 
+syn region rRegion matchgroup=Delimiter start=/\[/ matchgroup=Delimiter end=/]/ transparent contains=ALLBUT,rError,rCurlyError,rParenError 
+syn match rError      "[)\]}]" 
+syn match rBraceError "[)}]" contained 
+syn match rCurlyError "[)\]]" contained 
+syn match rParenError "[\]}]" contained
+
+hi Delimiter ctermfg=173 ctermbg=16     cterm=bold
+
+
+
 "=============special builtin keywords like function need to be a pleasing blue============
 
 
@@ -223,50 +314,110 @@ syn keyword rType array category character complex double function integer list 
 hi def link rType        Type
 highlight Type ctermfg=81
 
+
+
+"match toWhatevers strange builtins like toString(vector)  BEAUTIFUL!
+"Match the beginning of the line, then any amount of anything that isn't a hashtag
+"comment, then the target name toString( preceeded by space and before that anything that
+"isn't a comma, equals or hash
+call matchadd('BringGreenBoldStrangeBuiltin', '\(^[^#]*\s*\zstoString\ze(\)')
+
 "Custom workarounds for is.vector:
 highlight IsVectorHighlight ctermfg=81
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.vector\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*data\.frame(\)')
+
+"newline escape codes should be bright blue
+call matchadd('IsVectorHighlight', '\(^[^#]*\zs\\n\)')
+
+
+call matchadd('IsVectorHighlight', '\(^\s*\zsis\.vector\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*[\s\(]\+\zsis\.vector\)')
+
+
+call matchadd('IsVectorHighlight', '\zs\(^[^\(=\-#]*data\.frame(\)')
+
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsfile\.exists\ze(\)')
+
+call matchadd('IsVectorHighlight', '\zs\([^\(=\-#]*data\.matrix(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.data\.frame\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.atomic\)')
+"call matchadd('IsVectorHighlight', '\zs\([^\(=#]*set\.seed\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsset\.seed\ze(\)')
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.null\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.character\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.numeric\)')
+
+call matchadd('IsVectorHighlight', '\zs\([^\(\+\[=#]*is\.numeric\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(\+=#]*as\.numeric\)')
+
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsis\.integer(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsas\.integer(\)')
+
+call matchadd('IsVectorHighlight', '\(^[^#]*[\(\+\-\[= ]\+\zsis\.integer(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*[\(\+\-\[= ]\+\zsas\.integer(\)')
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.logical\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.matrix\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.list\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.function\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*is\.nan\)')
+
+call matchadd('IsVectorHighlight', '\zs\([^\(\+=#]*grepl\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(\+=#]*\s\+regexpr\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(\+\[=#]*sapply\)')
+
+call matchadd('IsVectorHighlight', '\zs\([^\(\+\-=#]*Sys\.time\)')
+
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=#]*all(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*nrow(\)')
+
+"nrow is problematic and needs two because it can occur in many different scenarios
+call matchadd('IsVectorHighlight', '\(^\zsnrow\ze(\)')
+call matchadd('IsVectorHighlight', '\(^\zsncol\ze(\)')
+
+call matchadd('IsVectorHighlight', '\(^[^#]*[,\( ]\+\zsnrow\ze(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*[,\( ]\+\zsncol\ze(\)')
+
+call matchadd('IsVectorHighlight', '\(^\zsround\ze(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*[\( ]\+\zsround\ze(\)') 
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*abs(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*max(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*min(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*sample(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=[/!#,]*duplicated(\)')
+call matchadd('IsVectorHighlight', '\([^\(=[/#,]*\zssample\ze(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#]*read.csv(\)')
 "call matchadd('IsVectorHighlight', '\zs\([^\(=[/#a-z]*t(\)')
 "
 "This t( is a bit brittle, it's not very unique
 call matchadd('IsVectorHighlight', '\zs\(\s\+t(\)')
 "call matchadd('IsVectorHighlight', '\zs\(\s\+dim(\)')
-"
-"call matchadd('IsVectorHighlight', '\zs\(^[^#=[/,]*c(\)')
-call matchadd('IsVectorHighlight', '\zs\((c(\)')        "Problamatic because c is short
-call matchadd('IsVectorHighlight', '\zs\(\sc(\)')
-call matchadd('IsVectorHighlight', '\zs\(^\s*c(\)')
+
+
+call matchadd('IsVectorHighlight', '\(^[^#]*(\zsc(\)')        "Problamatic because c is short
+call matchadd('IsVectorHighlight', '\(^[^#]*\s\zsc(\)')
+call matchadd('IsVectorHighlight', '\(^\s*\zsc(\)')
 
 "zero or more of (beginning of line, literal left paren, equals, left square bracket, divide, 
 "pound or comma followed by dim then left parenthesis should "be blue.
 "Incredible, but it just works
 call matchadd('IsVectorHighlight', '\zs\([^\(=[/#,]*dim(\)')     "This one is great
-call matchadd('IsVectorHighlight', '\zs\([^\(=+#,]*ncol(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#]*runif(\)')
+
+
+call matchadd('IsVectorHighlight', '\zs\([^\(=+#,]*floor(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=+#,]*seq_len(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsrunif\ze(\)')
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*sum(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=+/#><,]*length(\)')
+call matchadd('IsVectorHighlight', '\zs\([^\(=+*#]*sign(\)')  "asterisk in the square brackets is literal, asterisk after the right square bracket is one to many
+call matchadd('IsVectorHighlight', '\(^[^#]*\zslength\ze(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*[\(=:+/#><, ]\+\zslength\ze(\)')
+
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*log(\)')
 call matchadd('IsVectorHighlight', '\zs\([^\(=+#]*exp(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#,]*typeof(\)')
-call matchadd('IsVectorHighlight', '\zs\([^\(=#,]*class(\)')
+"call matchadd('IsVectorHighlight', '\zs\([^\(=#,]*typeof(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*\zstypeof\ze(\)')
+call matchadd('IsVectorHighlight', '\(^[^#]*\zsclass\ze(\)')
+
 
 "Try to get around the dot limitation with shenanigans like escapes or quotes or stuff ask google
 
@@ -286,14 +437,27 @@ hi rBoolean        ctermfg=135
 syn keyword rConstant NULL
 hi rConstant ctermfg=201
 
+"============= pressing space cc and space cu should comment and uncomment ===========================
+
+"this makes it so you can Shift-V highlight lots of text then press ,cc
+"to comment it or ,cu to uncomment.  
+"noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+"noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+"Plugin for nerdcommenter is best:
+"https://github.com/sentientmachine/nerdcommenter
+
 
 "=============return like keywords===========================
 "return should be nice deep red
 
 "syn match rOKeyword contained "@\(param\|return\|name\|rdname\|examples\|example\|include\|docType\)"
 "
-syn keyword returnKeyword return break
-hi returnKeyword ctermfg=161
+syn keyword returnKeyword return next break
+hi returnKeyword ctermfg=160
+
+"Assigning a color to this rStatement seems required because occasionally vim80/syntax/r.vim absolutly has to have the last fucking word on colorizing certain keywords like return, next, break
+hi rStatement ctermfg=160
 
 "
 "============  Literal NA's Infs and NaN should be pink=======================
@@ -302,13 +466,8 @@ syn keyword rSpecialNumberName NA Inf NaN
 hi def link rSpecialNumberName SpecialNumberName
 hi SpecialNumberName   ctermfg=201
 
-"============= function named constants should be orange like in python ============
 
 
-"TODO:  This is hard, it's a Backus nor form parsing job
-"Not a huge amount of return on investment
-
-"
 "====== Numbers or hexidecimal with an L after them ===========================
 syn match rInteger "\<\d\+L"
 syn match rInteger "\<0x\([0-9]\|[a-f]\|[A-F]\)\+L"
@@ -347,7 +506,10 @@ hi rString          ctermfg=144
 
 
 "====Operators======
-"
+"the following 3 lines have to be before rOperator becuase overriding
+"rAssign must be defined because sometimes vim80/syntax/r.vim has to have the last word
+"syntax reset
+
 
 syn match rOperator    "&"
 syn match rOperator    '-'
@@ -361,7 +523,21 @@ syn match rOperator '=='
 hi rOperator      ctermfg=161
 
 
+syn match rAssign "<\{1,2}-"
+syn match rAssign "->\{1,2}"
+hi rAssign ctermfg=227
 
+
+"=============MENUS should not be default pink ==========================
+
+
+hi Pmenu           ctermfg=81  ctermbg=16
+hi PmenuSel                    ctermbg=244
+hi PmenuSbar                   ctermbg=232
+hi PmenuThumb      ctermfg=81
+
+"Later on I want to get a handle on this menu with the plugins that tell me
+"right things about this code.
 
 "============= PRESSING ENTER AFTER A CODE LINE SHOULD AUTO-INENT Properly=============
 
@@ -377,13 +553,14 @@ hi rOperator      ctermfg=161
 "the syntax file has no signature for it, maybe it's set somewhere else?
 "
 "252 is off white, 233 is black.   (Foreground of white is too aggressive)
-hi Normal  ctermfg=252 ctermbg=233
+hi Normal  ctermfg=252 ctermbg=234
 
 "=============The CURSOR OVER A PARENTHESIS, CURLY BRACE, SQUARE BRACKET OR ANGLE BRACKET SHOULD HIGLIGHT ITS CLOSING NEIGHBOR RED LIKE PYTHON============
 
-"NICE!  perfect
-"Matched parenthesis, square brackets, curly braces should be white foreground and red background
-hi MatchParen      ctermfg=999  ctermbg=196 cterm=bold
+"NICE!  perfect!  Just like Python and PHP
+"Matched parenthesis, square brackets, curly braces should be bold white foreground over black.
+"Not enough to throw you off, but enough to see if you look for it
+hi MatchParen      ctermfg=999  ctermbg=000 cterm=bold
 
 "============= arrow left and equals should be highlighted properly ============
 
@@ -627,3 +804,4 @@ hi MatchParen      ctermfg=999  ctermbg=196 cterm=bold
 "   hi LineNr          ctermfg=250 ctermbg=233
 "   hi NonText         ctermfg=240 ctermbg=233
 "end " }}}
+"
