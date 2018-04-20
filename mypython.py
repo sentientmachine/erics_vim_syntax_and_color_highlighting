@@ -1,10 +1,4 @@
 #!/usr/bin/python -tt
-import subprocess, sys
-from django.http import HttpResponse
-from pinkie_pie import unit_tests as unit
-
-twilight_sparkle = {0: '', 1: 'derpy'}
-rainbow_dash = Math.sqrt(1*5)
 
 import subprocess, sys
 from django.http import HttpResponse
@@ -12,11 +6,28 @@ from pinkie_pie import unit_tests as unit
 
 twilight_sparkle = {0: '', 1: 'derpy'}
 rainbow_dash = Math.sqrt(1*5)
+
+import subprocess, sys
+from django.http import HttpResponse
+from pinkie_pie import unit_tests as unit
+
+twilight_sparkle = {0: '', 1: 'derpy'}
+rainbow_dash = Math.sqrt(1*5)
+
+
+#The following colrs is not quite optimal because parameters are delimited by commas, need more sophisticated regex
+#the workaround is you never put embedded comman things inside default functions
+def abc(a = [1,2,3]):
+    print(a)
+
+
 
 #syntax errors follow
 foo = "asdf'
 foo13 = 'asdf"
 foo = "asdf asdf asdf'
+
+a = -35
 
 if (4 && 3):
     if (5 || 3):
@@ -44,11 +55,7 @@ if (mode=0777):
     sys.path.append("mypath")
 execfile("/home/el/tuvok.py");
 
-#Python is neither C, R, nor Java so no bangs !  asdf!
-if (!myvar): 
-    pass
-
-stuff = !True
+abs(53)
 
 def drop_the_caffeine_and_crack_pipe_dont_make_me_taze_you():
   pony = {'ls -l', {"time for robohug"} }
@@ -134,6 +141,151 @@ shoplist = ["carrot", "banana", "grape"]
 foobar="()@#!@?&*("
 exit(9)
 
+if (!myvar):
+    pass
+
+stuff = !True
+
 
     def blahasdf():
-        asdf
+                asdf
+
+
+
+
+
+#The following line uses equals assignment incorrectly:
+if (key = "LM"):
+    pass
+
+
+#following is syntax error, bullshit python doesn't accept parenthesis:
+for (x in range(3)):
+    print(x)
+
+#following is correct
+for x in range(3):
+    print(x)
+
+
+a = "text with exclamation at end is okay!"
+
+
+
+#Just because it has 'if' in the name doesn't mean it is wrong
+last_modified_date = datetime.datetime.fromtimestamp(mtime)
+
+
+
+#good:
+if (True or
+        False):
+    pass
+
+#good:
+if (True and
+        False):
+    pass
+
+#good:
+if (True and
+        False):
+    pass
+
+#good:
+if (True and   \
+        False):
+    pass
+
+#good:
+if (True and \
+        False):
+    pass
+
+#GOOD if asdf:
+#if asdf:
+if (stuff): 
+    pass
+#GOOD
+if (stuff):
+    pass
+
+#GOOD
+    if True:
+        pass
+
+
+
+
+#BAD
+a = 34 +
+23
+
+#BAD
+if (True
+        False):
+    pass
+
+#BAD
+if (True 
+        False):
+    pass
+
+#BAD
+if (stuff() and stuff())
+    pass
+
+#BAD
+if stuff()
+    pass
+
+#BAD
+if True
+    pass
+
+#GOOD
+def blah(foo):
+    pass
+
+#good
+a = 34 + \
+23
+
+#good:
+a = blah("asdf" 
+"asdf2")
+
+#FUCKING NOICE, all the unnecessary parents are highlighted as evil, absolute mind blown
+#BAD (extra parenthesis):
+
+predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv"), "\n")
+
+predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv"], "\n")
+
+
+predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv"}, "\n")
+
+predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv")), "\n")
+
+
+#BAD (missing parenthesis before square bracket, R is wrong
+df2 = df[sample(as.integer(df)]
+df2 = is.vector(df)
+a = 'phineas.asdf'    #words ending in 'as.' are still okay
+
+
+#bad, unterminated left parenthesis
+if (foo == 2:
+    a = 5
+
+#bad right paren without left
+if foo == 2):
+    a = 5
+
+#BAD: must have parenthesis
+if TRUE:
+    a = 5
+
+#BAD: because TRUE is improper case
+if (TRUE):
+    a = 5
