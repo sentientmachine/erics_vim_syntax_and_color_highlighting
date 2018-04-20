@@ -269,9 +269,11 @@ a = 300 << 5      #left shift ok, red
 twilight_sparkle = {0: '', 1: 'derpy'}
 rainbow_dash = Math.sqrt(1*5)
 
+
 #syntax errors unmatched quote delimiters follow, must be easily visible
 foo = "asdf'
 foo13 = 'asdf"
+
 foo = "asdf asdf asdf'     #syntax error one double quote can't span multiple lines
 
 asdf"            #syntax error, can't span multiple lines
@@ -601,12 +603,20 @@ predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv"}, "\n")
 predictProdFile(theta, csv_filename="n_dimensional_prod_queries.csv")), "\n")
 
 
-#bad if:
-if (foo == 5:
+#bad, unterminated left parenthesis
+if (foo == 2:
     a = 5
 
-#bad if:
+#bad right paren without left
 if foo == 2):
+    a = 5
+
+#BAD: must have parenthesis
+if TRUE:
+    a = 5
+
+#BAD: because TRUE is improper case
+if (TRUE):
     a = 5
 
 #correct: python can have parens or not
@@ -685,3 +695,46 @@ good
 #It's because of the smart way we are doing the job
 def abc():
     asdf
+
+
+
+#BAD (missing parenthesis before square bracket, R is wrong
+df2 = df[sample(as.integer(df)]
+df2 = is.vector(df)
+a = 'phineas.asdf'    #words ending in 'as.' are still okay
+
+
+
+#typing a 180 width line should not autowrap, good
+asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asd fasdf asdf asdf asdf asdf asdf asdf j
+
+
+#GOOD, surprisingly allowed considered foo is a function:
+foo(
+)
+
+#this builtin len( should be blue as per tradition even with all variants of neighbors
+len(stuff)                   #hugged against left side, blue
+    len(stuff)               #whitespace is okay, still blue
+1 + len(stuff)               #plus before len, still blue
+    1 + len(stuff)           #whitespace and plus
+    list(len(stuff))         #nested other blue list with blue len
+  a = len(stuff)             #assignment allowed, still blue
+  a = list(len())            #BAD, RED, len must have at least 1 argument
+b = foobar(len(stuff))       #len blue, nested in meaningless function
+b = foobar(1,len(stuff))     #comma before len, nospace
+b = foobar(1, len(stuff))    #comma before len, space
+df2 = df[list(len(df)]       #BAD, red, syntax error here, unmatched left paren
+blarnlen(asdf)               #should not be blue
+a = 1 * len(stuff)           #all arithmatic is good blue
+a = 1 - len(stuff)           #all arithmatic is good blue
+a = 1 / len(stuff)           #all arithmatic is good blue
+a = list(1, len(stuff))      #list with commas and len blue nested
+a = (len(blah))              #wrapping parents orange, len blue, strange but okay
+
+
+#BAD, no casing of tostring is acceptable, all teal fail:
+print("d is: ", toString(d))
+print("d is: ", tostring(d))
+print("d is: ", to.string(d))
+print("d is: ", to.asdfasf(d))
