@@ -20,21 +20,43 @@ a = " Θ θ "
 
 #import should be red
 import subprocess, sys
-from django.http import HttpResponse
 from pinkie_pie import unit_tests as unit
+from django.http import HttpResponse
 
 #integers should be purple
 a = 0
 a = 987
 a = -55
 a=-55
-a = 1234l
-a = 1L
 a = 1234.5
 a = 1234.1234
 a = 5e5
-a = 234J
+#floats should be purple
 a = 1234.1234e7
+#Longs should be blue
+a = 1234l
+a = 1L
+#complex numbers brown
+a = 234J
+
+#hex numbers
+a = 0x21c
+
+#Python hex error:
+0xfade        #hex can only be 0-9a-f
+0xfaze        #hex error, highlight red
+
+#binary numbers good:
+0b110101101000101
+0B110101101000101
+
+#binary numbers bad:
+0b110101101000101.23L
+a = 0b11020
+
+#Octal numbers good, (digit set 0-7)
+a = 027
+print(type(016))
 
 #Semicolons after line is technically allowed, but is teal fail
 a = 1234;
@@ -42,61 +64,44 @@ a = 1234;
 #java comments are fail, highlight red  // can be in comments though
 //asdf
 
-#hex numbers
-a = 0x21c
-
 #long error
 a = 1234.3L
 a = 1234.3l
 
-#python long error
+#python long error, no period point
 532.l
 
-#Python hex error:
-0xfade        #hex can only be 0-9a-f
-0xfaze        #hex error, highlight red
 
-#binary number good:
-0b110101101000101
-0B110101101000101
 
-#binary number bad:
-0b110101101000101.23L
-a = 0b11020
-
-#Oct number good, (digit set 0-7)
-a = 027
-print(type(016))
-
-#Octal number bad:
+#BAD: Octal number out of range
 a = 097
 print(019)
 
-#numbers inside words should not be purple
-
-abc38d_1234 = 10  #ok whatever
+#BAD: numbers inside words should not be purple
+abc38d_1234 = 10  #good
 35a_sdf = 10      #numbers may never begin words, ever
 
 
+#BAD: boolean named builtins need proper camel case, highlight fail
 a = false
 a = true
 a = none
-
 a = FALSE
 a = TRUE
 a = NONE
+a = F
+a = T
 
+#GOOD: boolean named builtins properly cased
 a = False
 a = True
 a = None
 
-a = F
-a = T
-
-
+#Good basic function def, blue, green, brown on black with blue pass
 def myblah():
     pass
 
+#GOOD, but bad form
 def abc(a = [1,2,3]):    #Ugh, just don't do this even though it's legal
     print(a)
 
@@ -145,19 +150,24 @@ a = INF
 a = Inf
 a = inf
 
+#Good, a bare word is legal
 etc
 
 a = float("nan")
 print(type(a))
 print(a)
 
+#GOOD arithmetic operations, = + - / * ** % should be red
 a = foo + 5        #addition
 b = foo - 5        #addition
 c = 0xfade * 10    #multiplication
 d = 1234.56 / foo  #division
 d = -8e8 ** 2      #exponentiation
+3 % 2              #modulus operator 3 mod 2 is 1
+
 e = 35 ^ 3         #bitwise xor
 f = ~ 5            #"invert" or "complement" operation, in which all the bits of the input data are reversed
+
 h = !foo           #syntax error, bang by itself has no meaning
 i = !5             #syntax error, bang by itself has no meaning
 j =! 5             #syntax error, bang by itself has no meaning
@@ -165,7 +175,6 @@ j =! 5             #syntax error, bang by itself has no meaning
 2 & 3              #bitwise addition 2 & 3 is 2
 2 | 3              #bitwise or 2 & 3 is 2
 2 ^ 3              #bitwise or 2 & 3 is 2
-3 % 2              #modulus operator 3 mod 2 is 1
 
 2 && 3             #syntax error, python uses 'and' for double ampersand
 2 || 3             #syntax error, python uses 'or' for double pipe
@@ -176,28 +185,30 @@ a -> 5             #syntax error, bad red
 a ->> 5            #syntax error, bad red
 
 
+#GOOD, orange delimiters
 a = [1,2,3]         #naked lists should be orange brackets, purple numbers
 a = [[5,6,7],2,3]   #nested naked lists should be orange brackets, purple numbers
 a = (5,6,7)         #tuples good
 
-#compound assignment operators
+#compound assignment operators, be red
 a += 5
 a -= 5
 a /= 5
 a *= 5
 a %= 5
 
-#not equals, double equals
+#GOOD: not equals, double equals red
 a != 5
 a == 5
+
+#BAD:
 a === 5   #triple equals syntax error, red
 a===5   #triple equals syntax error, red, but === in comment is okay
 
 
+#GOOD
 a = "==="   #Valid double quotes, no error
-
 a = '==='   #Valid single quotes no error
-
 a = "words inside quotes fijsdfhh are spell checked"
 
 #\n is newline
@@ -217,7 +228,7 @@ a = 'single quote special escape codes \n \r \t \b \a \f \b \v \' \\ should be b
 
 
 
-#I expect a string with an unterminated doublequote and single quote to be obviously wrong
+#I expect a string with an unterminated doublequote and single quote to be obviously wrong (non brown,)
 a = "aaaaaaf
 a = 'bbbbbbb
 
@@ -254,14 +265,7 @@ a = 300 << 5      #left shift ok, red
 #I can say && from inside quotes without an error though
 
 
-
-twilight_sparkle = {0: '', 1: 'derpy'}
-rainbow_dash = Math.sqrt(1*5)
-
-import subprocess, sys
-from django.http import HttpResponse
-from pinkie_pie import unit_tests as unit
-
+#Good, dictionary definition
 twilight_sparkle = {0: '', 1: 'derpy'}
 rainbow_dash = Math.sqrt(1*5)
 
@@ -681,4 +685,3 @@ good
 #It's because of the smart way we are doing the job
 def abc():
     asdf
-
