@@ -1,6 +1,4 @@
-What is this?
----------
-None of your business.
+See angeliqe's vim_syntax_and_color_highlighting
 
 
 https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
