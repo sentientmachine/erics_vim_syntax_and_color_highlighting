@@ -1,4 +1,11 @@
-See angeliqe's vim_syntax_and_color_highlighting
+
+# This project is no longer maintained.
+
+Sorry I can't update this with a set of instructions for how you can deploy this too because required components that makes it work, a rube goldberg machine of vim plugins, roll-my-own C files, bash scripts and whatnot, are specific to my instances of fedora, Ubundu, Arch and Gentoo that I use.  
+
+Any instructions I gave you would be met with errors as I'd have to get you up to speed on other private projects on my disk.  So I can't really  help you except to put some of the tips and clues here.  All the information you need to get my results are here, but you will need to reverse engineer some things.
+
+I have a stem to stern deploy script on a private instance, but it has my intellectual property on it.  So good luck.  Keep going and keep hacking.
 
 
 https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
