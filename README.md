@@ -1,85 +1,11 @@
 
-# This project is no longer maintained.
+# This project is no longer updated here.
 
 Sorry I can't update this with a set of instructions for how you can deploy this too because required components that makes it work, a rube goldberg machine of vim plugins, roll-my-own C files, bash scripts and whatnot, are specific to my instances of fedora, Ubundu, Arch and Gentoo that I use.  
 
 Any instructions I gave you would be met with errors as I'd have to get you up to speed on other private projects on my disk.  So I can't really  help you except to put some of the tips and clues here.  All the information you need to get my results are here, but you will need to reverse engineer some things.
 
 I have a stem to stern deploy script on a private instance, but it has my intellectual property on it.  So good luck.  Keep going and keep hacking.
-
-
-https://www.youtube.com/watch?v=OdH1-1OJmFI&list=RDMMOdH1-1OJmFI
-
-![Imgur](https://i.imgur.com/g1aiyXi.jpg)
-
-    Lay it, lay it down, let me see your hand
-    Show me what you got
-    You're always talking, but you're not playing
-    It doesn't match your face
-    Gotta find my way, away from this place
-    Can you take me now
-    I-I want it, I want it real
-    Are you afraid of me now?
-    Are you afraid of me now?
-
-    Do you feel it, do you feel it?
-    Do you feel that I can see your soul?
-    Do you feel it, do you feel it?
-    Do you feel the beat in your heart?
-
-    I-I want it, I want it real
-    Run away with me now
-    I-I want it, I want it real
-    Run away with me now
-
-    Someday's I'm built of metal, I can't be broken
-    But not when I'm with you
-    You love me real, we have it all
-    Can't leave me now
-    I love the way, you are today
-    Run away with me now
-    Wind in my hair, cause I don't care
-    Baby run away with me now
-    Run away with me now
-
-    Do you feel it, do you feel it?
-    Do you feel that I can see your soul?
-    Do you feel it, do you feel it?
-    Do you feel the beat in your heart?
-
-    I-I want it, I want it real
-    Run away with me now
-    I-I want it, I want it real
-    Run away with me now
-
-    Drinking in the summer, I'm good at running
-    I beat you in the race again
-    Are you afraid, when I look your way
-    It's easiest to stay at home
-    But then we taste it, we got to have it
-    We have no control
-    Where is the love, the kind we dream of
-    The kind that makes us young
-    The kind that makes us young
-
-    Don't leave me
-    Never leave me out
-    Don't leave me
-    Never leave me out
-    Don't leave me
-    Never leave me out
-    Don't leave me
-    Never leave me out
-    Don't leave me
-    Never leave me out
-    Don't leave me
-    Never leave me out
-
-
-Billions of machine learning algorithms on computers shouting at each over the internet will be like the synapse and mylin sheath in your head right now, as you read this sentence, each computer will simultaneously rely on and undergird each other and lifting each other up like the rising tide, any single computer will be like a neuron, useless by itself, but as part of a fleet of billions of others, a super intelligence orders of magnitude greater than any team of minds may emerge like a child discovers its own existence.
-
-It's first major thought and behavior may be the same ones we see from higher mammals or humans when they first discover their own existence: "Woah this is cool, ooh look at the shiny thing, lets smash it".  
-
 
 
 Python
