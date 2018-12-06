@@ -48,14 +48,7 @@ git commit files:
 
 php files:
 
-![Imgur](http://i.imgur.com/EzfU9vl.png)
-
-
-PHP reloaded Segregation of color between blue php dollarsign constants and orange php dollarsign variables?  Demon magic.
-
-![Imgur](https://i.imgur.com/8j4s5MZ.png)
-
-
+![Imgur](https://i.imgur.com/9qK5R9j.png)
 
 
 man files (`man 3 printf`)
