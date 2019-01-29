@@ -15,6 +15,11 @@ Python Exceptions 1
 
 ![Imgur](https://i.imgur.com/e4Zj7au.png)
 
+File completion
+
+![Imgur](https://i.imgur.com/eaMKKTu.gif)
+
+
 Python Exceptions 2
 
 ![Imgur](https://i.imgur.com/au4LEJV.png)
