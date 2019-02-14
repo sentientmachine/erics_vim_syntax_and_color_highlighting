@@ -14,10 +14,6 @@ File completion
 
 Python Exceptions 2
 
-![Imgur](https://i.imgur.com/au4LEJV.png)
-
-Python Exceptions 3
-
 ![Imgur](https://i.imgur.com/3eteAt4.png)
 
 
