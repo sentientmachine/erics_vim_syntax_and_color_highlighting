@@ -5,7 +5,7 @@ But what you can do is feast your eyes on what it would look like if you did hav
 
 
 vim
-![Imgur](http://i.imgur.com/MjzwdH6)
+![Imgur](https://imgur.com/cuRKO1V)
 
 
 
