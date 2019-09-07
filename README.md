@@ -5,7 +5,9 @@ But what you can do is feast your eyes on what it would look like if you did hav
 
 
 vim, it's a mastapiece, will you just look at it?  It's like a jet engine, like a brain, like a work of art.
-![Imgur](]https://i.imgur.com/cuRKO1V.png)
+
+![Imgur](https://i.imgur.com/cuRKO1V.png)
+
 
 Python
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
