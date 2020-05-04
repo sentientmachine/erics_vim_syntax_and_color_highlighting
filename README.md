@@ -76,6 +76,10 @@ https://www.linuxquestions.org/questions/linux-general-1/how-is-%27man-3-printf%
 
 ![Imgur](http://i.imgur.com/gpC5GK4.png)
 
+man signal
+
+![Imgur]( https://i.imgur.com/pA65bI8.png)
+
 json files:
 
 ![Imgur](https://i.imgur.com/7NTpWIT.png)
