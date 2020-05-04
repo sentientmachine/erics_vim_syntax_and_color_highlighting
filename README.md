@@ -76,7 +76,8 @@ https://www.linuxquestions.org/questions/linux-general-1/how-is-%27man-3-printf%
 
 ![Imgur](http://i.imgur.com/gpC5GK4.png)
 
-man signal
+    man 3 signal
+    man 7 signal
 
 ![Imgur]( https://i.imgur.com/pA65bI8.png)
 
