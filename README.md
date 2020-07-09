@@ -9,14 +9,19 @@ vim, it's a mastapiece, will you just look at it?  It's like a jet engine, like 
 ![Imgur](https://i.imgur.com/cuRKO1V.png)
 
 
-Python
+Python2 and python3 colors
+
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
 
-Python Exceptions 1
+Python2 and 3 block commenting/uncommenting using nerdcommenter `,cc` and `,cu` (don't disrupt nested comments)
+
+![Imgur](https://i.imgur.com/rXkyB1P.gif )
+
+Colorizing Python Exceptions 1:
 
 ![Imgur](https://i.imgur.com/e4Zj7au.png)
 
-File completion
+File completion - bash / gnureadline, all filetypes:
 
 ![Imgur](https://i.imgur.com/eaMKKTu.gif)
 
