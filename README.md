@@ -25,11 +25,10 @@ File completion - bash / gnureadline, all filetypes:
 
 ![Imgur](https://i.imgur.com/eaMKKTu.gif)
 
-Python Exceptions 2
+### Python Exceptions 2
 
+see: https://github.com/sentientmachine/better-exceptions
 ![Imgur](https://i.imgur.com/3eteAt4.png)
-
-
 
 
 JAVA:
