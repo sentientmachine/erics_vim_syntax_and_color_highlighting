@@ -1,10 +1,5 @@
 
-# No longer giving away my elite software.
-
-But what you can do is feast your eyes on what it would look like if you did have it.
-
-
-vim, it's a mastapiece, will you just look at it?  It's like a jet engine, like a brain, like a work of art.
+vim8, and nextup neovim, it's a mastapiece, will you just look at it?  It's like a jet engine, like a brain, like a work of art.
 
 ![Imgur](https://i.imgur.com/cuRKO1V.png)
 
@@ -21,7 +16,7 @@ Colorizing Python Exceptions 1:
 
 ![Imgur](https://i.imgur.com/e4Zj7au.png)
 
-File completion - bash / gnureadline, all filetypes:
+File completion using tab after a filename using bash and gnureadline, example in: /home/el/.vim/fcomp/vim
 
 ![Imgur](https://i.imgur.com/eaMKKTu.gif)
 
