@@ -6,7 +6,7 @@ vim8, and nextup neovim, it's a mastapiece, will you just look at it?  It's like
 
 vim8/neovim coloring for comma separated files, digits only and hashtag column separated title
 
-![Imgur](http://i.imgur.com/A2CHTqI.png)
+![Imgur]( https://i.imgur.com/oJORRB9.png )
 
 Python2 and python3 colors
 
