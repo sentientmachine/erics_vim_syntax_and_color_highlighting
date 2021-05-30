@@ -12,6 +12,12 @@ Python2 and python3 colors
 
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
 
+Format csv, justify columns, justify and tabularize columns for eye scanning
+
+https://github.com/sentientmachine/tabular/edit/master/README.md
+
+![Alt text](https://i.imgur.com/TtZMpVg.gif?raw=true "this text shows when user hovers mouse")
+
 Python2 and 3 block commenting/uncommenting using nerdcommenter `,cc` and `,cu` (don't disrupt nested comments)
 
 ![Imgur](https://i.imgur.com/rXkyB1P.gif )
