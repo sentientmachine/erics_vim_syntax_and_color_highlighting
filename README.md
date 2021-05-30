@@ -14,7 +14,7 @@ Python2 and python3 colors
 
 Format csv, justify columns, justify and tabularize columns for eye scanning
 
-https://github.com/sentientmachine/tabular/edit/master/README.md
+https://github.com/sentientmachine/tabular
 
 ![Alt text](https://i.imgur.com/TtZMpVg.gif?raw=true "this text shows when user hovers mouse")
 
