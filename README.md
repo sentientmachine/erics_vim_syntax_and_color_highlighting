@@ -8,6 +8,10 @@ vim8/neovim coloring for comma separated files, digits only and hashtag column s
 
 ![Imgur]( https://i.imgur.com/oJORRB9.png )
 
+vim8/neovim csv autoformatting magic
+
+![Imgur](https://i.imgur.com/FVjbmCz.gif )
+
 Python2 and python3 colors
 
 ![Imgur](http://i.imgur.com/SH1bNBR.png)
