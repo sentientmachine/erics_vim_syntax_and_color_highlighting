@@ -71,7 +71,7 @@ php files:
 ![Imgur](https://i.imgur.com/9qK5R9j.png)
 
 
-man files (`man 3 printf`)
+make sure man pages and man subfiles are populated like (`man 3 printf`)
 
     $ man man
     1 Executable programs or shell commands
@@ -93,6 +93,10 @@ https://www.linuxquestions.org/questions/linux-general-1/how-is-%27man-3-printf%
     man 7 signal
 
 ![Imgur]( https://i.imgur.com/pA65bI8.png)
+
+manpages should open up in vim, just how I like:
+
+![Imgur]( https://i.imgur.com/kDZZizQ.png)
 
 json files:
 
