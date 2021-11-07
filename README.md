@@ -49,6 +49,10 @@ C++:
 
 ![Imgur](https://i.imgur.com/yGgAGrj.png)
 
+C++ exception stack traces, there are many like it, but this one is mine:
+
+![Imgur](https://i.imgur.com/Xlt7s6D.png)
+
 
 HTML:
 
