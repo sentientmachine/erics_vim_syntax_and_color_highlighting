@@ -51,7 +51,8 @@ C++:
 
 C++ exception stack traces, there are many like it, but this one is mine:
 
-![Imgur](https://i.imgur.com/Xlt7s6D.png)
+![Imgur](https://i.imgur.com/ZCG0B4r.png)
+
 
 
 HTML:
